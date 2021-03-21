@@ -10,10 +10,9 @@ import androidx.core.content.ContextCompat
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
-
 class BackgroundMatcher(private val drawable: Int) : TypeSafeMatcher<View>() {
-    private  var resourceName: String?=null
-    companion object{
+    private var resourceName: String? = null
+    companion object {
         const val EMPTY = -1
         const val ANY = -2
     }
@@ -43,12 +42,12 @@ class BackgroundMatcher(private val drawable: Int) : TypeSafeMatcher<View>() {
     }
 
     override fun describeTo(description: Description?) {
-        description?.appendText("with drawable from resource id: ");
-        description?.appendValue(drawable);
+        description?.appendText("with drawable from resource id: ")
+        description?.appendValue(drawable)
         if (resourceName != null) {
-            description?.appendText("[");
-            description?.appendText(resourceName);
-            description?.appendText("]");
+            description?.appendText("[")
+            description?.appendText(resourceName)
+            description?.appendText("]")
         }
     }
     private fun getBitmap(drawable: Drawable): Bitmap? {

@@ -1,7 +1,6 @@
 package ng.com.thewhitecellfoundation.haemcam.splashscreentest
 
 import android.view.View
-import ng.com.thewhitecellfoundation.haemcam.splashscreentest.BackgroundMatcher
 import org.hamcrest.Matcher
 
 object EspressoTestsMatchers {
@@ -16,5 +15,4 @@ object EspressoTestsMatchers {
     fun hasDrawable(): Matcher<View> {
         return BackgroundMatcher(BackgroundMatcher.ANY)
     }
-
 }
