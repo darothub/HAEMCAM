@@ -7,7 +7,6 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.SplashScreen
-import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,8 +15,8 @@ import org.junit.runner.RunWith
 class SplashScreenTest {
 
     @get:Rule
-    var activityRule: ActivityScenarioRule<SplashScreen>
-    ActivityScenarioRule(SplashScreen::class.java)
+    var activityRule: ActivityScenarioRule<SplashScreen> =
+        ActivityScenarioRule(SplashScreen::class.java)
 
     @Test
     fun testSplashScreenLayout() {

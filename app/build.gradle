@@ -74,6 +74,8 @@ kotlinter {
     experimentalRules = false
     disabledRules = ["no-wildcard-imports"]
 }
+preBuild.dependsOn(lintKotlin)
+
 tasks.withType(Test) {
     testLogging {
         exceptionFormat "full"
