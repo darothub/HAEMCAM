@@ -42,7 +42,7 @@ jobs:
       - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
-          api-level: 30
+          api-level: 29
           script: ./gradlew connectedCheck
 
   Build:
