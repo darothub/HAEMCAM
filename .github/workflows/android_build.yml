@@ -33,17 +33,32 @@ jobs:
       - name: Run test
         run: ./gradlew test
 
-  UI_test_job:
+  Test & Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
       - name: run tests
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
-          api-level: 29
+          api-level: 30
           script: ./gradlew connectedCheck
+
+      - name: generate report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
+
+      - name: Download Test Reports Folder
+        uses: actions/download-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
+
+      - name: Upload Test Report
+        run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
   Build:
     runs-on: ubuntu-latest
