@@ -50,13 +50,12 @@ jobs:
         with:
           name: report
           path: app/build/reports/coverage/debug
-#
-#
-#      - name: Download Test Reports Folder
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: report
-#          path: app/build/reports/coverage/debug
+
+      - name: Download Test Reports Folder
+        uses: actions/download-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
 #
 #      - name: Upload Test Report
 #        with:
