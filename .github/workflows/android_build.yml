@@ -45,7 +45,22 @@ jobs:
           api-level: 29
           script: ./gradlew connectedCheck
 
-  Coverage:
+#  Coverage:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: checkout
+#        uses: actions/checkout@v2
+#
+#      - name: generate report
+#        run: ./gradlew clean test jacocoTestReport
+#
+#      - name: Upload Test Report
+#        uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 1
+#          script:  bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f "app/build/jacoco/jacoco.xml"
+
+  Coverage_:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -53,20 +68,13 @@ jobs:
 
       - name: generate report
         run: ./gradlew clean test jacocoTestReport
-      #        uses: actions/upload-artifact@v2
-#        with:
-#          name: report
-#          path: app/build/reports/coverage/debug
-#
-#      - name: Download Test Reports Folder
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: report
-#          path: app/build/reports/coverage/debug
 
-      - name: Upload Test Report
-        run:  bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f "app/build/jacoco/jacoco.xml"
-
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./app/build/jacoco/jacoco.xml
+          directory: ./app/build/jacoco/
 
   Build:
     runs-on: ubuntu-latest
