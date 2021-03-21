@@ -62,7 +62,7 @@ jobs:
         with:
             token: ${{ secrets.CODECOV_TOKEN }}
             path_to_write_report: app/build/reports/coverage/debug/report.xml
-#        run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
+            run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
 
   Build:
