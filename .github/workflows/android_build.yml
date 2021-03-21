@@ -45,11 +45,11 @@ jobs:
           api-level: 29
           script: ./gradlew connectedCheck
 
-#      - name: generate report
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: report
-#          path: app/build/reports/coverage/debug
+      - name: generate report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
 #
 #
 #      - name: Download Test Reports Folder
@@ -63,10 +63,6 @@ jobs:
 #            token: ${{ secrets.CODECOV_TOKEN }}
 #        run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
-  Coverage:
-    steps:
-      - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v1
 
   Build:
     runs-on: ubuntu-latest
