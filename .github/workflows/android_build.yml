@@ -67,8 +67,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
 
   Build:
     runs-on: ubuntu-latest
