@@ -15,6 +15,10 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "ng.com.thewhitecellfoundation.haemcam"
         minSdkVersion 21
