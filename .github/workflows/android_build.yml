@@ -56,13 +56,12 @@ jobs:
         with:
           name: report
           path: app/build/reports/coverage/debug
-#
+
       - name: Upload Test Report
         uses: codecov/codecov-action@v1
         with:
             token: ${{ secrets.CODECOV_TOKEN }}
-            run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
-
+#            run:  bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
   Build:
     runs-on: ubuntu-latest
