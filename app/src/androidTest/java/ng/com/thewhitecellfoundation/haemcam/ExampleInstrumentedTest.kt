@@ -1,6 +1,5 @@
 package ng.com.thewhitecellfoundation.haemcam
 
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.*
