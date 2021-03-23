@@ -73,8 +73,8 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./app/build/jacoco/jacoco.xml
-          directory: ./app/build/jacoco/
+          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
+          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
 
   Build:
     runs-on: ubuntu-latest

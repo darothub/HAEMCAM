@@ -1,6 +1,5 @@
 package ng.com.thewhitecellfoundation.haemcam
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +14,7 @@ class SplashScreen : AppCompatActivity() {
         Handler(Looper.getMainLooper())
     }
     lateinit var binding: ActivitySplashScreenBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         val view = binding.root
@@ -31,12 +30,12 @@ class SplashScreen : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        handler.postDelayed(
-            {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            },
-            3000
-        )
+//        handler.postDelayed(
+//            {
+//                startActivity(Intent(this, MainActivity::class.java))
+//                finish()
+//            },
+//            3000
+//        )
     }
 }

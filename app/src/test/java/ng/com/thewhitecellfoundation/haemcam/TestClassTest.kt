@@ -4,6 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class TestClassTest {
+
     @Test
     fun addMeUp() {
         val t = TestClass()
