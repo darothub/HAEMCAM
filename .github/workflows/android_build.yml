@@ -32,8 +32,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+<<<<<<< HEAD
       - name: Run test
       - uses: actions/checkout@v1
+=======
+      - name: run unit test
+>>>>>>> c920cddda9c4634248a159beee9a27e891570f19
         run: ./gradlew test
 
       - name: run tests
