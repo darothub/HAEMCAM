@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: run unit test
-          run: ./gradlew test
+        run: ./gradlew test
 
       - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
