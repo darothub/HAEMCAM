@@ -26,17 +26,20 @@ jobs:
         with:
           java-version: 1.8
 
-  Tests & Coverage:
+  Unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: run test
+        run: ./gradlew test
+
+  UI_test & Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run unit test
-      - uses: actions/checkout@v1
-        run: ./gradlew test
-
-      - name: run ui tests
+      - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
