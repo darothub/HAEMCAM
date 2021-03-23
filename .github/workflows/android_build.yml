@@ -60,11 +60,14 @@ jobs:
 #          fetch-depth: 1
 #          script:  bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f "app/build/jacoco/jacoco.xml"
 
-  Coverage_:
+  Coverage:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: generate report
+        run: ./gradlew clean jacocoCombinedTestReports
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
