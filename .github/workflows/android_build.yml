@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Run test
+      - name: Run Unit Test
         run: ./gradlew test
 
   UI_test_And_Coverage:
@@ -39,7 +39,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run ui tests
+      - name: Run Ui Tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
