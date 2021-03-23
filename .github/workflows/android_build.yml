@@ -39,9 +39,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Run test
-        run: ./gradlew test
-
       - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
