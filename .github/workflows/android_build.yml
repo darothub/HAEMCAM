@@ -43,7 +43,7 @@ jobs:
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
+          script: ./gradlew clean jacocoCombinedTestReports
 
 #  Coverage:
 #    runs-on: ubuntu-latest
@@ -65,9 +65,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-
-      - name: generate report
-        run: ./gradlew clean jacocoCombinedTestReports
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
