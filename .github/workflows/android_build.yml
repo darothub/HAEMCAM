@@ -33,11 +33,14 @@ jobs:
       - name: Run test
         run: ./gradlew test
 
-  UI test & Coverage:
+  UI_test_&_Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: Run test
+        run: ./gradlew test
 
       - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
