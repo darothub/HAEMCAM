@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Set Up JDK
+      - name: set up jdk
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
@@ -32,21 +32,17 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-<<<<<<< HEAD
-      - name: Run test
-      - uses: actions/checkout@v1
-=======
       - name: run unit test
->>>>>>> c920cddda9c4634248a159beee9a27e891570f19
+      - uses: actions/checkout@v1
         run: ./gradlew test
 
-      - name: run tests
+      - name: run ui tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
           script: ./gradlew clean jacocoCombinedTestReports
 
-      - name: Upload coverage to Codecov
+      - name: upload coverage to codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -59,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Build project
+      - name: build project
         run: ./gradlew assemble
 
 
