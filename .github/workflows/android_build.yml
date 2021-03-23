@@ -21,42 +21,56 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: set up jdk
+      - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
 
-  Unit_tests:
+  Test_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: run test
+      - name: Run test
         run: ./gradlew test
 
-  UI_test_&_Coverage:
+  UI_test_job:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run ui tests
+      - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
           script: ./gradlew clean jacocoCombinedTestReports
 
-      - name: upload coverage to codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
           directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
+  Coverage:
+    runs-on: macos-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
+          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
   Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
 
-      - name: build project
+      - name: Build project
         run: ./gradlew assemble
 
 
