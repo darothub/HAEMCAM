@@ -32,8 +32,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run unit test
-          run: ./gradlew test
+      - name: Run test
+      - uses: actions/checkout@v1
+        run: ./gradlew test
 
       - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
@@ -47,6 +48,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
           directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
 
   Build:
     runs-on: ubuntu-latest
