@@ -26,22 +26,29 @@ jobs:
         with:
           java-version: 1.8
 
-  Test & Coverage:
+  Test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run test
+        run: ./gradlew test
+
+  UI test & Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run unit test
+      - name: Run test
         run: ./gradlew test
 
-      - name: run ui tests
+      - name: run tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
           script: ./gradlew clean jacocoCombinedTestReports
 
-      - name: upload coverage to codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
