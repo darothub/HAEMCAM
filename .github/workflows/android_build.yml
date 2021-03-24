@@ -30,41 +30,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Run test
+      - name: Run Unit Test
         run: ./gradlew test
 
-  UI_test_job:
+  UI_test_And_Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run tests
+      - name: Run Ui Tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
-
-#  Coverage:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: checkout
-#        uses: actions/checkout@v2
-#
-#      - name: generate report
-#        run: ./gradlew clean test jacocoTestReport
-#
-#      - name: Upload Test Report
-#        uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 1
-#          script:  bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f "app/build/jacoco/jacoco.xml"
-
-  Coverage_:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+          script: ./gradlew clean jacocoCombinedTestReports
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
