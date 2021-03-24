@@ -1,5 +1,6 @@
-package ng.com.thewhitecellfoundation.haemcam
+package ng.com.thewhitecellfoundation.haemcam.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -27,15 +28,14 @@ class SplashScreen : AppCompatActivity() {
         setContentView(view)
     }
 
-    override fun onResume() {
-        super.onResume()
-
-//        handler.postDelayed(
-//            {
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finish()
-//            },
-//            3000
-//        )
+    override fun onStart() {
+        super.onStart()
+        handler.postDelayed(
+            {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            },
+            3000
+        )
     }
 }
