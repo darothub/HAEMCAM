@@ -8,14 +8,20 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import ng.com.thewhitecellfoundation.haemcam.R
+import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
+import ng.com.thewhitecellfoundation.utils.activity.hideSystemUI
 
 class MainActivity : AppCompatActivity(), Navigator {
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        hideSystemUI()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
     }

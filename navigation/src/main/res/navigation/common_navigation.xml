@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/common_navigation"
-    app:startDestination="@id/placeholderFragment"
+    app:startDestination="@id/loginFragment"
     >
     <fragment
-        android:id="@+id/placeholderFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.PlaceHolderFragment"
-        android:label="placeholder">
+        android:id="@+id/loginFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.LoginFragment"
+        android:label="login">
     </fragment>
 </navigation>

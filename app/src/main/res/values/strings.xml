@@ -2,4 +2,11 @@
     <string name="app_name">HAEMCAM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="haecam_str">haemcam</string>
+    <string name="haecam_desc_str">Mobile app to help monitor blood cancer treatment</string>
+    <string name="welcome_back_str">Welcome Back!</string>
+    <string name="login_to_access_str">Login to access all your identity</string>
+    <string name="email_address_str">Enter email or phone number</string>
+    <string name="password_str">Enter password</string>
+    <string name="login_str">Login</string>
 </resources>
