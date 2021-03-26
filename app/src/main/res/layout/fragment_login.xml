@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    android:id="@+id/login_frag_root"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_frag_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
 
     >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/whitecell_flower_drawable_bg"
         tools:context=".ui.LoginFragment">
 
-        <!-- Add guideline to align imageView to. -->
+        <!-- Add guideline to align title to. -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/title_guideline"
             android:layout_width="wrap_content"
@@ -23,141 +23,217 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.1" />
 
+
         <TextView
             android:id="@+id/haemcam_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_guideline"
-            android:textSize="40sp"
-            android:textColor="@color/white"
-            android:textAllCaps="true"
             android:text="@string/haecam_str"
-            />
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_guideline" />
+
         <TextView
             android:id="@+id/haemcam_desc_tv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintWidth_percent=".5"
+            android:background="@drawable/rounded_corner_purple"
+            android:gravity="center"
+            android:text="@string/haecam_desc_str"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@id/haemcam_tv"
             app:layout_constraintHeight_percent=".055"
             app:layout_constraintStart_toStartOf="@id/haemcam_tv"
-            app:layout_constraintEnd_toEndOf="@id/haemcam_tv"
             app:layout_constraintTop_toBottomOf="@id/haemcam_tv"
-            android:textSize="8sp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded_corner_purple"
-            android:text="@string/haecam_desc_str"
+            app:layout_constraintWidth_percent=".5"
             tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/welcome_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/haemcam_desc_tv"
-            app:layout_constraintStart_toStartOf="@id/haemcam_desc_tv"
-            app:layout_constraintEnd_toEndOf="@id/haemcam_desc_tv"
-            android:text="@string/welcome_back_str"
             android:layout_marginTop="30dp"
-            android:textStyle="bold"
+            android:text="@string/welcome_back_str"
             android:textColor="@color/white"
             android:textSize="20sp"
-            />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/haemcam_desc_tv"
+            app:layout_constraintStart_toStartOf="@id/haemcam_desc_tv"
+            app:layout_constraintTop_toBottomOf="@id/haemcam_desc_tv" />
+
         <TextView
             android:id="@+id/login_to_access_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/welcome_tv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
             android:text="@string/login_to_access_str"
             android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:imeOptions="actionNext"
-            android:textColorHint="@color/white"
-            style="@style/textInputLayout.CustomLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/welcome_tv" />
+
+        <ViewFlipper
+            android:id="@+id/login_vf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateFirstView="true"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_to_access_tv"
+            android:layout_marginTop="@dimen/_20sdp"
             >
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_address_et"
-                style="@style/EditTextCustomStyle"
-                android:hint="@string/email_address_str"
-                android:inputType="textEmailAddress"
-                android:singleLine="true"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_input"
+                    style="@style/TextInputLayout.CustomLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:imeOptions="actionNext"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_address_et"
+                        style="@style/EditTextCustomStyle"
+                        android:hint="@string/email_address_str"
+                        android:inputType="textEmailAddress"
+                        android:drawableEnd="@drawable/ic_baseline_phone_android_24"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                >
+                <!-- Add guideline to align phone number form . -->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/number_form_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.14" />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/login_ccp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    app:ccp_arrowColor="@color/white"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_contentColor="@color/white"
+                    app:ccp_textGravity="LEFT"
+                    app:ccp_textSize="@dimen/_12sdp"
+                    android:background="@drawable/underline_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/login_phone_number_input"
+                    app:layout_constraintBottom_toBottomOf="@+id/login_phone_number_input"
+                    app:layout_constraintVertical_bias=".68"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_phone_number_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/number_form_guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/TextInputLayout.CustomLabel"
+                   >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_phone_number_et"
+                        style="@style/EditTextCustomStyle"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:tag="@string/phone_number"
+                        android:drawableEnd="@drawable/ic_baseline_mail_outline_24"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ViewFlipper>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_input"
+            style="@style/TextInputLayout.CustomLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:imeOptions="actionNext"
             android:textColorHint="@color/white"
-            style="@style/textInputLayout.CustomLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            app:layout_constraintTop_toBottomOf="@id/email_input"
+            app:layout_constraintTop_toBottomOf="@id/login_vf"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/white"
-            >
+            app:passwordToggleTint="@color/white">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_et"
                 style="@style/EditTextCustomStyle"
                 android:hint="@string/password_str"
                 android:inputType="textPassword"
-                android:singleLine="true"
-                />
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/password_input"
-            app:layout_constraintEnd_toEndOf="@id/password_input"
-            app:layout_constraintTop_toBottomOf="@id/password_input"
             android:background="@drawable/rounded_corner_purple"
             android:text="@string/login_str"
             android:textAllCaps="false"
-            />
+            app:layout_constraintEnd_toEndOf="@id/password_input"
+            app:layout_constraintStart_toStartOf="@id/password_input"
+            app:layout_constraintTop_toBottomOf="@id/password_input" />
+
         <TextView
             android:id="@+id/forgot_password_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/login_btn"
-            app:layout_constraintEnd_toEndOf="@id/login_btn"
-            app:layout_constraintTop_toBottomOf="@id/login_btn"
+            android:layout_marginTop="@dimen/_30sdp"
             android:text="@string/forgot_password_str"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/_30sdp"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
-            />
+            app:layout_constraintEnd_toEndOf="@id/login_btn"
+            app:layout_constraintStart_toStartOf="@id/login_btn"
+            app:layout_constraintTop_toBottomOf="@id/login_btn" />
+
         <TextView
             android:id="@+id/signup_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/login_btn"
-            app:layout_constraintEnd_toEndOf="@id/login_btn"
-            app:layout_constraintTop_toBottomOf="@id/forgot_password_tv"
+            android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/dont_have_account_str"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/_20sdp"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
-            />
+            app:layout_constraintEnd_toEndOf="@id/login_btn"
+            app:layout_constraintStart_toStartOf="@id/login_btn"
+            app:layout_constraintTop_toBottomOf="@id/forgot_password_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

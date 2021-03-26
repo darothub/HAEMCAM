@@ -6,9 +6,11 @@
     <string name="haecam_desc_str">Mobile app to help monitor blood cancer treatment</string>
     <string name="welcome_back_str">Welcome Back!</string>
     <string name="login_to_access_str">Login to access all your identity</string>
-    <string name="email_address_str">Enter email or phone number</string>
+    <string name="email_address_str">Enter email</string>
     <string name="password_str">Enter password</string>
     <string name="login_str">Login</string>
     <string name="forgot_password_str"><u>Cannot remember password?</u></string>
     <string name="dont_have_account_str"><u>Don\'t have an account? Sign up</u></string>
+    <string name="phone_number">Enter phone number</string>
+    <string name="use_email">Use email</string>
 </resources>

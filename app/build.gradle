@@ -112,6 +112,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
 
+    //Country picker
+    implementation 'com.hbb20:ccp:2.4.2'
+
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
     //For code coverage
