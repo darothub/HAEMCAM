@@ -22,13 +22,21 @@
     <style name="Theme.FullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryVariant</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/primary_color</item>
+        <item name="android:statusBarColor" tools:targetApi="l" >@color/primary_color</item>
         <item name="android:navigationBarColor">@color/primary_color</item>
+        <item name="android:fillViewport">true</item>
         <item name="android:windowBackground">@color/primary_color</item>
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/white</item>
         <item name="colorControlHighlight">@color/purple_500</item>
+    </style>
+
+    <style name="Theme.FullScreen.Translucent" parent="Theme.FullScreen">
+        <!-- Status bar color. -->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
     </style>
 
     <style name="EditTextCustomStyle" parent="Widget.AppCompat.EditText">

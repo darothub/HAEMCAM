@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.splashscreentest
+package ng.com.thewhitecellfoundation.haemcam.screenstest
 
 import android.view.View
 import org.hamcrest.Matcher

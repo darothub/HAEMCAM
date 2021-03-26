@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash_screen_drawable_bg"
     tools:context=".ui.SplashScreen"
-    android:fitsSystemWindows="true"
+
     >
 
 </androidx.constraintlayout.widget.ConstraintLayout>
