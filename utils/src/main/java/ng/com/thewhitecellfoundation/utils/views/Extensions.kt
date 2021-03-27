@@ -6,7 +6,7 @@ import android.widget.EditText
 
 @SuppressLint("ClickableViewAccessibility")
 fun EditText.customOnTouchListener(action:()->Unit) {
-    setOnTouchListener { v, event ->
+    setOnTouchListener { _, event ->
         drawableRightClickListener(event, action)
     }
 }
