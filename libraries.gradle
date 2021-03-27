@@ -1,0 +1,33 @@
+def kotlin_version = "1.4.31"
+def navigation_fragment = "2.3.4"
+
+ext {
+    libs = [
+            "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            'androidx.core:core-ktx:1.3.2',
+            'androidx.appcompat:appcompat:1.2.0',
+            'com.google.android.material:material:1.3.0',
+            'androidx.constraintlayout:constraintlayout:2.0.4',
+            'androidx.legacy:legacy-support-v4:1.0.0',
+            "androidx.navigation:navigation-fragment-ktx:$navigation_fragment",
+            "androidx.navigation:navigation-ui-ktx:$navigation_fragment",
+            //Country picker
+            'com.hbb20:ccp:2.4.2',
+            //Text dimens
+            'com.intuit.sdp:sdp-android:1.0.6',
+    ]
+    testLibraries =[
+            //testImplementation
+            'junit:junit:4.13.2',
+            //For code coverage
+            "org.jacoco:org.jacoco.agent:0.8.6",
+            //Roboelectric
+            'androidx.test:core:1.3.0',
+            // Optional -- Mockito framework
+            'org.mockito:mockito-core:3.6.28'
+    ]
+    androidTestLibraries =[
+            'androidx.test.ext:junit:1.1.2',
+            'androidx.test.espresso:espresso-core:3.3.0'
+    ]
+}
