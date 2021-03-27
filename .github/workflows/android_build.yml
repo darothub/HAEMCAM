@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run Unit Test
-        run: ./gradlew :app:test
+        run: ./gradlew test
 
   UI_test_And_Coverage:
     runs-on: macos-latest
