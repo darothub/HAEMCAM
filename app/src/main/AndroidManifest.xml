@@ -3,14 +3,16 @@
     package="ng.com.thewhitecellfoundation.haemcam">
 
     <application
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HAEMCAM">
+        android:theme="@style/Theme.FullScreen.Translucent">
         <activity android:name=".ui.SplashScreen"
-            android:theme="@style/Theme.SplashScreen">
+            android:theme="@style/Theme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,3 +1,4 @@
+include ':utils'
 include ':navigation'
 include ':app'
 rootProject.name = "HAEMCAM"
