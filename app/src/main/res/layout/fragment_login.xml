@@ -23,6 +23,12 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.1" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/j"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.46" />
 
         <TextView
             android:id="@+id/haemcam_tv"
@@ -98,7 +104,6 @@
                     style="@style/TextInputLayout.CustomLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
                     android:imeOptions="actionNext"
                     android:textColorHint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +121,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,6 +136,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.14" />
+                <!-- Add guideline to align title to. -->
+
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/login_ccp"
                     android:layout_width="0dp"
@@ -143,9 +151,9 @@
                     android:background="@drawable/underline_white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
-                    app:layout_constraintTop_toTopOf="@+id/login_phone_number_input"
-                    app:layout_constraintBottom_toBottomOf="@+id/login_phone_number_input"
-                    app:layout_constraintVertical_bias=".68"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias=".74"
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -158,7 +166,7 @@
                     app:layout_constraintStart_toEndOf="@id/number_form_guideline"
                     app:layout_constraintTop_toTopOf="parent"
                     style="@style/TextInputLayout.CustomLabel"
-                   >
+                    >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_phone_number_et"
                         style="@style/EditTextCustomStyle"
@@ -172,6 +180,8 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         </ViewFlipper>
 

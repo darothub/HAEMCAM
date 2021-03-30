@@ -1,18 +1,19 @@
 package ng.com.thewhitecellfoundation.haemcam.screenstest
 
 import android.view.View
+import ng.com.thewhitecellfoundation.haemcam.ui.DrawableMatcher
 import org.hamcrest.Matcher
 
 object EspressoTestsMatchers {
-    fun withBackground(resourceId: Int): Matcher<View> {
-        return BackgroundMatcher(resourceId)
+    fun <T> withBackground(resourceId: Int): Matcher<View> {
+        return BackgroundMatcher<T>(resourceId)
     }
 
-    fun noBackground(): Matcher<View> {
-        return BackgroundMatcher(BackgroundMatcher.EMPTY)
+    fun <T> noBackground(): Matcher<View> {
+        return BackgroundMatcher<T>(BackgroundMatcher.EMPTY)
     }
 
-    fun hasDrawable(): Matcher<View> {
-        return BackgroundMatcher(BackgroundMatcher.ANY)
+    fun <T> hasDrawable(resourceId: Int): Matcher<View> {
+        return DrawableMatcher<T>(resourceId)
     }
 }

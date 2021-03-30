@@ -37,4 +37,5 @@ dependencies {
     implementation libs
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
+    debugImplementation debugLibraries
 }

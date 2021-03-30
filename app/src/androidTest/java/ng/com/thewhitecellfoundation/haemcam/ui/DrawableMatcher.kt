@@ -1,16 +1,16 @@
-package ng.com.thewhitecellfoundation.haemcam.screenstest
+package ng.com.thewhitecellfoundation.haemcam.ui
 
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.content.ContextCompat
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
-class BackgroundMatcher<out T>(private val drawable: Int) : TypeSafeMatcher<View>() {
+class DrawableMatcher<out T>(private val drawable: Int) : TypeSafeMatcher<View>() {
     private var resourceName: String? = null
     companion object {
         const val EMPTY = -1
@@ -18,9 +18,10 @@ class BackgroundMatcher<out T>(private val drawable: Int) : TypeSafeMatcher<View
     }
     override fun matchesSafely(target: View?): Boolean {
         val v = target as? T
-        if (v is ViewGroup) {
-            return vgHasBackground(target)
+        if (v is EditText) {
+            return editTextHasDrawable(target)
         }
+
         return false
     }
 
@@ -44,27 +45,26 @@ class BackgroundMatcher<out T>(private val drawable: Int) : TypeSafeMatcher<View
         drawable.draw(canvas)
         return bitmap
     }
-    private fun vgHasBackground(target: View?): Boolean {
-        if (target !is ViewGroup) {
+    private fun editTextHasDrawable(target: View?): Boolean {
+        if (target !is EditText) {
             return false
         }
-        val layout: ViewGroup = target
+        val view: EditText = target
+        val drawables = view.compoundDrawables
         if (drawable === EMPTY) {
-            return layout.background == null
+            return drawables.isEmpty()
         }
-        if (drawable === ANY) {
-            return layout.background != null
+        if (drawable > ANY) {
+            return drawables.isNotEmpty()
         }
         val context = target.context
         val resources: Resources = context.resources
         val expectedDrawable: Drawable? = ContextCompat.getDrawable(context, drawable)
         resourceName = resources.getResourceEntryName(drawable)
-
         if (expectedDrawable == null) {
             return false
         }
-
-        val bitmap = getBitmap(layout.background)
+        val bitmap = getBitmap(drawables[0])
         val otherBitmap = getBitmap(expectedDrawable)
         return bitmap?.sameAs(otherBitmap)!!
     }
