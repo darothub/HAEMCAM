@@ -31,22 +31,20 @@ jobs:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: echo $FIREBASE_CONFIG > app/google-services.json
 
-  Unit_Tests:
+  Unit_Tests_Coverage:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - name: Run Unit Test
         run: ./gradlew jacocoCombinedTestReports
 
-  Coverage:
-    runs-on: macos-latest
-    steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
           directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
 
   Instrumented_test:
     runs-on: ubuntu-latest
