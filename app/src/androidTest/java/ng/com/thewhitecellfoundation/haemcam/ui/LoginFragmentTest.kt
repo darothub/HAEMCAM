@@ -2,12 +2,10 @@ package ng.com.thewhitecellfoundation.haemcam.ui
 
 import android.view.InputDevice
 import android.view.MotionEvent
-import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.*
 import androidx.test.espresso.action.ViewActions.*
@@ -16,7 +14,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.screenstest.EspressoTestsMatchers
-import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.junit.Before
 import org.junit.Test
