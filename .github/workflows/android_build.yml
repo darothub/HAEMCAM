@@ -3,6 +3,19 @@ name: Android Build
 on: pull_request
 
 jobs:
+  Restore_cache_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{runner.os}}-gradle-${{ hashFiles('**/*.gradle*')}}
+          restore-keys: |
+            ${{runner.os}}-gradle-
 
   Set_up_jdk:
     runs-on: ubuntu-latest
@@ -18,14 +31,7 @@ jobs:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: echo $FIREBASE_CONFIG > app/google-services.json
 
-  Test_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run Unit Test
-        run: ./gradlew testDebugUnitTest
-
-  UI_test_And_Coverage:
+  Tests_And_Coverage:
     runs-on: macos-latest
     steps:
       - name: checkout
@@ -37,20 +43,20 @@ jobs:
           api-level: 29
           script: ./gradlew jacocoCombinedTestReports
 
-      # Step 4: Run instrumented tests on firebase test lab
+#      # Step 4: Run instrumented tests on firebase test lab
 #      - name: Run tests on Firebase Test Lab
 #        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
 #        with:
 #          arg-spec: '.github/test-lab-config-staging.yml:android-pixel-4'
 #        env:
 #          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-#
-#      - name: Upload coverage to Codecov
-#        uses: codecov/codecov-action@v1
-#        with:
-#          token: ${{ secrets.CODECOV_TOKEN }}
-#          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
-#          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
+          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
 
   Build:
     runs-on: ubuntu-latest
@@ -59,6 +65,7 @@ jobs:
 
       - name: Build project
         run: ./gradlew assemble
+
 
 
 #      - name: Upload Apk
