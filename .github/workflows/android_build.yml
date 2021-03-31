@@ -47,13 +47,13 @@ jobs:
 
 
   Instrumented_test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       # Step 4: Run instrumented tests on firebase test lab
       - name: Run tests on Firebase Test Lab
         uses: asadmansr/Firebase-Test-Lab-Action@v1.0
         with:
-          arg-spec: '.github/tests.yml:android-pixel-4'
+          arg-spec: '../.github/tests.yml:android-pixel-4'
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
