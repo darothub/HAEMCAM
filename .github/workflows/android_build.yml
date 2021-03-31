@@ -31,32 +31,33 @@ jobs:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: echo $FIREBASE_CONFIG > app/google-services.json
 
-  Tests_And_Coverage:
+  Unit_Tests:
     runs-on: macos-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v1
+      - name: Run Unit Test
+        run: ./gradlew jacocoCombinedTestReports
 
-      - name: Run Ui Tests
-        uses: reactivecircus/android-emulator-runner@v2.15.0
-        with:
-          api-level: 29
-          script: ./gradlew jacocoCombinedTestReports
-
-#      # Step 4: Run instrumented tests on firebase test lab
-#      - name: Run tests on Firebase Test Lab
-#        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
-#        with:
-#          arg-spec: '.github/test-lab-config-staging.yml:android-pixel-4'
-#        env:
-#          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-
+  Coverage:
+    runs-on: macos-latest
+    steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
           directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
+  Instrumented_test:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 4: Run instrumented tests on firebase test lab
+      - name: Run tests on Firebase Test Lab
+        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+        with:
+          arg-spec: '.github/test-lab-config-staging.yml:android-pixel-4'
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
   Build:
     runs-on: ubuntu-latest

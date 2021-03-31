@@ -47,8 +47,9 @@ def excludedPatterns = [
         '**/databinding/**/*.*',
         '**/android/databinding/*Binding.*',
         '**/BR.*',
+        '**/**Screen*.*'
 ]
-task jacocoCombinedTestReports(type: JacocoReport, dependsOn: ['test', 'createDebugCoverageReport']) {
+task jacocoCombinedTestReports(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
     group = "TestReport"
     description = "Creates JaCoCo test coverage report for Unit and Instrumented Tests (combined) on the Debug build"
     reports {
