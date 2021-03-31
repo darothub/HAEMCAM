@@ -42,7 +42,7 @@ jobs:
       - name: Run Ui Tests
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
-          api-level: 30
+          api-level: 29
           script: ./gradlew clean jacocoCombinedTestReports
 
       - name: Upload coverage to Codecov

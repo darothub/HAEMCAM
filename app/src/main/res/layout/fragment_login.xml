@@ -8,11 +8,10 @@
     android:fillViewport="true"
 
     >
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/whitecell_flower_drawable_bg"
+        android:background="@drawable/whitecell_flower_min_compressed"
         tools:context=".ui.LoginFragment">
 
         <!-- Add guideline to align title to. -->
