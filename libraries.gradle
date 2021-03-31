@@ -16,6 +16,7 @@ ext {
             'com.hbb20:ccp:2.4.2',
             //Text dimens
             'com.intuit.sdp:sdp-android:1.0.6',
+            'com.google.firebase:firebase-analytics-ktx'
     ]
     testLibraries =[
             //testImplementation

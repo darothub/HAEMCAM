@@ -25,13 +25,18 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      # Step 2: Decode Google services configuration file
+      - name: Decode google-services.json
+        env:
+          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+        run: echo $FIREBASE_CONFIG > app/google-services.json
 
   Test_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Run Unit Test
-        run: ./gradlew :app:test
+        run: ./gradlew testDebugUnitTest
 
   UI_test_And_Coverage:
     runs-on: macos-latest
@@ -40,17 +45,25 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Ui Tests
-        uses: ReactiveCircus/android-emulator-runner@v2.14.3
+        uses: reactivecircus/android-emulator-runner@v2.15.0
         with:
           api-level: 30
-          script: ./gradlew clean jacocoCombinedTestReports
+          script: ./gradlew connectedCheck
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
-          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+      # Step 4: Run instrumented tests on firebase test lab
+#      - name: Run tests on Firebase Test Lab
+#        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+#        with:
+#          arg-spec: '.github/test-lab-config-staging.yml:android-pixel-4'
+#        env:
+#          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+#
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v1
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
+#          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
 
   Build:
     runs-on: ubuntu-latest
