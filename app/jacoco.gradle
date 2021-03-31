@@ -48,8 +48,8 @@ def excludedPatterns = [
         '**/android/databinding/*Binding.*',
         '**/BR.*',
 ]
-task jacocoCombinedTestReports(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
-    group = "Verification"
+task jacocoCombinedTestReports(type: JacocoReport, dependsOn: ['test', 'createDebugCoverageReport']) {
+    group = "TestReport"
     description = "Creates JaCoCo test coverage report for Unit and Instrumented Tests (combined) on the Debug build"
     reports {
         xml.enabled = true

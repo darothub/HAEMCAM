@@ -35,7 +35,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.15.0
         with:
           api-level: 30
-          script: ./gradlew connectedCheck
+          script: ./gradlew jacocoCombinedTestReports
 
       # Step 4: Run instrumented tests on firebase test lab
 #      - name: Run tests on Firebase Test Lab

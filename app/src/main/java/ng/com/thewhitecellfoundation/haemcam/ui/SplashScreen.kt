@@ -21,14 +21,15 @@ class SplashScreen : AppCompatActivity() {
         hideSystemUI()
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
+
         handler.postDelayed(
             {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             },
-            2000
+            3000
         )
     }
 }
