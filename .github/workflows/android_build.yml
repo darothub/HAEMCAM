@@ -3,19 +3,6 @@ name: Android Build
 on: pull_request
 
 jobs:
-  Restore_cache_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Restore Cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{runner.os}}-gradle-${{ hashFiles('**/*.gradle*')}}
-          restore-keys: |
-            ${{runner.os}}-gradle-
 
   Set_up_jdk:
     runs-on: ubuntu-latest
