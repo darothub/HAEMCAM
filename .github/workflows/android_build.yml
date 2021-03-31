@@ -34,25 +34,10 @@ jobs:
   Unit_Tests_Coverage:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Run Unit Test
         run: ./gradlew jacocoCombinedTestReports
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
-          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
-
-
-  Instrumented_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          script: ls
       # Step 4: Run instrumented tests on firebase test lab
       - name: Run tests on Firebase Test Lab
         uses: asadmansr/Firebase-Test-Lab-Action@v1.0
@@ -61,6 +46,14 @@ jobs:
 
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./app/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
+          directory: ./app/build/reports/coverage/jacocoCombinedTestReports/
+
 
   Build:
     runs-on: ubuntu-latest
