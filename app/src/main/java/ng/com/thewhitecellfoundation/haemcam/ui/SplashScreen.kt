@@ -24,12 +24,12 @@ class SplashScreen : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        handler.postDelayed(
-            {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            },
-            3000
-        )
+//        handler.postDelayed(
+//            {
+//                startActivity(Intent(this, MainActivity::class.java))
+//                finish()
+//            },
+//            3000
+//        )
     }
 }
