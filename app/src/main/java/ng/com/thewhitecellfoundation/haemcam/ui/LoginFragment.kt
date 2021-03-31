@@ -35,6 +35,7 @@ class LoginFragment : Fragment() {
         binding.emailAddressEt.customOnTouchListener {
             binding.loginVf.showNext()
         }
+
         binding.loginPhoneNumberEt.customOnTouchListener {
             binding.loginVf.showNext()
         }

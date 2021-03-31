@@ -5,6 +5,7 @@ plugins {
     id 'org.sonarqube'
     id 'jacoco'
     id "androidx.navigation.safeargs.kotlin"
+    id 'com.google.gms.google-services'
 }
 
 apply from: "jacoco.gradle"
@@ -98,9 +99,12 @@ dependencies {
     implementation project(":navigation")
     implementation project(":utils")
 
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+
     implementation libs
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
+    debugImplementation debugLibraries
 
 }
 

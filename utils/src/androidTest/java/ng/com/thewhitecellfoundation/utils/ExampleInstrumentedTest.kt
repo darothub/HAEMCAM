@@ -22,3 +22,4 @@ class ExampleInstrumentedTest {
         assertEquals("ng.com.thewhitecellfoundation.utils.test", appContext.packageName)
     }
 }
+

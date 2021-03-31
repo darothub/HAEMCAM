@@ -1,5 +1,6 @@
 package ng.com.thewhitecellfoundation.haemcam.screenstest
 
+import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
@@ -28,7 +29,7 @@ class SplashScreenTest {
     @Test
     fun testSplashScreenBackground() {
         Espresso.onView(ViewMatchers.withId(R.id.splash_screen_parent_layout))
-            .check(ViewAssertions.matches(EspressoTestsMatchers.withBackground(R.drawable.splash_screen_drawable_bg)))
+            .check(ViewAssertions.matches(EspressoTestsMatchers.withBackground<ViewGroup>(R.drawable.splash_screen_drawable_bg)))
     }
     @Test
     fun testActivityOnCreate() {
