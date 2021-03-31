@@ -53,7 +53,9 @@ jobs:
       - name: Run tests on Firebase Test Lab
         uses: asadmansr/Firebase-Test-Lab-Action@v1.0
         with:
+          script: ls
           arg-spec: '.github/tests.yml:android-pixel-4'
+
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
