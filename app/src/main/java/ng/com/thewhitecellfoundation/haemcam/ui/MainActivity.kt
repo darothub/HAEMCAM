@@ -18,6 +18,21 @@ class MainActivity : AppCompatActivity(), Navigator {
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
+
+//    private val navListener =
+//        NavController.OnDestinationChangedListener { _, destination, _ ->
+//            when (destination.id) {
+//                R.id.homeFragment -> {
+//                    binding.toolbar.hide()
+//                }
+//                R.id.loginFragment -> {
+//                    binding.toolbar.hide()
+//                }
+//                R.id.createAccountFragment -> {
+//                    binding.toolbar.show()
+//                }
+//            }
+//        }
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +40,20 @@ class MainActivity : AppCompatActivity(), Navigator {
         val view = binding.root
         setContentView(view)
         hideSystemUI()
-//        hideSystemUIs()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
+//
     }
 
+    override fun onResume() {
+        super.onResume()
+//        navController.addOnDestinationChangedListener(navListener)
+    }
+
+    override fun onPause() {
+        super.onPause()
+//        navController.removeOnDestinationChangedListener(navListener)
+    }
     override fun goto(destination: Int) {
         // Using fragmentId
         navController.navigate(destination)

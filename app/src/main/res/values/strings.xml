@@ -4,4 +4,9 @@
     <string name="lets_get_started">Let\'s get started!</string>
     <string name="give_a_snapshot">Give a \'snapshot\' of your blood\ncancer treatment at any point\nin time</string>
     <string name="create_an_account">Create an account</string>
+    <string name="fullname">FULL NAME(Last name first)</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="tnc">By signing up, you agree to our Terms of use and Privacy Policy</string>
 </resources>

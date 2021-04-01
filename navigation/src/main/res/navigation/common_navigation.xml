@@ -13,6 +13,12 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.LoginFragment"
-        android:label="home">
+        android:label="login">
+    </fragment>
+
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.CreateAccountFragment"
+        android:label="create_account">
     </fragment>
 </navigation>

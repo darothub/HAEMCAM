@@ -59,16 +59,13 @@
 
         <TextView
             android:id="@+id/welcome_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/welcome_back_str"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/haemcam_desc_tv"
             app:layout_constraintStart_toStartOf="@id/haemcam_desc_tv"
-            app:layout_constraintTop_toBottomOf="@id/haemcam_desc_tv" />
+            app:layout_constraintTop_toBottomOf="@id/haemcam_desc_tv"
+            style="@style/TitleTextViewStyle"
+            />
 
         <TextView
             android:id="@+id/login_to_access_tv"

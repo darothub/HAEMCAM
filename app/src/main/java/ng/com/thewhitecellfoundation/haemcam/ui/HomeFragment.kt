@@ -52,5 +52,13 @@ class HomeFragment : Fragment() {
         binding.loginBtn.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.loginFragment)
         }
+        binding.signUpBtn.setOnClickListener {
+            (requireActivity() as Navigator).goto(R.id.createAccountFragment)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
