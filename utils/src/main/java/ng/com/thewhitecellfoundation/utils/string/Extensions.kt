@@ -5,6 +5,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
+import androidx.core.text.color
 
 fun TextView.setPartialSpan(vararg links: Pair<String, () -> Unit>) {
     val spannableString = SpannableString(this.text)
@@ -23,12 +24,20 @@ fun TextView.setPartialSpan(vararg links: Pair<String, () -> Unit>) {
         val text = this.text.toString()
         if (text.contains(it.first)) {
             val textIndex = text.indexOf(it.first)
-            spannableString.setSpan(
-                clickableSpan,
-                textIndex,
-                textIndex + it.first.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+            spannableString.apply {
+                setSpan(
+                    clickableSpan,
+                    textIndex,
+                    textIndex + it.first.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                    textIndex,
+                    textIndex + it.first.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+
             this.movementMethod =
                 LinkMovementMethod.getInstance()
             this.setText(spannableString, TextView.BufferType.SPANNABLE)
