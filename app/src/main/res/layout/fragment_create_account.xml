@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".ui.CreateAccountFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,7 +138,6 @@
             app:layout_constraintStart_toStartOf="@id/sign_up_btn"
             app:layout_constraintEnd_toEndOf="@id/sign_up_btn"
             android:layout_marginTop="@dimen/_24sdp"
-            android:layout_marginStart="@dimen/_20sdp"
             android:textColor="@color/white"
              />
 
