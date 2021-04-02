@@ -13,31 +13,40 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.utils.activity.hideSystemUI
+import ng.com.thewhitecellfoundation.utils.databinding.ReusableToolbarBinding
 
 class MainActivity : AppCompatActivity(), Navigator {
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
+    lateinit var reusableToolbarBinding: ReusableToolbarBinding
 
-//    private val navListener =
-//        NavController.OnDestinationChangedListener { _, destination, _ ->
-//            when (destination.id) {
-//                R.id.homeFragment -> {
-//                    binding.toolbar.hide()
-//                }
-//                R.id.loginFragment -> {
-//                    binding.toolbar.hide()
-//                }
-//                R.id.createAccountFragment -> {
-//                    binding.toolbar.show()
-//                }
-//            }
-//        }
+    private val navListener =
+        NavController.OnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment -> {
+                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                        finish()
+                    }
+                }
+                R.id.loginFragment -> {
+                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                        navController.popBackStack()
+                    }
+                }
+                R.id.createAccountFragment -> {
+                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                        navController.popBackStack()
+                    }
+                }
+            }
+        }
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+        reusableToolbarBinding = binding.cafToolbar
         setContentView(view)
         hideSystemUI()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
@@ -47,12 +56,12 @@ class MainActivity : AppCompatActivity(), Navigator {
 
     override fun onResume() {
         super.onResume()
-//        navController.addOnDestinationChangedListener(navListener)
+        navController.addOnDestinationChangedListener(navListener)
     }
 
     override fun onPause() {
         super.onPause()
-//        navController.removeOnDestinationChangedListener(navListener)
+        navController.removeOnDestinationChangedListener(navListener)
     }
     override fun goto(destination: Int) {
         // Using fragmentId

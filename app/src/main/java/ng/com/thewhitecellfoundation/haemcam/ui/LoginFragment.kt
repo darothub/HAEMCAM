@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLoginBinding
+import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.utils.views.customOnTouchListener
 
 /**
@@ -38,6 +41,13 @@ class LoginFragment : Fragment() {
 
         binding.loginPhoneNumberEt.customOnTouchListener {
             binding.loginVf.showNext()
+        }
+        binding.btnPbar.btn.apply {
+            text = getString(R.string.login_str)
+            setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        }
+        binding.signupTv.setOnClickListener {
+            (requireActivity() as Navigator).goto(R.id.createAccountFragment)
         }
     }
 

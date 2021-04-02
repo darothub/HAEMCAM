@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.CodeVerificationFragment">
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/create_an_account"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_66sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        style="@style/TitleTextViewStyle"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/instruction"
+        android:text="@string/please_enter"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:layout_marginStart="@dimen/_20sdp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:gravity="center"
+        />
+    <FrameLayout
+        android:id="@+id/pin_entry_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instruction"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_purple"
+            android:alpha="0.5" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_30sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           >
+
+
+            <com.alimuzaffar.lib.pin.PinEntryEditText
+                android:id="@+id/txt_pin_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:digits="1234567890"
+                android:inputType="number"
+                android:layoutDirection="ltr"
+                android:maxLength="4"
+                android:textColor="@color/primary_color"
+                android:textIsSelectable="false"
+                android:textSize="16sp"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                app:pinAnimationType="fromBottom"
+                app:pinBackgroundIsSquare="true"
+                app:pinLineColors="@color/white"
+                app:pinLineStroke="1dp"
+                app:pinLineStrokeSelected="3dp" />
+
+            <include
+                android:id="@+id/btn_pbar"
+                layout="@layout/btn_pbar_layout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                />
+        </LinearLayout>
+    </FrameLayout>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/didnt_get_code_tv"
+        android:text="@string/didnt_get"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/pin_entry_wrapper"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_10sdp"
+
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:id="@+id/term_and_condition_tv"
+        android:text="@string/tnc"
+        app:layout_constraintTop_toBottomOf="@id/didnt_get_code_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/pin_entry_wrapper"
+        app:layout_constraintEnd_toEndOf="@id/pin_entry_wrapper"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textColor="@color/white"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

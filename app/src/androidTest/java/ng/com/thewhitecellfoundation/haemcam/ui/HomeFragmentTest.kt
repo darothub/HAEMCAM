@@ -33,7 +33,7 @@ class HomeFragmentTest {
     fun testLoginButton_Is_Displayed_When_HomeFragment_Is_Launched() {
         Espresso.onView(
             Matchers.allOf(
-                ViewMatchers.withId(R.id.login_btn),
+                ViewMatchers.withId(R.id.btn_pbar),
                 ViewMatchers.withText(R.string.login_str)
             )
         )

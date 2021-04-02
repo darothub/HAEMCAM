@@ -37,7 +37,7 @@ class LoginFragmentTest {
 
     @Test
     fun testLoginButton_Is_Displayed_When_LoginFragment_Is_Launched() {
-        onView(allOf(withId(R.id.login_btn), withText("Login")))
+        onView(allOf(withId(R.id.btn_pbar), withText("Login")))
             .check(matches(isDisplayed()))
     }
 

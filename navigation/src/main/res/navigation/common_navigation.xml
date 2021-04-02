@@ -21,4 +21,20 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.CreateAccountFragment"
         android:label="create_account">
     </fragment>
+
+    <fragment
+        android:id="@+id/mobileVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.MobileVerificationFragment"
+        android:label="mobile_verification">
+    </fragment>
+    <fragment
+        android:id="@+id/codeVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.CodeVerificationFragment"
+        android:label="code_verification">
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.WelcomeFragment"
+        android:label="welcome_verification">
+    </fragment>
 </navigation>

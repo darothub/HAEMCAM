@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-
+    android:fitsSystemWindows="true"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -147,9 +147,8 @@
                     android:background="@drawable/underline_white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintVertical_bias=".74"
+
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -160,7 +159,9 @@
                     android:textColorHint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/number_form_guideline"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/login_ccp"
+                    app:layout_constraintBottom_toBottomOf="@id/login_ccp"
+                    app:layout_constraintVertical_bias=".7"
                     style="@style/TextInputLayout.CustomLabel"
                     >
                     <com.google.android.material.textfield.TextInputEditText
@@ -176,9 +177,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
         </ViewFlipper>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -205,16 +203,15 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="0dp"
+        <include
+            android:id="@+id/btn_pbar"
+            layout="@layout/btn_pbar_layout"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_purple"
-            android:text="@string/login_str"
-            android:textAllCaps="false"
+            android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="@id/password_input"
             app:layout_constraintStart_toStartOf="@id/password_input"
-            app:layout_constraintTop_toBottomOf="@id/password_input" />
+            app:layout_constraintTop_toBottomOf="@id/password_input"
+            />
 
         <TextView
             android:id="@+id/forgot_password_tv"
@@ -225,9 +222,9 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/login_btn"
-            app:layout_constraintStart_toStartOf="@id/login_btn"
-            app:layout_constraintTop_toBottomOf="@id/login_btn" />
+            app:layout_constraintEnd_toEndOf="@id/btn_pbar"
+            app:layout_constraintStart_toStartOf="@id/btn_pbar"
+            app:layout_constraintTop_toBottomOf="@id/btn_pbar" />
 
         <TextView
             android:id="@+id/signup_tv"
@@ -238,8 +235,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/login_btn"
-            app:layout_constraintStart_toStartOf="@id/login_btn"
+            app:layout_constraintEnd_toEndOf="@id/btn_pbar"
+            app:layout_constraintStart_toStartOf="@id/btn_pbar"
             app:layout_constraintTop_toBottomOf="@id/forgot_password_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
