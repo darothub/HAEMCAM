@@ -40,7 +40,7 @@
             app:ccp_textGravity="LEFT"
             app:ccp_textSize="@dimen/_12sdp"
             android:background="@drawable/underline_white"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="@dimen/_20sdp"
             app:layout_constraintEnd_toStartOf="@id/number_form_guideline"

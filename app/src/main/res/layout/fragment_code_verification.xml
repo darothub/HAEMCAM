@@ -7,7 +7,7 @@
     tools:context=".ui.CodeVerificationFragment">
     <TextView
         android:id="@+id/title"
-        android:text="@string/create_an_account"
+        android:text="@string/verify_your_number"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/_66sdp"
@@ -31,7 +31,7 @@
         android:id="@+id/pin_entry_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"

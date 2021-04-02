@@ -16,4 +16,5 @@
     <string name="continue_str">Continue</string>
     <string name="welcome">Welcome</string>
     <string name="mission_text">Mobile App to help monitor blood cancer treatment</string>
+    <string name="verify_your_number">Verify your number</string>
 </resources>
