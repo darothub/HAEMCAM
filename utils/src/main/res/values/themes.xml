@@ -64,4 +64,12 @@
     <style name="Widget.AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
         <item name="materialThemeOverlay">@style/ThemeOverlay.AppTheme.TextInputEditText.FilledBox.Dense</item>
     </style>
+
+    <style name="TitleTextViewStyle" >
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

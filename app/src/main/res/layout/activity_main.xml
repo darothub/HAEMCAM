@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
-
+    <include
+        android:id="@+id/caf_toolbar"
+        layout="@layout/reusable_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <fragment
         android:id="@+id/fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -13,5 +17,6 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         tools:layout="@layout/fragment_login"
+        app:layout_constraintTop_toBottomOf="@id/caf_toolbar"
         app:navGraph="@navigation/common_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

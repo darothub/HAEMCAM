@@ -13,4 +13,5 @@
     <string name="dont_have_account_str"><u>Don\'t have an account? Sign up</u></string>
     <string name="phone_number">Enter phone number</string>
     <string name="use_email">Use email</string>
+    <string name="dash">----</string>
 </resources>

@@ -37,7 +37,7 @@ class LoginFragmentTest {
 
     @Test
     fun testLoginButton_Is_Displayed_When_LoginFragment_Is_Launched() {
-        onView(allOf(withId(R.id.login_btn), withText("Login")))
+        onView(withId(R.id.btn_pbar))
             .check(matches(isDisplayed()))
     }
 
@@ -63,7 +63,7 @@ class LoginFragmentTest {
     }
 
     @Test
-    fun testEmailEditText_Is_Displayed_EmailIcon_Is_Clicked() {
+    fun testEmailEditText_Is_Displayed_When_EmailIcon_Is_Clicked() {
         onView(withId(R.id.email_address_et))
             .perform(typeText("sample@email.com"), closeSoftKeyboard(), touchDrawableRight())
         onView(withId(R.id.login_phone_number_et))

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:id="@+id/root_layout"
+    tools:context=".ui.CreateAccountFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:text="@string/create_an_account"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_66sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            style="@style/TitleTextViewStyle"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/full_name_input"
+            style="@style/TextInputLayout.CustomLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/full_name_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/fullname"
+                android:inputType="text"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_input"
+            style="@style/TextInputLayout.CustomLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/full_name_input">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_address_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_input"
+            style="@style/TextInputLayout.CustomLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email_input"
+            app:passwordToggleEnabled="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:passwordToggleTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirm_password_input"
+            style="@style/TextInputLayout.CustomLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password_input"
+            app:passwordToggleEnabled="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:passwordToggleTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_password_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <include
+            android:id="@+id/btn_pbar"
+            layout="@layout/btn_pbar_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="@id/confirm_password_input"
+            app:layout_constraintStart_toStartOf="@id/confirm_password_input"
+            app:layout_constraintTop_toBottomOf="@id/confirm_password_input"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:id="@+id/term_and_condition_tv"
+            android:text="@string/tnc"
+            app:layout_constraintTop_toBottomOf="@id/btn_pbar"
+            app:layout_constraintStart_toStartOf="@id/btn_pbar"
+            app:layout_constraintEnd_toEndOf="@id/btn_pbar"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:textColor="@color/white"
+             />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

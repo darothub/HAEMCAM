@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.core.content.ContextCompat
@@ -42,5 +43,41 @@ fun pressedEvent(
         text = p
     }
     return true
+}
+
+
+/**
+ * Hide view
+ *
+ */
+fun View.hide():Boolean{
+    if(this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE){
+        this.visibility = View.GONE
+        return false
+    }
+    return this.visibility == View.GONE
+}
+
+/**
+ * Show view
+ *
+ */
+fun View.show():Boolean{
+    if(this.visibility == View.INVISIBLE || this.visibility == View.GONE){
+        this.visibility = View.VISIBLE
+        return false
+    }
+    return this.visibility == View.VISIBLE
+}
+/**
+ * Invisible view
+ *
+ */
+fun View.invisible():Boolean{
+    if(this.visibility == View.VISIBLE || this.visibility == View.GONE){
+        this.visibility = View.INVISIBLE
+        return false
+    }
+    return this.visibility == View.INVISIBLE
 }
 
