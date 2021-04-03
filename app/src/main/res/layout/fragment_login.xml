@@ -89,6 +89,7 @@
             app:layout_constraintTop_toBottomOf="@id/login_to_access_tv"
             android:layout_marginTop="@dimen/_20sdp"
             >
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,7 +117,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -147,8 +147,9 @@
                     android:background="@drawable/underline_white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-
+                    app:layout_constraintVertical_bias=".74"
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -159,9 +160,7 @@
                     android:textColorHint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/number_form_guideline"
-                    app:layout_constraintTop_toTopOf="@id/login_ccp"
-                    app:layout_constraintBottom_toBottomOf="@id/login_ccp"
-                    app:layout_constraintVertical_bias=".7"
+                    app:layout_constraintTop_toTopOf="parent"
                     style="@style/TextInputLayout.CustomLabel"
                     >
                     <com.google.android.material.textfield.TextInputEditText
@@ -177,6 +176,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ViewFlipper>
 
         <com.google.android.material.textfield.TextInputLayout
