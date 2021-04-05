@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.string.setPartialSpan
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentMobileVerificationBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
-import ng.com.thewhitecellfoundation.utils.string.setPartialSpan
 
 /**
  * A simple [Fragment] subclass.

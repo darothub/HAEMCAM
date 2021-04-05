@@ -2,15 +2,19 @@ package ng.com.thewhitecellfoundation.haemcam.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.utils.Validation
+import ng.com.thewhitecellfoundation.common.views.customOnTouchListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLoginBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
-import ng.com.thewhitecellfoundation.utils.views.customOnTouchListener
 
 /**
  * A simple [Fragment] subclass.
@@ -48,6 +52,26 @@ class LoginFragment : Fragment() {
         }
         binding.signupTv.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.createAccountFragment)
+        }
+        binding.btnPbar.btn.setOnClickListener {
+            val res = Validation.Builder()
+            if (binding.loginVf[0].isShown) {
+                res
+                    .getEmptyField(arrayOf(binding.emailAddressEt, binding.passwordEt))
+                    .email()
+                    .password()
+                    .build()
+                Toast.makeText(requireContext(), "Login ${res?.respond?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res?.respond?.tag}")
+            } else {
+                res
+                    .getEmptyField(arrayOf(binding.loginPhoneNumberEt, binding.passwordEt))
+                    .phone()
+                    .password()
+                    .build()
+                Toast.makeText(requireContext(), "Login ${res?.respond?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res?.respond?.tag}")
+            }
         }
     }
 

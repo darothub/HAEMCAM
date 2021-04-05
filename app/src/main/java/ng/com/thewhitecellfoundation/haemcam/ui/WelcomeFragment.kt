@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentWelcomeBinding
-import ng.com.thewhitecellfoundation.utils.drawable.changeBackgroundColor
 
 /**
  * A simple [Fragment] subclass.

@@ -97,7 +97,7 @@ tasks.sonarqube.dependsOn jacocoCombinedTestReports
 dependencies {
 
     implementation project(":navigation")
-    implementation project(":utils")
+    implementation project(':common')
 
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
 

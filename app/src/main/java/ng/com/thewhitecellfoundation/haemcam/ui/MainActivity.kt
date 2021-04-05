@@ -9,11 +9,11 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import ng.com.thewhitecellfoundation.common.activity.hideSystemUI
+import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
-import ng.com.thewhitecellfoundation.utils.activity.hideSystemUI
-import ng.com.thewhitecellfoundation.utils.databinding.ReusableToolbarBinding
 
 class MainActivity : AppCompatActivity(), Navigator {
     override lateinit var navHostFragment: NavHostFragment
