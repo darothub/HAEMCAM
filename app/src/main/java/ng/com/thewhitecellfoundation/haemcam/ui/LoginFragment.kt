@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputEditText
+import ng.com.thewhitecellfoundation.common.utils.CustomEditText
 import ng.com.thewhitecellfoundation.common.utils.Validation
 import ng.com.thewhitecellfoundation.common.views.customOnTouchListener
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -53,11 +55,17 @@ class LoginFragment : Fragment() {
         binding.signupTv.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.createAccountFragment)
         }
+
         binding.btnPbar.btn.setOnClickListener {
+            val a = arrayOf(binding.emailAddressEt, binding.passwordEt).map {
+                val pair = Pair<CustomEditText, TextInputEditText?>(
+                    CustomEditText(it.text.toString(), it.tag.toString(), it.error), it
+                )
+                pair
+            }
             val res = Validation.Builder()
             if (binding.loginVf[0].isShown) {
-                res
-                    .getEmptyField(arrayOf(binding.emailAddressEt, binding.passwordEt))
+                res.separateFieldByTag(a)
                     .email()
                     .password()
                     .build()
@@ -65,7 +73,7 @@ class LoginFragment : Fragment() {
                 Log.i("Login", "Login ${res?.respond?.tag}")
             } else {
                 res
-                    .getEmptyField(arrayOf(binding.loginPhoneNumberEt, binding.passwordEt))
+                    .separateFieldByTag(a)
                     .phone()
                     .password()
                     .build()

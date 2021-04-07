@@ -1,112 +1,39 @@
 package ng.com.thewhitecellfoundation.common.utils
 
-import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
 
-//class Validation private constructor(
-//    val email: String? = null,
-//    val password: String? = null,
-//    val phoneNumber: String? = null,
-//    var respond:Any?=null,
-//    vararg edits: Array<out EditText?>
-//
-//) {
-//    class Builder(
-//        var email: String? = null,
-//        var password: String? = null,
-//        var phoneNumber: String? = null,
-//        var respond:Any?=null,
-//        vararg var edits: EditText?
-//
-//    ) {
-//
-//        fun getEmptyField(edits: Array<out TextInputEditText?>): Builder? = apply {
-//            this.edits = edits
-//            for (edit in edits) {
-//                if (edit?.text?.isEmpty() == true) {
-//                    this.respond = edit
-//                    return@apply
-//                }
-//
-//            }
-//            return null
-//
-//        }
-//        fun email(email: String) = apply {
-//            this.email = email
-//            val emailPattern = Regex("""^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*${'$'}""")
-//            val matchedEmail = emailPattern.matches(email)
-//            if(matchedEmail){
-//                this.respond = matchedEmail
-//                return@apply
-//            }
-//            else{
-//                this.respond = email
-//                return@apply
-//            }
-//        }
-//        fun password(password: String) = apply {
-//            this.password = password
-//            val passwordPattern = Regex("""^[a-zA-Z0-9@$!.%*#?&]{6,}$""")
-//            val matchedPassword = passwordPattern.matches(password)
-//            if(matchedPassword){
-//                this.respond = matchedPassword
-//                return@apply
-//            }
-//            else{
-//                this.respond = password
-//                return@apply
-//            }
-//        }
-//        fun phone(phoneNumber: String) = apply {
-//            val phonePattern = Regex("""^(80|70|90|81)([12356709])\d{7}$""")
-//            val matchedPhone = phonePattern.matches(phoneNumber)
-//            if(matchedPhone){
-//                this.respond = matchedPhone
-//                return@apply
-//            }
-//            else{
-//                this.respond = phoneNumber
-//                return@apply
-//            }
-//
-//        }
-//        fun build() = Validation(email, password, phoneNumber, respond, edits)
-//    }
-//
-//}
-
 class Validation private constructor(
-    var respond:TextInputEditText,
-    vararg edits: TextInputEditText
+    var respond:CustomEditText,
+    vararg var edits: Pair<CustomEditText, TextInputEditText?>
 ) {
 
     class Builder(
-        var email: TextInputEditText? = null,
-        var password: TextInputEditText? = null,
-        var phoneNumber: TextInputEditText? = null,
-        var respond:TextInputEditText?=null,
-        vararg var edits: TextInputEditText
+        var email: CustomEditText? = null,
+        var password: CustomEditText? = null,
+        var phoneNumber: CustomEditText? = null,
+        var respond:CustomEditText?=null,
+        vararg var edits: Pair<CustomEditText, TextInputEditText?>
 
     ) {
 
-        fun getEmptyField(edits: Array<out TextInputEditText>): Builder = apply {
-            this.edits = edits
+        fun separateFieldByTag(edits: List<Pair<CustomEditText, TextInputEditText?>>): Builder = apply {
+            this.edits = edits.toTypedArray()
             for (edit in edits) {
                 when {
-                    edit.text?.isEmpty() == true -> {
-                        edit.error = "${edit.tag} is required"
-                        this.respond = edit
+                    edit.first.text.isEmpty() -> {
+                        edit.first.error = "${edit.first.tag} is required"
+                        edit.second?.error = "${edit.first.tag} is required"
+                        this.respond = edit.first
                         return@apply
                     }
-                    edit.tag.toString().contains("email", true) -> {
-                        this.email = edit
+                    edit.first.tag.toString().contains("email", true) -> {
+                        this.email = edit.first
                     }
-                    edit.tag.toString().contains("password", true) -> {
-                        this.password = edit
+                    edit.first.tag.toString().contains("password", true) -> {
+                        this.password = edit.first
                     }
-                    edit.tag.toString().contains("phone", true) -> {
-                        this.phoneNumber = edit
+                    edit.first.tag.toString().contains("phone", true) -> {
+                        this.phoneNumber = edit.first
                     }
                 }
 
@@ -125,7 +52,7 @@ class Validation private constructor(
             }
         }
         fun password() = apply {
-            val passwordPattern = Regex("""^[a-zA-Z0-9@$!.%*#?&]{6,}$""")
+            val passwordPattern = Regex("""^[a-zA-Z0-9@$!.%*#?&]{6,15}$""")
             val matchedPassword = passwordPattern.matches(this.password?.text.toString())
             if(matchedPassword){
                 return@apply
@@ -138,7 +65,7 @@ class Validation private constructor(
         }
         fun phone() = apply {
             val phonePattern = Regex("""^(80|70|90|81)([12356709])\d{7}$""")
-            val matchedPhone = phonePattern.matches(this.phoneNumber.toString())
+            val matchedPhone = phonePattern.matches(this.phoneNumber?.text.toString())
             if(matchedPhone){
                 return@apply
             }
@@ -150,10 +77,10 @@ class Validation private constructor(
 
         }
         fun build():Validation? {
-            val listOfDefaulters = arrayListOf<TextInputEditText>()
+            val listOfDefaulters = arrayListOf<CustomEditText>()
             for (edit in this.edits){
-                if (edit.error != null){
-                    listOfDefaulters.add(edit)
+                if (edit.first.error != ""){
+                    listOfDefaulters.add(edit.first)
                     this.respond = listOfDefaulters[0]
                     this.respond!!.error = "Invalid"
                 }
@@ -163,3 +90,5 @@ class Validation private constructor(
     }
 
 }
+
+class CustomEditText(var text:CharSequence, var tag:CharSequence, var error:CharSequence?="")
