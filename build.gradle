@@ -3,6 +3,7 @@ apply plugin: "org.jmailen.kotlinter"
 apply from: 'libraries.gradle'
 
 buildscript {
+
     apply from: 'libraries.gradle'
     ext.kotlin_version = "1.4.31"
     repositories {

@@ -1,7 +1,8 @@
-package ng.com.thewhitecellfoundation.common.utils
+package ng.com.thewhitecellfoundation.haemcam.utils
 
+import ng.com.thewhitecellfoundation.common.utils.CustomEditText
+import ng.com.thewhitecellfoundation.common.utils.Validation
 import org.junit.Test
-
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -98,8 +99,6 @@ class ValidationTest {
             .build()
 
         assert(res?.respond?.first == null)
-
-
     }
     @Test
     fun `test for correct password input`() {
