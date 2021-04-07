@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
         binding.btnPbar.btn.setOnClickListener {
             val a = arrayOf(binding.emailAddressEt, binding.passwordEt).map {
                 val pair = Pair<CustomEditText, TextInputEditText?>(
-                    CustomEditText(it.text.toString(), it.tag.toString(), it.error), it
+                    CustomEditText(it.text.toString(), it.tag.toString()), it
                 )
                 pair
             }
