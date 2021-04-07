@@ -18,7 +18,7 @@ class ValidationTest {
             .separateFieldByTag(listOfCustomEditText)
             .build()
 
-        res?.respond?.tag?.contains("email", true)?.let { assert(it) }
+        res?.respond?.first?.tag?.contains("email", true)?.let { assert(it) }
     }
     @Test
     fun `test for empty password field`() {
@@ -30,7 +30,7 @@ class ValidationTest {
             .separateFieldByTag(listOfCustomEditText)
             .build()
 
-        res?.respond?.tag?.contains("password", true)?.let { assert(it) }
+        res?.respond?.first?.tag?.contains("password", true)?.let { assert(it) }
     }
     @Test
     fun `test for empty phone number field`() {
@@ -42,7 +42,7 @@ class ValidationTest {
             .separateFieldByTag(listOfCustomEditText)
             .build()
 
-        res?.respond?.tag?.contains("phone", true)?.let { assert(it) }
+        res?.respond?.first?.tag?.contains("phone", true)?.let { assert(it) }
     }
 
     @Test
@@ -56,7 +56,7 @@ class ValidationTest {
             .email()
             .build()
 
-        assert(res?.respond == listOfCustomEditText[0].first)
+        assert(res?.respond?.first == listOfCustomEditText[0].first)
     }
 
     @Test
@@ -70,7 +70,7 @@ class ValidationTest {
             .password()
             .build()
 
-        assert(res?.respond == listOfCustomEditText[1].first)
+        assert(res?.respond?.first == listOfCustomEditText[1].first)
     }
 
     @Test
@@ -84,7 +84,7 @@ class ValidationTest {
             .phone()
             .build()
 
-        assert(res?.respond == listOfCustomEditText[0].first)
+        assert(res?.respond?.first == listOfCustomEditText[0].first)
     }
 
     @Test
@@ -97,7 +97,7 @@ class ValidationTest {
             .email()
             .build()
 
-        assert(res?.respond == null)
+        assert(res?.respond?.first == null)
 
 
     }
@@ -111,7 +111,7 @@ class ValidationTest {
             .password()
             .build()
 
-        assert(res?.respond == null)
+        assert(res?.respond?.first == null)
     }
 
     @Test
@@ -124,6 +124,6 @@ class ValidationTest {
             .phone()
             .build()
 
-        assert(res?.respond == null)
+        assert(res?.respond?.first == null)
     }
 }

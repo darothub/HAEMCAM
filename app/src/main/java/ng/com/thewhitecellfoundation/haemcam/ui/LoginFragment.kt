@@ -69,16 +69,16 @@ class LoginFragment : Fragment() {
                     .email()
                     .password()
                     .build()
-                Toast.makeText(requireContext(), "Login ${res?.respond?.tag}", Toast.LENGTH_SHORT).show()
-                Log.i("Login", "Login ${res?.respond?.tag}")
+                Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res.respond?.first?.tag}")
             } else {
                 res
                     .separateFieldByTag(a)
                     .phone()
                     .password()
                     .build()
-                Toast.makeText(requireContext(), "Login ${res?.respond?.tag}", Toast.LENGTH_SHORT).show()
-                Log.i("Login", "Login ${res?.respond?.tag}")
+                Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res.respond?.first?.tag}")
             }
         }
     }
