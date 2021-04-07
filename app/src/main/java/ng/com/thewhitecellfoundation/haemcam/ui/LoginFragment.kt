@@ -72,8 +72,13 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
                 Log.i("Login", "Login ${res.respond?.first?.tag}")
             } else {
-                res
-                    .separateFieldByTag(a)
+                val a = arrayOf(binding.loginPhoneNumberEt, binding.passwordEt).map {
+                    val pair = Pair<CustomEditText, TextInputEditText?>(
+                        CustomEditText(it.text.toString(), it.tag.toString()), it
+                    )
+                    pair
+                }
+                res.separateFieldByTag(a)
                     .phone()
                     .password()
                     .build()
