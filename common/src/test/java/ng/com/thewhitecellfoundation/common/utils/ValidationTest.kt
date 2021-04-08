@@ -1,19 +1,14 @@
-package ng.com.thewhitecellfoundation.haemcam.utils
+package ng.com.thewhitecellfoundation.common.utils
 
-import ng.com.thewhitecellfoundation.common.utils.CustomEditText
-import ng.com.thewhitecellfoundation.common.utils.Validation
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner::class)
 class ValidationTest {
 
     @Test
     fun `test for empty email field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("", "email", ""), null),
-            Pair(CustomEditText("Password", "password", ""), null)
+            Pair(CustomEditTextField("", "email", ""), null),
+            Pair(CustomEditTextField("Password", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -24,8 +19,8 @@ class ValidationTest {
     @Test
     fun `test for empty password field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("hello@gmail.com", "email", ""), null),
-            Pair(CustomEditText("", "password", ""), null)
+            Pair(CustomEditTextField("hello@gmail.com", "email", ""), null),
+            Pair(CustomEditTextField("", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -36,8 +31,8 @@ class ValidationTest {
     @Test
     fun `test for empty phone number field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("", "phone", ""), null),
-            Pair(CustomEditText("Password", "password", ""), null)
+            Pair(CustomEditTextField("", "phone", ""), null),
+            Pair(CustomEditTextField("Password", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -49,8 +44,8 @@ class ValidationTest {
     @Test
     fun `test for invalid email field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("hello", "email", ""), null),
-            Pair(CustomEditText("Password", "password", ""), null)
+            Pair(CustomEditTextField("hello", "email", ""), null),
+            Pair(CustomEditTextField("Password", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -63,8 +58,8 @@ class ValidationTest {
     @Test
     fun `test for invalid password field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("hello@gmail.com", "email", ""), null),
-            Pair(CustomEditText("pass", "password", ""), null)
+            Pair(CustomEditTextField("hello@gmail.com", "email", ""), null),
+            Pair(CustomEditTextField("pass", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -77,8 +72,8 @@ class ValidationTest {
     @Test
     fun `test for invalid phone field`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("080600981627", "phone", ""), null),
-            Pair(CustomEditText("P", "password", ""), null)
+            Pair(CustomEditTextField("080600981627", "phone", ""), null),
+            Pair(CustomEditTextField("P", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -91,7 +86,7 @@ class ValidationTest {
     @Test
     fun `test for correct email input`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("hello@gmail.com", "email", ""), null)
+            Pair(CustomEditTextField("hello@gmail.com", "email", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -103,7 +98,7 @@ class ValidationTest {
     @Test
     fun `test for correct password input`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("Password", "password", ""), null)
+            Pair(CustomEditTextField("Password", "password", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)
@@ -116,7 +111,7 @@ class ValidationTest {
     @Test
     fun `test for correct phone input`() {
         val listOfCustomEditText = listOf(
-            Pair(CustomEditText("8060085192", "phone", ""), null)
+            Pair(CustomEditTextField("8060085192", "phone", ""), null)
         )
         val res = Validation.Builder()
             .separateFieldByTag(listOfCustomEditText)

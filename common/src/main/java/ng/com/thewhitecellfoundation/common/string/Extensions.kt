@@ -30,7 +30,8 @@ fun TextView.setPartialSpan(vararg links: Pair<String, () -> Unit>) {
                     textIndex + it.first.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
-                setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                setSpan(
+                    android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
                     textIndex,
                     textIndex + it.first.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -41,7 +42,5 @@ fun TextView.setPartialSpan(vararg links: Pair<String, () -> Unit>) {
                 LinkMovementMethod.getInstance()
             this.setText(spannableString, TextView.BufferType.SPANNABLE)
         }
-
     }
 }
-

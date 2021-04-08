@@ -8,15 +8,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.core.content.ContextCompat
-import ng.com.thewhitecellfoundation.common.utils.Validation
 
 @SuppressLint("ClickableViewAccessibility")
-fun EditText.customOnTouchListener(action:()->Unit) {
+fun EditText.customOnTouchListener(action: () -> Unit) {
     setOnTouchListener { _, event ->
         drawableRightClickListener(event, action)
     }
 }
-fun EditText.drawableRightClickListener(event: MotionEvent, action:()->Unit): Boolean {
+fun EditText.drawableRightClickListener(event: MotionEvent, action: () -> Unit): Boolean {
     val DRAWABLE_RIGHT = 2
     if (event.action == MotionEvent.ACTION_UP) {
         if (event.rawX >= right - compoundDrawables[DRAWABLE_RIGHT].bounds.width()
@@ -46,13 +45,12 @@ fun pressedEvent(
     return true
 }
 
-
 /**
  * Hide view
  *
  */
-fun View.hide():Boolean{
-    if(this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE){
+fun View.hide(): Boolean {
+    if (this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE) {
         this.visibility = View.GONE
         return false
     }
@@ -63,8 +61,8 @@ fun View.hide():Boolean{
  * Show view
  *
  */
-fun View.show():Boolean{
-    if(this.visibility == View.INVISIBLE || this.visibility == View.GONE){
+fun View.show(): Boolean {
+    if (this.visibility == View.INVISIBLE || this.visibility == View.GONE) {
         this.visibility = View.VISIBLE
         return false
     }
@@ -74,11 +72,10 @@ fun View.show():Boolean{
  * Invisible view
  *
  */
-fun View.invisible():Boolean{
-    if(this.visibility == View.VISIBLE || this.visibility == View.GONE){
+fun View.invisible(): Boolean {
+    if (this.visibility == View.VISIBLE || this.visibility == View.GONE) {
         this.visibility = View.INVISIBLE
         return false
     }
     return this.visibility == View.INVISIBLE
 }
-

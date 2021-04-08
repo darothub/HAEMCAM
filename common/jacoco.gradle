@@ -45,9 +45,7 @@ def excludedPatterns = [
         '**/*EventType.*',
         '**/**Mocked',
         '**/databinding/**/*.*',
-        '**/android/databinding/*Binding.*',
         '**/BR.*',
-        '**/**Screen*.*'
 ]
 task jacocoCombinedTestReports(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
     group = "TestReport"

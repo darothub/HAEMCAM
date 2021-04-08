@@ -5,13 +5,14 @@ apply from: 'libraries.gradle'
 buildscript {
 
     apply from: 'libraries.gradle'
-    ext.kotlin_version = "1.4.31"
+    ext.kotlin_version = "1.4.32"
     repositories {
         google()
         jcenter()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+
     }
 
     dependencies {
@@ -22,7 +23,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jmailen.gradle:kotlinter-gradle:3.3.0"
 
-//        classpath "com.hiya:jacoco-android:0.2"
         classpath "org.jacoco:org.jacoco.core:0.8.6"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8.0.1969"
 
@@ -39,7 +39,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+
     }
+
 }
 
 

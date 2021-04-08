@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
-import ng.com.thewhitecellfoundation.common.utils.CustomEditText
+import ng.com.thewhitecellfoundation.common.utils.CustomEditTextField
 import ng.com.thewhitecellfoundation.common.utils.Validation
 import ng.com.thewhitecellfoundation.common.views.customOnTouchListener
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -58,8 +58,8 @@ class LoginFragment : Fragment() {
 
         binding.btnPbar.btn.setOnClickListener {
             val a = arrayOf(binding.emailAddressEt, binding.passwordEt).map {
-                val pair = Pair<CustomEditText, TextInputEditText?>(
-                    CustomEditText(it.text.toString(), it.tag.toString()), it
+                val pair = Pair<CustomEditTextField, TextInputEditText?>(
+                    CustomEditTextField(it.text.toString(), it.tag.toString()), it
                 )
                 pair
             }
@@ -73,8 +73,8 @@ class LoginFragment : Fragment() {
                 Log.i("Login", "Login ${res.respond?.first?.tag}")
             } else {
                 val a = arrayOf(binding.loginPhoneNumberEt, binding.passwordEt).map {
-                    val pair = Pair<CustomEditText, TextInputEditText?>(
-                        CustomEditText(it.text.toString(), it.tag.toString()), it
+                    val pair = Pair<CustomEditTextField, TextInputEditText?>(
+                        CustomEditTextField(it.text.toString(), it.tag.toString()), it
                     )
                     pair
                 }

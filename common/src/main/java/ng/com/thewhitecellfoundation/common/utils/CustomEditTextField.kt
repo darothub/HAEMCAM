@@ -8,4 +8,4 @@ package ng.com.thewhitecellfoundation.common.utils
  *
  * This is to simulate a TextInputEditText
  */
-class CustomEditText(var text:CharSequence, var tag:CharSequence, var error:CharSequence?="")
+class CustomEditTextField(var text: CharSequence, var tag: CharSequence, var error: CharSequence? = "")
