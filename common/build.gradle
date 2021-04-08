@@ -73,7 +73,7 @@ preBuild.dependsOn(formatKotlin)
 
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
-    jacoco.excludes = ['*']
+    jacoco.excludes = ['jdk.internal.*']
     testLogging {
         exceptionFormat "full"
         events "started", "skipped", "passed", "failed"
