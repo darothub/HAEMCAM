@@ -112,6 +112,7 @@
                         style="@style/EditTextCustomStyle"
                         android:hint="@string/email_address_str"
                         android:inputType="textEmailAddress"
+                        android:tag="@string/email"
                         android:drawableEnd="@drawable/ic_baseline_phone_android_24"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -200,8 +201,10 @@
                 style="@style/EditTextCustomStyle"
                 android:hint="@string/password_str"
                 android:inputType="textPassword"
+                android:tag="@string/password"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <include
             android:id="@+id/btn_pbar"

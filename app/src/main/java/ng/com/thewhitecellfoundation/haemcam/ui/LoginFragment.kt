@@ -2,15 +2,21 @@ package ng.com.thewhitecellfoundation.haemcam.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputEditText
+import ng.com.thewhitecellfoundation.common.utils.CustomEditTextField
+import ng.com.thewhitecellfoundation.common.utils.Validation
+import ng.com.thewhitecellfoundation.common.views.customOnTouchListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLoginBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
-import ng.com.thewhitecellfoundation.utils.views.customOnTouchListener
 
 /**
  * A simple [Fragment] subclass.
@@ -48,6 +54,37 @@ class LoginFragment : Fragment() {
         }
         binding.signupTv.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.createAccountFragment)
+        }
+
+        binding.btnPbar.btn.setOnClickListener {
+            val a = arrayOf(binding.emailAddressEt, binding.passwordEt).map {
+                val pair = Pair<CustomEditTextField, TextInputEditText?>(
+                    CustomEditTextField(it.text.toString(), it.tag.toString()), it
+                )
+                pair
+            }
+            val res = Validation.Builder()
+            if (binding.loginVf[0].isShown) {
+                res.separateFieldByTag(a)
+                    .email()
+                    .password()
+                    .build()
+                Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res.respond?.first?.tag}")
+            } else {
+                val a = arrayOf(binding.loginPhoneNumberEt, binding.passwordEt).map {
+                    val pair = Pair<CustomEditTextField, TextInputEditText?>(
+                        CustomEditTextField(it.text.toString(), it.tag.toString()), it
+                    )
+                    pair
+                }
+                res.separateFieldByTag(a)
+                    .phone()
+                    .password()
+                    .build()
+                Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
+                Log.i("Login", "Login ${res.respond?.first?.tag}")
+            }
         }
     }
 

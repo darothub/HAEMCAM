@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id "org.jmailen.kotlinter"
+    id 'org.sonarqube'
+    id 'jacoco'
+}
+
+apply from: "jacoco.gradle"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    buildFeatures {
+        viewBinding true
+    }
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            testCoverageEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+sonarqube {
+    properties {
+        def libraries = project.android.sdkDirectory.getPath() + "/platforms/android-30/android.jar"/* + ", build/intermediates/exploded-aar*//**//*classes.jar"*/
+        property "sonar.sources", "src/main/java"
+        property "sonar.binaries", "build/intermediates/app_classes/debug"
+        property "sonar.libraries", libraries
+        property "sonar.tests", "src/test/java, src/androidTest/java"
+        property "sonar.java.test.binaries", "build/intermediates/app_classes/debug"
+        property "sonar.java.test.libraries", libraries
+        property "sonar.exclusions", "build/**,**/*.png,*.iml, **/*generated*,'**/*Fragment*.*', '**/*Activity*.*', '**/databinding/**/*.*',"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml"
+        property "sonar.junit.reportsPath", "build/test-results/debug"
+        property "sonar.android.lint.report", "build/outputs/lint-results"
+        property "sonar.login", "admin"
+        property "sonar.password", "admin1"
+    }
+}
+
+
+kotlinter {
+    ignoreFailures = false
+    indentSize = 4
+    reporters = ['checkstyle', 'plain']
+    experimentalRules = false
+    disabledRules = ["no-wildcard-imports"]
+}
+preBuild.dependsOn(formatKotlin)
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
+
+dependencies {
+
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+    implementation libs
+    testImplementation testLibraries
+    androidTestImplementation androidTestLibraries
+    debugImplementation debugLibraries
+}

@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import ng.com.thewhitecellfoundation.common.activity.hideSystemUI
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivitySplashScreenBinding
-import ng.com.thewhitecellfoundation.utils.activity.hideSystemUI
 
 class SplashScreen : AppCompatActivity() {
     private val handler by lazy {

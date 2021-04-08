@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.views.pressedEvent
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
-import ng.com.thewhitecellfoundation.utils.views.pressedEvent
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
