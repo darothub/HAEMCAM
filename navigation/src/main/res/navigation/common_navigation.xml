@@ -6,35 +6,45 @@
     >
     <fragment
         android:id="@+id/homeFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.HomeFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.HomeFragment"
         android:label="home">
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.LoginFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.LoginFragment"
         android:label="login">
     </fragment>
 
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.CreateAccountFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.CreateAccountFragment"
         android:label="create_account">
     </fragment>
 
     <fragment
         android:id="@+id/mobileVerificationFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.MobileVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.MobileVerificationFragment"
         android:label="mobile_verification">
     </fragment>
     <fragment
         android:id="@+id/codeVerificationFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.CodeVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.CodeVerificationFragment"
         android:label="code_verification">
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.WelcomeFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.WelcomeFragment"
         android:label="welcome_verification">
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.UserInfoFragment"
+        android:label="user_info">
+    </fragment>
+    <fragment
+        android:id="@+id/userTreatmentFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.UserTreatmentFragment"
+        android:label="user_treatment">
     </fragment>
 </navigation>

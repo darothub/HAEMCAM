@@ -17,6 +17,10 @@ ext {
             //Text dimens
             'com.intuit.sdp:sdp-android:1.0.6',
             'com.google.firebase:firebase-analytics-ktx',
+            //CalendarView
+            'com.github.psinetron:slycalendarview:0.0.9',
+            //Spinner
+            "com.github.skydoves:powerspinner:1.1.7"
 
     ]
     testLibraries =[
@@ -38,6 +42,9 @@ ext {
 
     debugLibraries =[
             "androidx.fragment:fragment-testing:$fragment_version"
+    ]
+    coreLibDesugaring =[
+            'com.android.tools:desugar_jdk_libs:1.1.5'
     ]
 
 }

@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.ui
+package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentWelcomeBinding
+import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 /**
  * A simple [Fragment] subclass.
@@ -31,8 +32,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btn.apply {
+        binding.continueBtn.apply {
             background.changeBackgroundColor(requireContext(), R.color.primary_color)
+        }
+        binding.continueBtn.setOnClickListener {
+            (requireActivity() as Navigator).goto(R.id.userInfoFragment)
         }
     }
     override fun onDestroyView() {

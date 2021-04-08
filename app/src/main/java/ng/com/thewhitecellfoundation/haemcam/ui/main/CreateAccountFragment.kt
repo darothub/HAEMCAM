@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.ui
+package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,19 +7,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.common.string.setPartialSpan
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentCodeVerificationBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentCreateAccountBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 /**
  * A simple [Fragment] subclass.
- * Use the [CodeVerificationFragment.newInstance] factory method to
+ * Use the [CreateAccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CodeVerificationFragment : Fragment() {
-    private var _binding: FragmentCodeVerificationBinding? = null
+class CreateAccountFragment : Fragment() {
+    private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
+    private var reusableToolbarBinding: ReusableToolbarBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,22 +29,14 @@ class CodeVerificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentCodeVerificationBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
         val view = binding.root
+//        reusableToolbarBinding = binding.cafToolbar
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.didntGetCodeTv.setPartialSpan(
-            Pair(
-                "Resend Code",
-                {
-                    Toast.makeText(requireContext(), "Resend", Toast.LENGTH_SHORT).show()
-                }
-            )
-        )
 
         binding.termAndConditionTv.setPartialSpan(
             Pair(
@@ -58,14 +52,16 @@ class CodeVerificationFragment : Fragment() {
                 }
             )
         )
+
         binding.btnPbar.btn.apply {
-            text = getString(R.string.continue_str)
+            text = getString(R.string.create_an_account)
             setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
         }
         binding.btnPbar.btn.setOnClickListener {
-            (requireActivity() as Navigator).goto(R.id.welcomeFragment)
+            (requireActivity() as Navigator).goto(R.id.mobileVerificationFragment)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

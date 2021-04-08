@@ -14,4 +14,6 @@
     <string name="phone_number">Enter phone number</string>
     <string name="use_email">Use email</string>
     <string name="dash">----</string>
+    <string name="hi">Hi! </string>
+    <string name="help">Help?</string>
 </resources>

@@ -7,7 +7,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:id="@+id/root_layout"
-    tools:context=".ui.MobileVerificationFragment">
+    tools:context=".ui.main.MobileVerificationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="@id/ccp"
             app:layout_constraintVertical_bias=".7"
             android:layout_marginEnd="@dimen/_20sdp"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_number_et"

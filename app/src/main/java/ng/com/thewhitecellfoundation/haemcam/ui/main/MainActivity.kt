@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.ui
+package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.net.Uri
 import android.os.Build
@@ -11,6 +11,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import ng.com.thewhitecellfoundation.common.activity.hideSystemUI
 import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
+import ng.com.thewhitecellfoundation.common.views.hide
+import ng.com.thewhitecellfoundation.common.views.show
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
@@ -25,19 +27,29 @@ class MainActivity : AppCompatActivity(), Navigator {
         NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
-                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
                         finish()
                     }
                 }
                 R.id.loginFragment -> {
-                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
                         navController.popBackStack()
                     }
                 }
                 R.id.createAccountFragment -> {
-                    binding.cafToolbar.reusableToolbars.setNavigationOnClickListener {
+                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
                         navController.popBackStack()
                     }
+                }
+                R.id.userInfoFragment -> {
+                    reusableToolbarBinding.appbar.hide()
+                    binding.appbar.appbar.show()
+                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you)
+                }
+                R.id.userTreatmentFragment -> {
+                    reusableToolbarBinding.appbar.hide()
+                    binding.appbar.appbar.show()
+                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you_understand)
                 }
             }
         }
@@ -46,7 +58,7 @@ class MainActivity : AppCompatActivity(), Navigator {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-        reusableToolbarBinding = binding.cafToolbar
+        reusableToolbarBinding = binding.toolbar
         setContentView(view)
         hideSystemUI()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment

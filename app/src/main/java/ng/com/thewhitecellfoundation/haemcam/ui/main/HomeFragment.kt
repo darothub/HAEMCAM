@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.ui
+package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle

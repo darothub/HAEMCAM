@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.haemcam.ui
+package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater

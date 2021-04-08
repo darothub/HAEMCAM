@@ -7,12 +7,11 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:id="@+id/root_layout"
-    tools:context=".ui.CreateAccountFragment">
+    tools:context=".ui.main.CreateAccountFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
 
         <TextView
@@ -26,7 +25,7 @@
             />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/full_name_input"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -47,7 +46,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email_input"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -68,7 +67,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_input"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -91,7 +90,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/confirm_password_input"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"

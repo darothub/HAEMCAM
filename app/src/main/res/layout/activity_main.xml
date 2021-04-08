@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.MainActivity">
     <include
-        android:id="@+id/caf_toolbar"
+        android:id="@+id/toolbar"
         layout="@layout/reusable_toolbar"
         app:layout_constraintTop_toTopOf="parent"
+        />
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar_one"
+        android:visibility="gone"
         />
     <fragment
         android:id="@+id/fragment"
@@ -18,6 +23,6 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         tools:layout="@layout/fragment_login"
-        app:layout_constraintTop_toBottomOf="@id/caf_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/common_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
