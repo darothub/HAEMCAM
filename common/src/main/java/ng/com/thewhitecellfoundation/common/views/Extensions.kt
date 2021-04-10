@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.core.content.ContextCompat
+import com.skydoves.powerspinner.PowerSpinnerView
 
 @SuppressLint("ClickableViewAccessibility")
 fun EditText.customOnTouchListener(action: () -> Unit) {
@@ -78,4 +79,10 @@ fun View.invisible(): Boolean {
         return false
     }
     return this.visibility == View.INVISIBLE
+}
+
+fun dismissPowerViewDropDown(vararg views: PowerSpinnerView) {
+    views.forEach {
+        it.dismiss()
+    }
 }

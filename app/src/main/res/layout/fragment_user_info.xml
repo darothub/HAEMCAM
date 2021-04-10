@@ -12,8 +12,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_20sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
         >
+        <TextView
+            android:id="@+id/page_intro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:text="@string/lets_get_to_know_you"/>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/date_input"
             style="@style/TextInputLayout.LabelWhiteApp"
@@ -24,7 +35,7 @@
             android:background="@drawable/underline_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/page_intro_tv">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/date_et"

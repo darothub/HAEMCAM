@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.fragment.onBackDispatcher
+import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserInfoBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
@@ -40,6 +41,14 @@ class UserInfoFragment : Fragment() {
         binding.nextBtn.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.userTreatmentFragment)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        dismissPowerViewDropDown(
+            binding.genderSpinner,
+            binding.diagnosisSpinner
+        )
     }
 
     override fun onDestroyView() {

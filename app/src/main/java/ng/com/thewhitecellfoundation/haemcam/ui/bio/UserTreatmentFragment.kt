@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
 
 /**
@@ -26,6 +27,17 @@ class UserTreatmentFragment : Fragment() {
         return binding.root
     }
 
+    override fun onPause() {
+        super.onPause()
+        dismissPowerViewDropDown(
+            binding.chemoDrugSpinner,
+            binding.cycleSpinner,
+            binding.daysSpinner,
+            binding.otherDrugSpinner,
+            binding.regimenSpinner,
+            binding.timeSpinner
+        )
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -12,8 +12,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_20sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
         >
+        <TextView
+            android:id="@+id/page_intro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:text="@string/lets_get_to_know_you_understand"/>
         <com.skydoves.powerspinner.PowerSpinnerView
             android:id="@+id/regimen_spinner"
             android:layout_width="match_parent"
@@ -34,7 +45,7 @@
             app:spinner_item_array="@array/regimen"
             app:spinner_popup_animation="dropdown"
             app:spinner_popup_background="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_intro_tv"
             app:spinner_popup_elevation="14dp" />
 
         <com.skydoves.powerspinner.PowerSpinnerView
@@ -174,7 +185,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             app:layout_constraintTop_toBottomOf="@id/skip_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

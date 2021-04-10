@@ -12,15 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:contentInsetStart="0dp"
-
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-
             >
             <ImageView
                 android:id="@+id/user_image_iv"
@@ -61,6 +59,7 @@
                 app:layout_constraintStart_toStartOf="@id/user_image_iv"
                 android:textSize="@dimen/_12sdp"
                 android:textColor="@color/black"
+                android:visibility="gone"
                 android:text="@string/dash"/>
             <ImageView
                 android:id="@+id/setting_iv"

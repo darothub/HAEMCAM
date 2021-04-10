@@ -18,12 +18,6 @@ class BioActivity : AppCompatActivity(), Navigator {
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.userInfoFragment -> {
-                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you)
-                }
-                R.id.userTreatmentFragment -> {
-                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you_understand)
-                }
             }
         }
     override fun onCreate(savedInstanceState: Bundle?) {
