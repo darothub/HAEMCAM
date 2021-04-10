@@ -1,60 +1,39 @@
-package ng.com.thewhitecellfoundation.haemcam.ui.main
+package ng.com.thewhitecellfoundation.haemcam.ui.bio
 
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import ng.com.thewhitecellfoundation.common.activity.hideSystemUI
-import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityBioBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
-class MainActivity : AppCompatActivity(), Navigator {
+class BioActivity : AppCompatActivity(), Navigator {
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
-    lateinit var binding: ActivityMainBinding
-
-    lateinit var reusableToolbarBinding: ReusableToolbarBinding
-
+    lateinit var binding: ActivityBioBinding
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment -> {
-                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
-                        finish()
-                    }
+                R.id.userInfoFragment -> {
+                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you)
                 }
-                R.id.loginFragment -> {
-                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
-                        navController.popBackStack()
-                    }
-                }
-                R.id.createAccountFragment -> {
-                    binding.toolbar.reusableToolbar.setNavigationOnClickListener {
-                        navController.popBackStack()
-                    }
+                R.id.userTreatmentFragment -> {
+                    binding.appbar.pageIntroTv.text = getString(R.string.lets_get_to_know_you_understand)
                 }
             }
         }
-    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityBioBinding.inflate(layoutInflater)
         val view = binding.root
-        reusableToolbarBinding = binding.toolbar
         setContentView(view)
-        hideSystemUI()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
-//
     }
-
     override fun onResume() {
         super.onResume()
         navController.addOnDestinationChangedListener(navListener)

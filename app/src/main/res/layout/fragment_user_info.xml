@@ -7,13 +7,12 @@
     android:fitsSystemWindows="true"
     android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".ui.main.UserInfoFragment">
+    tools:context=".ui.bio.UserInfoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/_20sdp"
-        android:layout_marginTop="?actionBarSize"
         >
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/date_input"
@@ -25,7 +24,6 @@
             android:background="@drawable/underline_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_15sdp"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText

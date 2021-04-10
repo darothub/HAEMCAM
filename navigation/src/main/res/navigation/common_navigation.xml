@@ -37,14 +37,5 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.WelcomeFragment"
         android:label="welcome_verification">
     </fragment>
-    <fragment
-        android:id="@+id/userInfoFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.UserInfoFragment"
-        android:label="user_info">
-    </fragment>
-    <fragment
-        android:id="@+id/userTreatmentFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.UserTreatmentFragment"
-        android:label="user_treatment">
-    </fragment>
+
 </navigation>

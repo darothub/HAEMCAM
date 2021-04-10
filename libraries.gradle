@@ -20,7 +20,7 @@ ext {
             //CalendarView
             'com.github.psinetron:slycalendarview:0.0.9',
             //Spinner
-            "com.github.skydoves:powerspinner:1.1.7"
+            "com.github.skydoves:powerspinner:1.1.7",
 
     ]
     testLibraries =[

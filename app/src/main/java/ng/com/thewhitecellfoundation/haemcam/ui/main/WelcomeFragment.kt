@@ -1,5 +1,6 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentWelcomeBinding
-import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
+import ng.com.thewhitecellfoundation.haemcam.ui.bio.BioActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -36,7 +37,8 @@ class WelcomeFragment : Fragment() {
             background.changeBackgroundColor(requireContext(), R.color.primary_color)
         }
         binding.continueBtn.setOnClickListener {
-            (requireActivity() as Navigator).goto(R.id.userInfoFragment)
+            startActivity(Intent(requireActivity(), BioActivity::class.java))
+            requireActivity().finish()
         }
     }
     override fun onDestroyView() {

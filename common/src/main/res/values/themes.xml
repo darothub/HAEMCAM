@@ -41,6 +41,12 @@
 
     </style>
 
+    <style name="BioScreen.Theme" parent="Theme.FullScreen">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l" >@color/primaryVariant</item>
+        <item name="android:navigationBarColor">@color/primaryVariant</item>
+    </style>
+
     <style name="EditTextCustomStyle" parent="Widget.AppCompat.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/_40sdp</item>

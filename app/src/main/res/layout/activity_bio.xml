@@ -5,15 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.bio.BioActivity">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/reusable_toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_20sdp"
-
+        android:id="@+id/appbar"
+        layout="@layout/appbar_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <fragment
         android:id="@+id/fragment"
@@ -21,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        tools:layout="@layout/fragment_login"
+        tools:layout="@layout/fragment_user_info"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/common_navigation" />
+        android:layout_marginTop="?actionBarSize"
+        app:navGraph="@navigation/bio_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
