@@ -25,6 +25,7 @@ class BioActivity : AppCompatActivity(), Navigator {
         binding = ActivityBioBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setSupportActionBar(binding.appbar.reusableToolbar)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
     }

@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import ng.com.thewhitecellfoundation.common.utils.CustomEditTextField
 import ng.com.thewhitecellfoundation.common.utils.Validation
-import ng.com.thewhitecellfoundation.common.views.customOnTouchListener
+import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLoginBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
@@ -41,11 +41,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.emailAddressEt.customOnTouchListener {
+        binding.emailAddressEt.customOnDrawableRightListener {
             binding.loginVf.showNext()
         }
 
-        binding.loginPhoneNumberEt.customOnTouchListener {
+        binding.loginPhoneNumberEt.customOnDrawableRightListener {
             binding.loginVf.showNext()
         }
         binding.btnPbar.btn.apply {

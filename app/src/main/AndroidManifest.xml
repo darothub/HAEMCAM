@@ -14,16 +14,18 @@
         <activity
             android:name=".ui.bio.BioActivity"
             android:label="@string/title_activity_bio"
-            android:theme="@style/BioScreen.Theme" />
-        <activity android:name=".ui.home.HomeActivity" />
-        <activity
-            android:name=".ui.main.SplashScreen"
-            android:theme="@style/Theme.FullScreen">
+            android:theme="@style/BioScreen.Theme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.main.SplashScreen"
+            android:theme="@style/Theme.FullScreen">
+
         </activity>
         <activity
             android:name=".ui.main.MainActivity"

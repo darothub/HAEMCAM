@@ -6,27 +6,25 @@ import android.graphics.PorterDuffColorFilter
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.skydoves.powerspinner.PowerSpinnerView
 
 @SuppressLint("ClickableViewAccessibility")
-fun EditText.customOnTouchListener(action: () -> Unit) {
+fun TextView.customOnDrawableRightListener(action: () -> Unit) {
     setOnTouchListener { _, event ->
-        drawableRightClickListener(event, action)
-    }
-}
-fun EditText.drawableRightClickListener(event: MotionEvent, action: () -> Unit): Boolean {
-    val DRAWABLE_RIGHT = 2
-    if (event.action == MotionEvent.ACTION_UP) {
-        if (event.rawX >= right - compoundDrawables[DRAWABLE_RIGHT].bounds.width()
-        ) {
-            action.invoke()
-            return true
+        if (event.action == MotionEvent.ACTION_UP) {
+            if (event.rawX >= right - totalPaddingRight) {
+                action.invoke()
+                true
+            }
         }
+        true
     }
-    return false
 }
+// fun TextView.drawableRightClickListener(event: MotionEvent, action: () -> Unit): Boolean {
+//
+// }
 
 fun pressedEvent(
     view: Button,
