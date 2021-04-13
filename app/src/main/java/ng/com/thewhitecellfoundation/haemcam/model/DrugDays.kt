@@ -3,8 +3,9 @@ package ng.com.thewhitecellfoundation.haemcam.model
 import java.util.concurrent.atomic.AtomicInteger
 
 data class DrugDays(
-    val drug: ArrayList<String>? = null,
-    val days: ArrayList<String>? = null,
+    var tag: String? = null,
+    var drug: Int? = null,
+    val days: Int? = null,
     var hint: String? = null
 ) {
     var id: Long = 0

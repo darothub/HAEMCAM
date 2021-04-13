@@ -35,4 +35,11 @@
         <item>BTD</item>
         <item>BRD</item>
     </string-array>
+    <string-array name="medication_time">
+        <item>Once daily</item>
+        <item>Twice daily</item>
+        <item>Three times daily</item>
+        <item>Every 8 hours</item>
+        <item> Weekly</item>
+    </string-array>
 </resources>

@@ -27,7 +27,7 @@
         app:spinner_popup_animation="dropdown"
         app:spinner_popup_background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         app:spinner_popup_elevation="14dp" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
