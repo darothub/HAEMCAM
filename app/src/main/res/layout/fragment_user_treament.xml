@@ -25,55 +25,6 @@
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/black"
             android:text="@string/lets_get_to_know_you_understand"/>
-<!--        <com.skydoves.powerspinner.PowerSpinnerView-->
-<!--            android:id="@+id/regimen_spinner"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="start"-->
-<!--            android:hint="@string/regimen"-->
-<!--            android:paddingTop="@dimen/_10sdp"-->
-<!--            android:paddingBottom="@dimen/_10sdp"-->
-<!--            android:textColor="@color/primary_color"-->
-<!--            android:textColorHint="@color/primary_color"-->
-<!--            android:textSize="@dimen/_12sdp"-->
-<!--            android:background="@drawable/underline_gray"-->
-<!--            app:spinner_arrow_gravity="end"-->
-<!--            app:spinner_arrow_tint="@color/primary_color"-->
-<!--            app:spinner_arrow_padding="8dp"-->
-<!--            app:spinner_divider_color="@color/black"-->
-<!--            app:spinner_divider_show="false"-->
-<!--            app:spinner_item_array="@array/regimen"-->
-<!--            app:spinner_popup_animation="dropdown"-->
-<!--            app:spinner_popup_background="@color/white"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/page_intro_tv"-->
-<!--            app:spinner_popup_elevation="14dp" />-->
-
-
-
-
-<!--        <com.skydoves.powerspinner.PowerSpinnerView-->
-<!--            android:id="@+id/cycle_spinner"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="start"-->
-<!--            android:hint="@string/cycle_days"-->
-<!--            android:paddingTop="@dimen/_10sdp"-->
-<!--            android:paddingBottom="@dimen/_10sdp"-->
-<!--            android:textColor="@color/primary_color"-->
-<!--            android:textColorHint="@color/primary_color"-->
-<!--            android:textSize="@dimen/_12sdp"-->
-<!--            android:background="@drawable/underline_gray"-->
-<!--            app:spinner_arrow_gravity="end"-->
-<!--            app:spinner_arrow_tint="@color/primary_color"-->
-<!--            app:spinner_arrow_padding="8dp"-->
-<!--            app:spinner_divider_color="@color/black"-->
-<!--            app:spinner_divider_show="false"-->
-<!--            app:spinner_item_array="@array/gender"-->
-<!--            app:spinner_popup_animation="dropdown"-->
-<!--            app:spinner_popup_background="@color/white"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/regimen_spinner"-->
-<!--            android:layout_marginTop="@dimen/_10sdp"-->
-<!--            app:spinner_popup_elevation="14dp" />-->
 
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/ercv"
@@ -106,6 +57,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
+            android:layout_marginBottom="@dimen/_12sdp"
             app:layout_constraintTop_toBottomOf="@id/skip_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

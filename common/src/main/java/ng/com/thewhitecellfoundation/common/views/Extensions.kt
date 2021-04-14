@@ -51,9 +51,9 @@ fun pressedEvent(
 fun View.hide(): Boolean {
     if (this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE) {
         this.visibility = View.GONE
-        return false
+        return true
     }
-    return this.visibility == View.GONE
+    return false
 }
 
 /**
@@ -63,9 +63,9 @@ fun View.hide(): Boolean {
 fun View.show(): Boolean {
     if (this.visibility == View.INVISIBLE || this.visibility == View.GONE) {
         this.visibility = View.VISIBLE
-        return false
+        return true
     }
-    return this.visibility == View.VISIBLE
+    return false
 }
 /**
  * Invisible view
@@ -74,9 +74,9 @@ fun View.show(): Boolean {
 fun View.invisible(): Boolean {
     if (this.visibility == View.VISIBLE || this.visibility == View.GONE) {
         this.visibility = View.INVISIBLE
-        return false
+        return true
     }
-    return this.visibility == View.INVISIBLE
+    return false
 }
 
 fun dismissPowerViewDropDown(vararg views: PowerSpinnerView) {

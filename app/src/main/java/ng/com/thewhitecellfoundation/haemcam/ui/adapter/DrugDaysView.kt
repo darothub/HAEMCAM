@@ -8,6 +8,7 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
+import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.common.views.hide
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
@@ -31,8 +32,6 @@ class DrugDaysView @JvmOverloads constructor(
 
     @ModelProp
     fun setData(data: DrugDays?) {
-
-//        data?.drug?.let { a.addAll(it) }
         if (data?.drug == null) {
             binding.drugSpinner.hide()
             binding.daysTimeSpinner.hide()
@@ -67,7 +66,11 @@ class DrugDaysView @JvmOverloads constructor(
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        binding.drugSpinner.dismiss()
-        binding.daysTimeSpinner.dismiss()
+        binding.daysTimeSpinner.clearSelectedItem()
+        binding.drugSpinner.clearSelectedItem()
+        dismissPowerViewDropDown(
+            binding.drugSpinner,
+            binding.daysTimeSpinner
+        )
     }
 }

@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.get
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
@@ -27,10 +26,10 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
     companion object {
         val tdp = hashMapOf<String, ArrayList<DataPair>>()
     }
-    val list = arrayListOf<DrugDays>()
 
-    val m = hashMapOf<String, String>()
-    val a = arrayListOf<DataPair>()
+    private val list = arrayListOf<DrugDays>()
+
+    private val listOfDataPair = arrayListOf<DataPair>()
 
     @ModelProp
     fun setData(data: TitleAndListType<DrugDays>) {
@@ -45,9 +44,7 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
             }
             binding.listErcv.withModels {
                 list.forEach { dd ->
-                    val p = DataPair("", "")
-                    a.add(p)
-                    dd.tag?.let { tdp.put(it, a) }
+                    val n = dd.copy(dataPair = DataPair("", ""))
                     drugDaysView {
                         Log.i("DrugsDay", "$dd id ${dd.id}")
                         id(dd.id)
@@ -58,19 +55,26 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
                         }
 
                         getDrugData { _, _, _, newItem ->
-                            p.first = newItem
-                            Log.i("TDP", "$tdp")
-                            Toast.makeText(context, "$tdp", Toast.LENGTH_SHORT).show()
+                            n.dataPair?.first = newItem
+                            Log.i("TDP", "$n")
+                            Toast.makeText(context, "$n", Toast.LENGTH_SHORT).show()
                         }
-                        getDaysTimeData { oldIndex, oldItem, newIndex, newItem ->
-                            Log.i("TDP", "$tdp")
-                            p.second = newItem
-                            Toast.makeText(context, "$tdp", Toast.LENGTH_SHORT).show()
+                        getDaysTimeData { _, _, _, newItem ->
+                            n.dataPair?.second = newItem
+                            Log.i("TDP", "$n")
+                            Toast.makeText(context, "$n", Toast.LENGTH_SHORT).show()
                         }
+                        n.dataPair?.let { listOfDataPair.add(it) }
+                        dd.tag?.let { tdp[it] = listOfDataPair }
                     }
                 }
             }
         }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        tdp.clear()
     }
 }
 
