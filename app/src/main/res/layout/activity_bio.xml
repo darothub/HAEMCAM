@@ -22,6 +22,6 @@
         tools:layout="@layout/fragment_user_info"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="?actionBarSize"
-        app:navGraph="@navigation/bio_navigation" />
+        app:navGraph="@navigation/home_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

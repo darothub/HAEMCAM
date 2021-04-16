@@ -1,14 +1,12 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.common.string.setPartialSpan
+import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentCreateAccountBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
@@ -18,22 +16,8 @@ import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
  * Use the [CreateAccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CreateAccountFragment : Fragment() {
-    private var _binding: FragmentCreateAccountBinding? = null
-    private val binding get() = _binding!!
-    private var reusableToolbarBinding: ReusableToolbarBinding? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
-        val view = binding.root
-//        reusableToolbarBinding = binding.cafToolbar
-        return view
-    }
+class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
+    private val binding by viewBinding(FragmentCreateAccountBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,10 +44,5 @@ class CreateAccountFragment : Fragment() {
         binding.btnPbar.btn.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.mobileVerificationFragment)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

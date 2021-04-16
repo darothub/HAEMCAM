@@ -1,14 +1,10 @@
 package ng.com.thewhitecellfoundation.haemcam.model
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import java.util.concurrent.atomic.AtomicInteger
 
-data class DrugDays(
-    var tag: String? = null,
-    var drug: Int? = null,
-    val days: Int? = null,
-    var hint: String? = null,
-    var dataPair: DataPair? = null
-) {
+data class HomeItemData(@DrawableRes val image: Int, @StringRes val title: Int) {
     var id: Long = 0
 
     companion object {

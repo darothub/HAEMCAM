@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".ui.bio.UserInfoFragment">
+    tools:context=".ui.home.UserInfoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -162,11 +162,8 @@
 
         <Button
             android:id="@+id/next_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_primary_purple"
+            style="@style/ButtonStyle"
             android:text="@string/next"
-            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/_30sdp"

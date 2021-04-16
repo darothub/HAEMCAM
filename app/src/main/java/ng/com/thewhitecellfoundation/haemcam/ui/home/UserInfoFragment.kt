@@ -1,11 +1,10 @@
-package ng.com.thewhitecellfoundation.haemcam.ui.bio
+package ng.com.thewhitecellfoundation.haemcam.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.fragment.onBackDispatcher
+import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserInfoBinding
@@ -16,20 +15,9 @@ import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
  * Use the [UserInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class UserInfoFragment : Fragment() {
+class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
 
-    private var _binding: FragmentUserInfoBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    private val binding by viewBinding(FragmentUserInfoBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,10 +37,5 @@ class UserInfoFragment : Fragment() {
             binding.genderSpinner,
             binding.diagnosisSpinner
         )
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

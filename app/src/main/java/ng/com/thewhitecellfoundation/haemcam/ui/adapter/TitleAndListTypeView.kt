@@ -12,6 +12,7 @@ import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.TitleListTypeLayoutBinding
+import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.TitleAndListType
 
@@ -77,5 +78,3 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
         tdp.clear()
     }
 }
-
-data class DataPair(var first: String, var second: String)

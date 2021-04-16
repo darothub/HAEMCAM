@@ -52,7 +52,6 @@ class DrugDaysView @JvmOverloads constructor(
 
     @CallbackProp
     fun getDrugData(listener: OnSpinnerItemSelectedListener<String>?) {
-
         if (listener != null) {
             binding.drugSpinner.setOnSpinnerItemSelectedListener(listener)
         }

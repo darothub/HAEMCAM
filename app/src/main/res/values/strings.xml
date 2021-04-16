@@ -41,6 +41,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="drug1">Drug</string>
     <string name="remove">Remove</string>
+    <string name="search">Search</string>
+    <string name="medication">Medications</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="lab_result">Lab results</string>
+    <string name="transfusion">Transfusion</string>
 
 
 </resources>

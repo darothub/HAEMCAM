@@ -2,29 +2,19 @@ package ng.com.thewhitecellfoundation.haemcam.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.pressedEvent
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentHomeBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLandingBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class LandingFragment : Fragment(R.layout.fragment_landing) {
+
+    private val binding by viewBinding(FragmentLandingBinding::bind)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,10 +45,5 @@ class HomeFragment : Fragment() {
         binding.signUpBtn.setOnClickListener {
             (requireActivity() as Navigator).goto(R.id.createAccountFragment)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

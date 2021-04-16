@@ -1,39 +1,28 @@
-package ng.com.thewhitecellfoundation.haemcam.ui.bio
+package ng.com.thewhitecellfoundation.haemcam.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
+import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.TitleAndListType
-import ng.com.thewhitecellfoundation.haemcam.ui.adapter.DataPair
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.TitleAndListTypeView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.titleAndListTypeView
+import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 /**
  * A simple [Fragment] subclass.
  * Use the [UserTreamentFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class UserTreatmentFragment : Fragment() {
-    private var _binding: FragmentUserTreamentBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentUserTreamentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
+    private val binding by viewBinding(FragmentUserTreamentBinding::bind)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -82,12 +71,8 @@ class UserTreatmentFragment : Fragment() {
                 }
                 Toast.makeText(context, "Complete $t", Toast.LENGTH_SHORT).show()
                 Log.i("tdp", "$t")
+                (requireActivity() as Navigator).goto(R.id.homeFragment)
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

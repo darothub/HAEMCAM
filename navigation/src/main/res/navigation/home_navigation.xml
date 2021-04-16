@@ -2,16 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:startDestination="@id/userInfoFragment"
-    android:id="@+id/bio_nav_graph">
+    android:id="@+id/home_nav_graph">
 
     <fragment
         android:id="@+id/userInfoFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.bio.UserInfoFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.UserInfoFragment"
         android:label="user_info">
     </fragment>
     <fragment
         android:id="@+id/userTreatmentFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.bio.UserTreatmentFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.UserTreatmentFragment"
         android:label="user_treatment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.HomeFragment"
+        android:label="home_fragment">
     </fragment>
 </navigation>
