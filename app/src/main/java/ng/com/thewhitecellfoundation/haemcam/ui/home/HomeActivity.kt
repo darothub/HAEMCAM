@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.hide
+import ng.com.thewhitecellfoundation.common.views.show
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
@@ -26,6 +27,10 @@ class HomeActivity : AppCompatActivity(), Navigator {
                 }
                 R.id.userTreatmentFragment -> {
                     binding.bottomNav.hide()
+                }
+                R.id.homeFragment -> {
+                    binding.bottomNav.show()
+                    binding.appbar.helpTv.setImageResource(R.drawable.ic_settings_icon)
                 }
             }
         }

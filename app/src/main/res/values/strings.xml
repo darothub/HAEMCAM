@@ -46,6 +46,10 @@
     <string name="nutrition">Nutrition</string>
     <string name="lab_result">Lab results</string>
     <string name="transfusion">Transfusion</string>
+    <string name="home">Home</string>
+    <string name="report">Report</string>
+    <string name="feed_back">Feed back</string>
+    <string name="notification">Notification</string>
 
 
 </resources>

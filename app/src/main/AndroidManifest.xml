@@ -11,12 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FullScreen.Translucent">
-        <activity
-            android:name=".ui.bio.BioActivity"
-            android:label="@string/title_activity_bio"
-            android:theme="@style/HomeAcivity.Theme" >
-
-        </activity>
         <activity android:name=".ui.home.HomeActivity"
             android:theme="@style/HomeAcivity.Theme"
             >
