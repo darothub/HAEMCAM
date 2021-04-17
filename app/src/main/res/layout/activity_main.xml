@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+
     tools:context=".ui.main.MainActivity">
     <include
         android:id="@+id/toolbar"
         layout="@layout/reusable_toolbar"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_20sdp"
-
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -66,6 +66,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     it.value.any { d -> d.first == "" || d.second == "" }
                 }
                 if (incomplete) {
+                    Log.i("tdp", "$t")
                     Toast.makeText(context, "Some input(s) are nt complete", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }

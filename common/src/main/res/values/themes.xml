@@ -36,9 +36,8 @@
 
     <style name="Theme.FullScreen.Translucent" parent="Theme.FullScreen">
         <!-- Status bar color. -->
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
 
     <style name="HomeAcivity.Theme" parent="Theme.FullScreen">
@@ -98,7 +97,7 @@
     </style>
 
     <style name="ButtonStyle" >
-        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:layout_height">@dimen/_50sdp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:textStyle">bold</item>

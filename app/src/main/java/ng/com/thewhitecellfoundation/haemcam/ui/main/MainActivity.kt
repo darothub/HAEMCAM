@@ -42,14 +42,15 @@ class MainActivity : AppCompatActivity(), Navigator {
                 }
             }
         }
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         reusableToolbarBinding = binding.toolbar
+
         setContentView(view)
-        hideSystemUI()
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
 //
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity(), Navigator {
         super.onPause()
         navController.removeOnDestinationChangedListener(navListener)
     }
+
     override fun goto(destination: Int) {
         // Using fragmentId
         navController.navigate(destination)
@@ -82,5 +84,11 @@ class MainActivity : AppCompatActivity(), Navigator {
         val inflater = myNavHostFragment.navController.navInflater
         val graph = inflater.inflate(graphId)
         navController.graph.addAll(graph)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        if (hasFocus) hideSystemUI()
     }
 }

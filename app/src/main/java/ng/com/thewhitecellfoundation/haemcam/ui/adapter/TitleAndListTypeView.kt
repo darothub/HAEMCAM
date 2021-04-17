@@ -16,16 +16,25 @@ import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.TitleAndListType
 
-@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT, defaultLayout = R.layout.title_list_type_layout)
-class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: AttributeSet? = null, defStyleAttr: Int = 0) :
+@ModelView(
+    autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
+    defaultLayout = R.layout.title_list_type_layout
+)
+class TitleAndListTypeView @JvmOverloads constructor(
+    context: Context,
+    attr: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
     ConstraintLayout(context, attr, defStyleAttr) {
 
     var binding: TitleListTypeLayoutBinding = TitleListTypeLayoutBinding.inflate(
         LayoutInflater.from(context),
         this, true
     )
+
     companion object {
         val tdp = hashMapOf<String, ArrayList<DataPair>>()
+        var num = 1.toLong()
     }
 
     private val list = arrayListOf<DrugDays>()
@@ -35,6 +44,14 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
     @ModelProp
     fun setData(data: TitleAndListType<DrugDays>) {
         binding.titleTv.text = data.title
+        binding.listErcv.withModels {
+            data.list?.forEach { dd ->
+                drugDaysView {
+                    id(dd.id)
+                    data(dd)
+                }
+            }
+        }
     }
 
     @CallbackProp
@@ -47,10 +64,12 @@ class TitleAndListTypeView@JvmOverloads constructor(context: Context, attr: Attr
                 list.forEach { dd ->
                     val n = dd.copy(dataPair = DataPair("", ""))
                     drugDaysView {
-                        Log.i("DrugsDay", "$dd id ${dd.id}")
+                        Log.i("DrugsDay", "$dd id ${n.id}")
                         id(dd.id)
                         data(dd)
                         onDeleteListener { model, parentView, clickedView, position ->
+                            n.dataPair?.first = ""
+                            n.dataPair?.second = ""
                             list.removeAt(position)
                             requestModelBuild()
                         }

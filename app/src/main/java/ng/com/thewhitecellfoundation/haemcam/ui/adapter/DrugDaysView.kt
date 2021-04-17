@@ -2,6 +2,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.adapter
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.epoxy.CallbackProp
@@ -65,6 +66,7 @@ class DrugDaysView @JvmOverloads constructor(
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
+        Log.i("DrugDaysView", "Detached")
         binding.daysTimeSpinner.clearSelectedItem()
         binding.drugSpinner.clearSelectedItem()
         dismissPowerViewDropDown(

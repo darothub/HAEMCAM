@@ -10,7 +10,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FullScreen.Translucent">
+        android:theme="@style/Theme.FullScreen">
         <activity android:name=".ui.home.HomeActivity"
             android:theme="@style/HomeAcivity.Theme"
             >
@@ -27,6 +27,7 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
+            android:theme="@style/Theme.FullScreen"
             android:windowSoftInputMode="adjustResize" />
     </application>
 

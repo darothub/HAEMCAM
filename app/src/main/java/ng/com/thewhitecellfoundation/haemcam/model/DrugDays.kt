@@ -12,10 +12,11 @@ data class DrugDays(
     var id: Long = 0
 
     companion object {
+        var idPlaceholder = 0.toLong()
         var atomicId = AtomicInteger(0)
     }
 
     init {
-        id = atomicId.incrementAndGet().toLong()
+        id = idPlaceholder++
     }
 }

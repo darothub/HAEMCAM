@@ -16,7 +16,7 @@ import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
  * Use the [MobileVerificationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MobileVerificationFragment : Fragment() {
+class MobileVerificationFragment : Fragment(R.layout.fragment_mobile_verification) {
     private val binding by viewBinding(FragmentMobileVerificationBinding::bind)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

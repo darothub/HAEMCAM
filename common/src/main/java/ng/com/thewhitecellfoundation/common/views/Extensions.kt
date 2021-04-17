@@ -22,9 +22,6 @@ fun TextView.customOnDrawableRightListener(action: () -> Unit) {
         true
     }
 }
-// fun TextView.drawableRightClickListener(event: MotionEvent, action: () -> Unit): Boolean {
-//
-// }
 
 fun pressedEvent(
     view: Button,

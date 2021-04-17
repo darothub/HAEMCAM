@@ -38,7 +38,6 @@ class HomeActivity : AppCompatActivity(), Navigator {
         super.onCreate(savedInstanceState)
         val view = binding.root
         setContentView(view)
-
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
     }

@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/common_navigation"
-    app:startDestination="@id/homeFragment"
+    app:startDestination="@id/landingFragment"
     >
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.HomeFragment"
+        android:id="@+id/landingFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.LandingFragment"
         android:label="home">
     </fragment>
 
