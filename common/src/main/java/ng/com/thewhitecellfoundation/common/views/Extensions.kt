@@ -76,8 +76,8 @@ fun View.invisible(): Boolean {
     return false
 }
 
-fun dismissPowerViewDropDown(vararg views: PowerSpinnerView) {
+fun dismissPowerViewDropDown(vararg views: PowerSpinnerView?) {
     views.forEach {
-        it.dismiss()
+        it?.dismiss()
     }
 }

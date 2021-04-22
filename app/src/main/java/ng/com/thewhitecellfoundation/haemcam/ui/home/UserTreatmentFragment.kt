@@ -15,6 +15,7 @@ import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
+import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ru.slybeaver.slycalendarview.SlyCalendarDialog
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,18 +35,47 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         val chemoTitle = getString(R.string.chemo_drug)
         val otherDrugTitle = getString(R.string.other_drugs)
         val regimenTitle = getString(R.string.regimen)
-        val regimenList = arrayListOf<DrugDays>(
+        val regimenList = arrayListOf(
             DrugDays(
                 regimenTitle, R.array.diagnosis, null, getString(R.string.chemo_drug),
                 DataPair("", "")
             ),
         )
-        val otherList = arrayListOf<OtherDrugDays>(
+        val otherList = arrayListOf(
             OtherDrugDays(
                 otherDrugTitle, R.array.diagnosis, R.array.medication_time, getString(R.string.other_drugs),
                 DataPair("", "")
             ),
         )
+
+        binding.otherDrugErcv.withModels {
+            otherList.forEach { dd ->
+                otherDrugDaysView {
+                    id(dd.id)
+                    data(dd)
+                    binding.otherDrugTitleTv.customOnDrawableRightListener {
+                        val obj = OtherDrugDays(
+                            otherDrugTitle,
+                            R.array.diagnosis,
+                            R.array.medication_time,
+                            getString(R.string.other_drugs),
+                            DataPair("", "")
+                        )
+                        otherList.add(obj)
+                        Log.i("other-list", "$otherList")
+
+                        requestModelBuild()
+                    }
+
+                    onDeleteListener { model, parentView, clickedView, position ->
+                        otherList.removeAt(position)
+                        OtherDrugDays.idPlaceholder -= 1
+                        notifyModelChanged(position)
+                        requestModelBuild()
+                    }
+                }
+            }
+        }
 
         binding.regimenErcv.withModels {
             regimenList.forEach { dd ->
@@ -53,15 +83,15 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     id(dd.id)
                     data(dd)
                     binding.regimenTitleTv.customOnDrawableRightListener {
-                        regimenList.add(
-                            DrugDays(
-                                regimenTitle,
-                                R.array.diagnosis,
-                                null,
-                                getString(R.string.chemo_drug),
-                                DataPair("", "")
-                            )
+                        val obj = DrugDays(
+                            regimenTitle,
+                            R.array.regimen,
+                            null,
+                            getString(R.string.chemo_drug),
+                            DataPair("", "")
                         )
+                        regimenList.add(obj)
+                        Log.i("regimen-list", "$regimenList")
                         requestModelBuild()
                     }
 
@@ -73,7 +103,6 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         val offsetInMillis = tz.getOffset(cal.timeInMillis)
                         currentTime -= offsetInMillis.toLong()
                         val date = Date(currentTime)
-                        Log.i("Date", "Date:$date\nTimeZone:$tz\nCalendar:$cal\nOffset$offsetInMillis\nCurrentTime:$currentTime ")
                         Toast.makeText(context, "$date", Toast.LENGTH_SHORT).show()
                         showDateTimeDialog(date, clickedView)
                     }
@@ -81,34 +110,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         regimenList.removeAt(position)
                         DrugDays.idPlaceholder -= 1
                         Log.i("DataList", "${regimenList.size}")
-                        requestModelBuild()
-                    }
-                }
-            }
-        }
-
-        binding.otherDrugErcv.withModels {
-            otherList.forEach { dd ->
-                drugDaysView {
-                    id(dd.id)
-                    data(dd)
-                    binding.otherDrugTitleTv.customOnDrawableRightListener {
-                        otherList.add(
-                            OtherDrugDays(
-                                otherDrugTitle,
-                                R.array.diagnosis,
-                                R.array.medication_time,
-                                getString(R.string.other_drugs),
-                                DataPair("", "")
-                            )
-                        )
-                        requestModelBuild()
-                    }
-
-                    onDeleteListener { model, parentView, clickedView, position ->
-                        otherList.removeAt(position)
-                        OtherDrugDays.idPlaceholder -= 1
-                        Log.i("DataList", "${regimenList.size}")
+                        notifyModelChanged(position)
                         requestModelBuild()
                     }
                 }

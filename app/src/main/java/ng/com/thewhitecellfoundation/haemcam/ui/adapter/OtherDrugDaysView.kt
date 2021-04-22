@@ -12,14 +12,14 @@ import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
-import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
+import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import java.util.*
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
     defaultLayout = R.layout.drug_days_items_layout
 )
-class DrugDaysView @JvmOverloads constructor(
+class OtherDrugDaysView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -31,11 +31,10 @@ class DrugDaysView @JvmOverloads constructor(
     )
 
     @ModelProp
-    fun setData(data: DrugDays?) {
-        Log.i("ID", "${data?.id}")
-        data?.drug?.let { binding.drugSpinner.setItems(it) }
+    fun setData(data: OtherDrugDays?) {
+        Log.i("ID2", "${data?.id}")
         val id = data?.id?.plus(1.toLong())
-        binding.drugSpinner.hint = data?.hint + "-" + id
+        data?.drug?.let { binding.drugSpinner.setItems(it) }
         binding.drugSpinner.tag = data?.tag
         binding.daysTimeSpinner.tag = data?.tag
     }
