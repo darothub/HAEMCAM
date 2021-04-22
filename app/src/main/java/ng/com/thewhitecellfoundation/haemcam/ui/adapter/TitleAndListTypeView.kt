@@ -79,11 +79,11 @@ class TitleAndListTypeView @JvmOverloads constructor(
                             Log.i("TDP", "$n")
                             Toast.makeText(context, "$n", Toast.LENGTH_SHORT).show()
                         }
-                        getDaysTimeData { _, _, _, newItem ->
-                            n.dataPair?.second = newItem
-                            Log.i("TDP", "$n")
-                            Toast.makeText(context, "$n", Toast.LENGTH_SHORT).show()
-                        }
+//                        getDaysTimeData { _, _, _, newItem ->
+//                            n.dataPair?.second = newItem
+//                            Log.i("TDP", "$n")
+//                            Toast.makeText(context, "$n", Toast.LENGTH_SHORT).show()
+//                        }
                         n.dataPair?.let { listOfDataPair.add(it) }
                         dd.tag?.let { tdp[it] = listOfDataPair }
                     }

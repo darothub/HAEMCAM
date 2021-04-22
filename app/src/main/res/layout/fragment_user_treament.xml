@@ -25,12 +25,22 @@
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/black"
             android:text="@string/lets_get_to_know_you_understand"/>
-
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/ercv"
+        <TextView
+            android:id="@+id/title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/regimen"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/primaryColor"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@id/page_intro_tv"
+            app:drawableRightCompat="@drawable/ic_primary_add_outline_24" />
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/regimen_ercv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/title_tv"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"/>
 
@@ -43,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/_30sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/ercv" />
+            app:layout_constraintTop_toBottomOf="@id/regimen_ercv" />
         <Button
             android:id="@+id/next_btn"
             style="@style/ButtonStyle"

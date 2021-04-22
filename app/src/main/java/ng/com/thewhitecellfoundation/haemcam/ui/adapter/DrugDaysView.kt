@@ -14,6 +14,7 @@ import ng.com.thewhitecellfoundation.common.views.hide
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
+import java.util.*
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
@@ -29,18 +30,18 @@ class DrugDaysView @JvmOverloads constructor(
         LayoutInflater.from(context),
         this, true
     )
-    val a = arrayListOf<String>()
 
     @ModelProp
     fun setData(data: DrugDays?) {
+        Log.i("ID", "${data?.id}")
         if (data?.drug == null) {
             binding.drugSpinner.hide()
             binding.daysTimeSpinner.hide()
         }
         data?.drug?.let { binding.drugSpinner.setItems(it) }
-        data?.days?.let { binding.daysTimeSpinner.setItems(it) }
         if (!data?.hint.isNullOrEmpty()) {
-            binding.daysTimeSpinner.hint = data?.hint
+            val id = data?.id?.plus(1.toLong())
+            binding.drugSpinner.hint = data?.hint + "-" + id
             binding.drugSpinner.tag = data?.tag
             binding.daysTimeSpinner.tag = data?.tag
         }
@@ -58,9 +59,9 @@ class DrugDaysView @JvmOverloads constructor(
         }
     }
     @CallbackProp
-    fun getDaysTimeData(listener: OnSpinnerItemSelectedListener<String>?) {
+    fun getDaysTimeData(listener: OnClickListener?) {
         if (listener != null) {
-            binding.daysTimeSpinner.setOnSpinnerItemSelectedListener(listener)
+            binding.daysTimeSpinner.setOnClickListener(listener)
         }
     }
 

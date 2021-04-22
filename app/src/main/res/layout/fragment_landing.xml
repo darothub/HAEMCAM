@@ -65,6 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/_30sdp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/give_a_snapshot_tv" />
 
         <Button
@@ -74,10 +75,10 @@
             android:background="@drawable/rounded_corner_purple"
             android:text="@string/login_str"
             android:textAllCaps="false"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/_10sdp"
-
             app:layout_constraintTop_toBottomOf="@id/sign_up_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

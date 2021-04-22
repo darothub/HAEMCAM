@@ -10,7 +10,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/chemo_drug"
         android:textSize="@dimen/_12sdp"
-        android:textColor="@color/primary_color"
+        android:textColor="@color/primaryColor"
         android:layout_marginTop="@dimen/_20sdp"
         android:drawableRight="@drawable/ic_primary_add_outline_24"
         android:gravity="center_vertical"

@@ -21,7 +21,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.continueBtn.apply {
-            background.changeBackgroundColor(requireContext(), R.color.primary_color)
+            background.changeBackgroundColor(requireContext(), R.color.primaryColor)
         }
         binding.continueBtn.setOnClickListener {
             startActivity(Intent(requireActivity(), HomeActivity::class.java))

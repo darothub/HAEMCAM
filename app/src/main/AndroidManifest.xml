@@ -28,7 +28,10 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.FullScreen"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize" >
+
+        </activity>
+
     </application>
 
 </manifest>

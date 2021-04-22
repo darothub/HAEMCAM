@@ -24,7 +24,7 @@
     <string name="next">Next</string>
     <string name="regimen">REGIMEN</string>
     <string name="gender">GENDER</string>
-    <string name="chemo_drug">CHEMOTHERAPY DRUG 1</string>
+    <string name="chemo_drug">CHEMOTHERAPY DRUG </string>
     <string name="cycle_days">CYCLE DAYS</string>
     <string name="days_cycle">DAYS IN CYCLE</string>
     <string name="other_drugs">OTHER DRUGS 1</string>
@@ -50,6 +50,7 @@
     <string name="report">Report</string>
     <string name="feed_back">Feed back</string>
     <string name="notification">Notification</string>
-
-
+    <string name="dateFormat" translatable="false">EE, dd MMM</string>
+    <string name="timeFormat" translatable="false">EE, dd MMM HH:mm</string>
+    <string name="period" translatable="false">%1$s – %2$s</string>
 </resources>
