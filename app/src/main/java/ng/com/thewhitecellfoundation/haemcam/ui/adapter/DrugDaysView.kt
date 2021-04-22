@@ -13,7 +13,7 @@ import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.common.views.hide
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
-import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
+import ng.com.thewhitecellfoundation.haemcam.model.DrugDaysBase
 import java.util.*
 
 @ModelView(
@@ -31,8 +31,8 @@ class DrugDaysView @JvmOverloads constructor(
         this, true
     )
 
-    @ModelProp
-    fun setData(data: DrugDays?) {
+    @ModelProp(options = [ModelProp.Option.DoNotHash])
+    fun setData(data: DrugDaysBase?) {
         Log.i("ID", "${data?.id}")
         if (data?.drug == null) {
             binding.drugSpinner.hide()
@@ -40,8 +40,10 @@ class DrugDaysView @JvmOverloads constructor(
         }
         data?.drug?.let { binding.drugSpinner.setItems(it) }
         if (!data?.hint.isNullOrEmpty()) {
-            val id = data?.id?.plus(1.toLong())
-            binding.drugSpinner.hint = data?.hint + "-" + id
+            if (data?.hint == context.getString(R.string.chemo_drug)) {
+                val id = data?.id?.plus(1.toLong())
+                binding.drugSpinner.hint = data?.hint + "-" + id
+            }
             binding.drugSpinner.tag = data?.tag
             binding.daysTimeSpinner.tag = data?.tag
         }

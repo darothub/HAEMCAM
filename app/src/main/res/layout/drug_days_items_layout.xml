@@ -37,6 +37,7 @@
         android:gravity="start"
         android:hint="@string/days_cycle"
         android:paddingTop="@dimen/_10sdp"
+        app:spinner_item_array="@array/medication_time"
         android:paddingBottom="@dimen/_10sdp"
         android:textColor="@color/primaryColor"
         android:textColorHint="@color/primaryColor"
