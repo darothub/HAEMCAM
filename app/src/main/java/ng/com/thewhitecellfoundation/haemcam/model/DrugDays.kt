@@ -5,16 +5,22 @@ data class DrugDays(
     var drug: Int? = null,
     val days: Int? = null,
     var hint: String? = null,
-    var dataPair: DataPair? = null
+    var dataPair: DataPair? = null,
+    var id: Long = 0,
 ) {
-    var id: Long = 0
 
     companion object {
         var idPlaceholder = 0.toLong()
+        var listOfId = arrayListOf<Long>()
     }
 
     init {
-        id = idPlaceholder++
+        id = ++idPlaceholder
+        if (listOfId.isNotEmpty()) {
+            listOfId.sort()
+            id = listOfId[0]
+            listOfId.clear()
+        }
     }
 }
 
@@ -29,10 +35,16 @@ data class OtherDrugDays(
 
     companion object {
         var idPlaceholder = 0.toLong()
+        var listOfId = arrayListOf<Long>()
     }
 
     init {
         id = idPlaceholder++
+        if (listOfId.isNotEmpty()) {
+            listOfId.sort()
+            id = listOfId[0]
+            listOfId.clear()
+        }
     }
 }
 

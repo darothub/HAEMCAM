@@ -34,8 +34,7 @@ class DrugDaysView @JvmOverloads constructor(
     fun setData(data: DrugDays?) {
         Log.i("ID", "${data?.id}")
         data?.drug?.let { binding.drugSpinner.setItems(it) }
-        val id = data?.id?.plus(1.toLong())
-        binding.drugSpinner.hint = data?.hint + "-" + id
+        binding.drugSpinner.hint = data?.hint + "-" + data?.id
         binding.drugSpinner.tag = data?.tag
         binding.daysTimeSpinner.tag = data?.tag
     }

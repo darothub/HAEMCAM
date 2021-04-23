@@ -35,12 +35,13 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         val chemoTitle = getString(R.string.chemo_drug)
         val otherDrugTitle = getString(R.string.other_drugs)
         val regimenTitle = getString(R.string.regimen)
-        val regimenList = arrayListOf(
-            DrugDays(
-                regimenTitle, R.array.diagnosis, null, getString(R.string.chemo_drug),
-                DataPair("", "")
-            ),
+        val firstObj = DrugDays(
+            regimenTitle, R.array.diagnosis, null, getString(R.string.chemo_drug),
+            DataPair("", "")
         )
+
+        Log.i("FirstObj-id", "$firstObj")
+        val regimenList = arrayListOf(firstObj)
         val otherList = arrayListOf(
             OtherDrugDays(
                 otherDrugTitle, R.array.diagnosis, R.array.medication_time, getString(R.string.other_drugs),
@@ -50,6 +51,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
 
         binding.otherDrugErcv.withModels {
             otherList.forEach { dd ->
+
                 otherDrugDaysView {
                     id(dd.id)
                     data(dd)
@@ -62,15 +64,16 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                             DataPair("", "")
                         )
                         otherList.add(obj)
+                        otherList.sortBy { it.id }
                         Log.i("other-list", "$otherList")
 
                         requestModelBuild()
                     }
 
                     onDeleteListener { model, parentView, clickedView, position ->
-                        otherList.removeAt(position)
+                        val deletedObj = otherList.removeAt(position)
+                        OtherDrugDays.listOfId.add(deletedObj.id)
                         OtherDrugDays.idPlaceholder -= 1
-                        notifyModelChanged(position)
                         requestModelBuild()
                     }
                 }
@@ -79,6 +82,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
 
         binding.regimenErcv.withModels {
             regimenList.forEach { dd ->
+                Log.i("IDS", "${dd.id}")
                 drugDaysView {
                     id(dd.id)
                     data(dd)
@@ -91,7 +95,8 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                             DataPair("", "")
                         )
                         regimenList.add(obj)
-                        Log.i("regimen-list", "$regimenList")
+                        regimenList.sortBy { it.id }
+                        Log.i("Regimen-List", "$regimenList")
                         requestModelBuild()
                     }
 
@@ -107,10 +112,10 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         showDateTimeDialog(date, clickedView)
                     }
                     onDeleteListener { model, parentView, clickedView, position ->
-                        regimenList.removeAt(position)
+                        val deletedObj = regimenList.removeAt(position)
+                        DrugDays.listOfId.add(deletedObj.id)
                         DrugDays.idPlaceholder -= 1
-                        Log.i("DataList", "${regimenList.size}")
-                        notifyModelChanged(position)
+
                         requestModelBuild()
                     }
                 }
