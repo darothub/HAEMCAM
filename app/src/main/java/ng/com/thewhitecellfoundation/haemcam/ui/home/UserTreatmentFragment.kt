@@ -31,8 +31,6 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val chemoTitle = getString(R.string.chemo_drug)
         val otherDrugTitle = getString(R.string.other_drugs)
         val regimenTitle = getString(R.string.regimen)
         val firstObj = DrugDays(
@@ -74,6 +72,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         val deletedObj = otherList.removeAt(position)
                         OtherDrugDays.listOfId.add(deletedObj.id)
                         OtherDrugDays.idPlaceholder -= 1
+                        parentView.binding.daysTimeSpinner.clearSelectedItem()
                         requestModelBuild()
                     }
                 }
@@ -113,9 +112,9 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     }
                     onDeleteListener { model, parentView, clickedView, position ->
                         val deletedObj = regimenList.removeAt(position)
+                        parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
                         DrugDays.listOfId.add(deletedObj.id)
                         DrugDays.idPlaceholder -= 1
-
                         requestModelBuild()
                     }
                 }

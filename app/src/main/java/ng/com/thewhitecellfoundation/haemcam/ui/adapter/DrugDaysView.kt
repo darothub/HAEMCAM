@@ -37,6 +37,7 @@ class DrugDaysView @JvmOverloads constructor(
         binding.drugSpinner.hint = data?.hint + "-" + data?.id
         binding.drugSpinner.tag = data?.tag
         binding.daysTimeSpinner.tag = data?.tag
+        binding.daysTimeSpinner.hint = context.getString(R.string.cycle_days)
     }
 
     @CallbackProp
