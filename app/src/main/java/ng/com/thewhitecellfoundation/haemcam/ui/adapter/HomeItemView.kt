@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -28,5 +29,10 @@ open class HomeItemView @JvmOverloads constructor(
     fun setData(data: HomeItemData?) {
         data?.image?.let { binding.iconIv.setImageResource(it) }
         binding.titleTv.text = data?.title?.let { context.getString(it) }
+    }
+
+    @CallbackProp
+    fun setOnClick(listener: OnClickListener?) {
+        binding.root.setOnClickListener(listener)
     }
 }

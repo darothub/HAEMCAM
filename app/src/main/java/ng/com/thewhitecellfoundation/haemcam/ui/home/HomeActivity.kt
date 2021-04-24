@@ -13,6 +13,7 @@ import ng.com.thewhitecellfoundation.common.views.show
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 class HomeActivity : AppCompatActivity(), Navigator {
     private val binding by viewBinding(ActivityHomeBinding::inflate)
@@ -24,13 +25,33 @@ class HomeActivity : AppCompatActivity(), Navigator {
             when (destination.id) {
                 R.id.userInfoFragment -> {
                     binding.bottomNav.hide()
+                    binding.appbar.userGreetingsTv.show()
+                    binding.appbar.titleTv.hide()
+                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
                 }
                 R.id.userTreatmentFragment -> {
                     binding.bottomNav.hide()
+                    binding.appbar.userGreetingsTv.show()
+                    binding.appbar.titleTv.hide()
+                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
                 }
                 R.id.homeFragment -> {
                     binding.bottomNav.show()
                     binding.appbar.helpTv.setImageResource(R.drawable.ic_settings_icon)
+                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
+                    binding.appbar.userGreetingsTv.show()
+                    binding.appbar.titleTv.hide()
+                }
+                R.id.medicationsFragment -> {
+                    binding.bottomNav.show()
+                    binding.appbar.helpTv.setImageResource(R.drawable.ic_settings_icon)
+                    binding.appbar.userGreetingsTv.hide()
+                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_baseline_keyboard_backspace_24)
+                    binding.appbar.titleTv.text = getString(R.string.medication)
+                    binding.appbar.titleTv.show()
+                    binding.appbar.userImageIv.setOnClickListener {
+                        navigator.navController.popBackStack()
+                    }
                 }
             }
         }

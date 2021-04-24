@@ -20,4 +20,10 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.HomeFragment"
         android:label="home_fragment">
     </fragment>
+
+    <fragment
+        android:id="@+id/medicationsFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.Medications"
+        android:label="medications_fragment">
+    </fragment>
 </navigation>
