@@ -71,8 +71,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
 
                     onDeleteListener { model, parentView, clickedView, position ->
                         val deletedObj = otherList.removeAt(position)
-                        OtherDrugDays.listOfId.add(deletedObj.id)
-                        OtherDrugDays.idPlaceholder -= 1
+                        deletedObj.finalize()
                         parentView.binding.daysTimeSpinner.clearSelectedItem()
                         requestModelBuild()
                     }
@@ -115,10 +114,8 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     }
                     onDeleteListener { model, parentView, clickedView, position ->
                         val deletedObj = regimenList.removeAt(position)
+                        deletedObj.finalize()
                         parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
-                        DrugDays.listOfId.add(deletedObj.id)
-                        DrugDays.idPlaceholder -= 1
-                        Log.i("IDPLACEHOLDER", "${DrugDays.idPlaceholder}")
                         requestModelBuild()
                     }
                 }

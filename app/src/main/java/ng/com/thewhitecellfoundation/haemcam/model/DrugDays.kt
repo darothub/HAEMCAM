@@ -12,6 +12,7 @@ data class DrugDays(
     companion object {
         var idPlaceholder = 0.toLong()
         var listOfId = arrayListOf<Long>()
+        var listOfInstances = arrayListOf<DrugDays>()
     }
 
     init {
@@ -21,6 +22,14 @@ data class DrugDays(
             id = listOfId[0]
             listOfId.removeAt(0)
         }
+        listOfInstances.add(this)
+    }
+
+    fun finalize() {
+        val index = listOfInstances.indexOf(this)
+        listOfInstances.removeAt(index)
+        idPlaceholder -= 1
+        listOfId.add(this.id)
     }
 }
 
@@ -36,6 +45,7 @@ data class OtherDrugDays(
     companion object {
         var idPlaceholder = 0.toLong()
         var listOfId = arrayListOf<Long>()
+        var listOfInstances = arrayListOf<OtherDrugDays>()
     }
 
     init {
@@ -45,6 +55,13 @@ data class OtherDrugDays(
             id = listOfId[0]
             listOfId.removeAt(0)
         }
+        listOfInstances.add(this)
+    }
+    fun finalize() {
+        val index = listOfInstances.indexOf(this)
+        listOfInstances.removeAt(index)
+        idPlaceholder -= 1
+        listOfId.add(this.id)
     }
 }
 
