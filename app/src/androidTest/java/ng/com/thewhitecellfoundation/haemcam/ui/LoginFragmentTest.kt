@@ -14,6 +14,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.screenstest.EspressoTestsMatchers
+import ng.com.thewhitecellfoundation.haemcam.ui.main.LoginFragment
 import org.hamcrest.Matchers.allOf
 import org.junit.Before
 import org.junit.Test

@@ -5,6 +5,7 @@ plugins {
     id 'org.sonarqube'
     id "androidx.navigation.safeargs.kotlin"
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 
@@ -16,10 +17,18 @@ android {
     buildFeatures {
         viewBinding true
     }
-
+    kapt {
+        correctErrorTypes = true
+    }
     testOptions {
         unitTests.returnDefaultValues = true
         unitTests.includeAndroidResources = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 
     defaultConfig {
@@ -43,6 +52,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -75,8 +85,11 @@ dependencies {
         // androidx.appcompat as a dependency in your app.
         exclude group: 'androidx.appcompat', module: 'appcompat'
     }
+    coreLibraryDesugaring coreLibDesugaring
+
 
     implementation libs
+    kapt kaptLib
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
     debugImplementation debugLibraries

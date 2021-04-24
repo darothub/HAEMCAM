@@ -7,7 +7,7 @@
     android:background="@color/primaryVariant"
     android:paddingStart="@dimen/_20sdp"
     android:paddingEnd="@dimen/_20sdp"
-    tools:context=".ui.WelcomeFragment">
+    tools:context=".ui.main.WelcomeFragment">
 
     <ImageView
         android:id="@+id/success_icon"
@@ -46,10 +46,10 @@
         android:textSize="@dimen/_12sdp"/>
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/continue_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/primary_color"
+        android:background="@drawable/rounded_corner_primary_purple"
         android:text="@string/continue_str"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"

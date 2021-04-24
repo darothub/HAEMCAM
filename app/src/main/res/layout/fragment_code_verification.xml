@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.CodeVerificationFragment">
+    tools:context=".ui.main.CodeVerificationFragment">
     <TextView
         android:id="@+id/title"
         android:text="@string/verify_your_number"
@@ -65,7 +65,7 @@
                 android:inputType="number"
                 android:layoutDirection="ltr"
                 android:maxLength="4"
-                android:textColor="@color/primary_color"
+                android:textColor="@color/primaryColor"
                 android:textIsSelectable="false"
                 android:textSize="16sp"
                 android:layout_gravity="bottom"

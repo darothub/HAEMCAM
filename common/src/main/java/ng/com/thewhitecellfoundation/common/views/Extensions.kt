@@ -6,25 +6,21 @@ import android.graphics.PorterDuffColorFilter
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.skydoves.powerspinner.PowerSpinnerView
 
 @SuppressLint("ClickableViewAccessibility")
-fun EditText.customOnTouchListener(action: () -> Unit) {
+fun TextView.customOnDrawableRightListener(action: () -> Unit) {
     setOnTouchListener { _, event ->
-        drawableRightClickListener(event, action)
-    }
-}
-fun EditText.drawableRightClickListener(event: MotionEvent, action: () -> Unit): Boolean {
-    val DRAWABLE_RIGHT = 2
-    if (event.action == MotionEvent.ACTION_UP) {
-        if (event.rawX >= right - compoundDrawables[DRAWABLE_RIGHT].bounds.width()
-        ) {
-            action.invoke()
-            return true
+        if (event.action == MotionEvent.ACTION_UP) {
+            if (event.rawX >= right - totalPaddingRight) {
+                action.invoke()
+                true
+            }
         }
+        true
     }
-    return false
 }
 
 fun pressedEvent(
@@ -52,9 +48,9 @@ fun pressedEvent(
 fun View.hide(): Boolean {
     if (this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE) {
         this.visibility = View.GONE
-        return false
+        return true
     }
-    return this.visibility == View.GONE
+    return false
 }
 
 /**
@@ -64,9 +60,9 @@ fun View.hide(): Boolean {
 fun View.show(): Boolean {
     if (this.visibility == View.INVISIBLE || this.visibility == View.GONE) {
         this.visibility = View.VISIBLE
-        return false
+        return true
     }
-    return this.visibility == View.VISIBLE
+    return false
 }
 /**
  * Invisible view
@@ -75,7 +71,13 @@ fun View.show(): Boolean {
 fun View.invisible(): Boolean {
     if (this.visibility == View.VISIBLE || this.visibility == View.GONE) {
         this.visibility = View.INVISIBLE
-        return false
+        return true
     }
-    return this.visibility == View.INVISIBLE
+    return false
+}
+
+fun dismissPowerViewDropDown(vararg views: PowerSpinnerView?) {
+    views.forEach {
+        it?.dismiss()
+    }
 }

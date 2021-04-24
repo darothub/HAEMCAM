@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/whitecell_flower_min_compressed"
-        tools:context=".ui.LoginFragment">
+        tools:context=".ui.main.LoginFragment">
 
         <!-- Add guideline to align title to. -->
         <androidx.constraintlayout.widget.Guideline
@@ -98,7 +98,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email_input"
-                    style="@style/TextInputLayout.CustomLabel"
+                    style="@style/TextInputLayout.LabelWhiteApp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -162,7 +162,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/number_form_guideline"
                     app:layout_constraintTop_toTopOf="parent"
-                    style="@style/TextInputLayout.CustomLabel"
+                    style="@style/TextInputLayout.LabelWhiteApp"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_phone_number_et"
@@ -182,7 +182,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_input"
-            style="@style/TextInputLayout.CustomLabel"
+            style="@style/TextInputLayout.LabelWhiteApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_20sdp"

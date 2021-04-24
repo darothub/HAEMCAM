@@ -7,7 +7,7 @@ import com.google.android.material.textfield.TextInputEditText
  * @param respond
  * @param edits
  */
-class Validation private constructor(
+open class Validation constructor(
     var respond: Pair<CustomEditTextField, TextInputEditText?>,
     vararg var edits: Pair<CustomEditTextField, TextInputEditText?>
 ) {
