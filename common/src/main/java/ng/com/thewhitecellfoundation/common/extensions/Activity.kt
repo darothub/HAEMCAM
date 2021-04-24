@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.*
-import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 fun Activity.hideSystemUI() {
 
@@ -31,10 +30,10 @@ fun Activity.hideSystemUI() {
                     {
                         @Suppress("DEPRECATION")
                         window.decorView.systemUiVisibility = (
-                                View.SYSTEM_UI_FLAG_FULLSCREEN
-                                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            View.SYSTEM_UI_FLAG_FULLSCREEN
+                                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 
-                                )
+                            )
                     },
                     3000
                 )
@@ -42,4 +41,3 @@ fun Activity.hideSystemUI() {
         }
     }
 }
-
