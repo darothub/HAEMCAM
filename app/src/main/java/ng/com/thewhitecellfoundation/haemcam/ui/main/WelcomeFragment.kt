@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
+import ng.com.thewhitecellfoundation.common.extensions.changeBackgroundColor
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentWelcomeBinding

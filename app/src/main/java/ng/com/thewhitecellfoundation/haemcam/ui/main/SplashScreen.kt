@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import ng.com.thewhitecellfoundation.common.activity.hideSystemUI
+import hideSystemUI
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

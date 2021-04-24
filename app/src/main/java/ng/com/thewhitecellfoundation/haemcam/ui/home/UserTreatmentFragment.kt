@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.powerspinner.PowerSpinnerView
-import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -17,6 +16,7 @@ import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import ru.slybeaver.slycalendarview.SlyCalendarDialog
 import java.text.SimpleDateFormat
 import java.util.*

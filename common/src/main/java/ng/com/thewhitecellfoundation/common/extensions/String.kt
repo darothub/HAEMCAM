@@ -1,4 +1,5 @@
-package ng.com.thewhitecellfoundation.common.string
+package ng.com.thewhitecellfoundation.common.extensions
+
 
 import android.text.*
 import android.text.method.LinkMovementMethod

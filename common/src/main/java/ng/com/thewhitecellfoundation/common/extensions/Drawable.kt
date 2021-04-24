@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.common.drawable
+package ng.com.thewhitecellfoundation.common.extensions
 
 import android.content.Context
 import android.graphics.PorterDuff

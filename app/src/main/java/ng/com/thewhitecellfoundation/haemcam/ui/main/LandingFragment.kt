@@ -8,13 +8,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
-import ng.com.thewhitecellfoundation.common.fragment.navigator
+import ng.com.thewhitecellfoundation.common.extensions.changeBackgroundColor
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.pressedEvent
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLandingBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 class LandingFragment : Fragment(R.layout.fragment_landing) {
     private var shortAnimationDuration: Int = 0

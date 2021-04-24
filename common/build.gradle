@@ -83,7 +83,7 @@ tasks.withType(Test) {
 }
 
 dependencies {
-    implementation project(":navigation")
+
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
     implementation libs
     coreLibraryDesugaring coreLibDesugaring

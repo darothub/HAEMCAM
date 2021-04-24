@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import ng.com.thewhitecellfoundation.common.string.setPartialSpan
+import ng.com.thewhitecellfoundation.common.extensions.setPartialSpan
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentCodeVerificationBinding

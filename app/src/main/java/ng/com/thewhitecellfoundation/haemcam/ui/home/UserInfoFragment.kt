@@ -3,13 +3,13 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import ng.com.thewhitecellfoundation.common.fragment.navigator
-import ng.com.thewhitecellfoundation.common.fragment.onBackDispatcher
+import ng.com.thewhitecellfoundation.common.extensions.onBackDispatcher
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserInfoBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
  * A simple [Fragment] subclass.
