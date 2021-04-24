@@ -96,6 +96,8 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         regimenList.add(obj)
                         regimenList.sortBy { it.id }
                         Log.i("Regimen-List", "$regimenList")
+
+                        Log.i("IDPLACEHOLDER", "${DrugDays.idPlaceholder}")
                         requestModelBuild()
                     }
 
@@ -115,6 +117,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
                         DrugDays.listOfId.add(deletedObj.id)
                         DrugDays.idPlaceholder -= 1
+                        Log.i("IDPLACEHOLDER", "${DrugDays.idPlaceholder}")
                         requestModelBuild()
                     }
                 }
