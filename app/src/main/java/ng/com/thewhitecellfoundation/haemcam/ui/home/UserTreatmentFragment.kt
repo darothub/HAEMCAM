@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.powerspinner.PowerSpinnerView
+import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -182,5 +183,12 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                 }
             })
             .show(requireActivity().supportFragmentManager, "TAG_SLYCALENDAR")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.nextBtn.setOnClickListener {
+            navigator.goto(R.id.homeFragment)
+        }
     }
 }

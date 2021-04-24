@@ -3,6 +3,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.fragment.onBackDispatcher
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
@@ -23,7 +24,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
         super.onViewCreated(view, savedInstanceState)
 
         onBackDispatcher {
-            (requireActivity() as Navigator).navController.popBackStack()
+            navigator.navController.popBackStack()
         }
 
         binding.nextBtn.setOnClickListener {

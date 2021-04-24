@@ -5,11 +5,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.string.setPartialSpan
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentMobileVerificationBinding
-import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 /**
  * A simple [Fragment] subclass.
@@ -39,7 +39,7 @@ class MobileVerificationFragment : Fragment(R.layout.fragment_mobile_verificatio
             setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
         }
         binding.btnPbar.btn.setOnClickListener {
-            (requireActivity() as Navigator).goto(R.id.codeVerificationFragment)
+            navigator.goto(R.id.codeVerificationFragment)
         }
     }
 }

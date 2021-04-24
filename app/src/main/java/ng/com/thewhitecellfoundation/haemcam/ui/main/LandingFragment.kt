@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.drawable.changeBackgroundColor
+import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.pressedEvent
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -54,7 +55,7 @@ class LandingFragment : Fragment(R.layout.fragment_landing) {
         }
         binding.signUpBtn.setOnClickListener {
             binding.signUpBtn.background.changeBackgroundColor(requireContext(), R.color.primaryColor)
-            (requireActivity() as Navigator).goto(R.id.createAccountFragment)
+            navigator.goto(R.id.createAccountFragment)
         }
 
         crossfade()

@@ -9,13 +9,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
+import ng.com.thewhitecellfoundation.common.fragment.navigator
 import ng.com.thewhitecellfoundation.common.utils.CustomEditTextField
 import ng.com.thewhitecellfoundation.common.utils.Validation
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLoginBinding
-import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 /**
  * A simple [Fragment] subclass.
@@ -41,7 +41,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
         }
         binding.signupTv.setOnClickListener {
-            (requireActivity() as Navigator).goto(R.id.createAccountFragment)
+            navigator.goto(R.id.createAccountFragment)
         }
 
         binding.btnPbar.btn.setOnClickListener {

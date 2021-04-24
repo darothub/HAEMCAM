@@ -5,7 +5,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.*
-import ng.com.thewhitecellfoundation.common.R
+import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 fun Activity.hideSystemUI() {
 
@@ -42,3 +42,5 @@ fun Activity.hideSystemUI() {
         }
     }
 }
+
+val Activity.navigator: Navigator get() = this as Navigator

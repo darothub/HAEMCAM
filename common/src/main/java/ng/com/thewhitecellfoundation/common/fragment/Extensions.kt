@@ -2,6 +2,8 @@ package ng.com.thewhitecellfoundation.common.fragment
 
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.activity.navigator
+import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 fun Fragment.onBackDispatcher(action: () -> Unit) {
     requireActivity().onBackPressedDispatcher?.addCallback(
@@ -14,3 +16,4 @@ fun Fragment.onBackDispatcher(action: () -> Unit) {
         }
     )
 }
+val Fragment.navigator: Navigator get() = requireActivity().navigator
