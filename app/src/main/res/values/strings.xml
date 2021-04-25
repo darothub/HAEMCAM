@@ -22,13 +22,13 @@
     <string name="hospital">HOSPITAL</string>
     <string name="doctor">DOCTOR</string>
     <string name="next">Next</string>
-    <string name="regimen">REGIMEN</string>
+    <string name="regimen" translatable="false">REGIMEN</string>
     <string name="gender">GENDER</string>
-    <string name="chemo_drug">CHEMOTHERAPY DRUG </string>
-    <string name="cycle_days">CYCLE DAYS</string>
-    <string name="days_cycle">DAYS IN CYCLE</string>
-    <string name="other_drugs">OTHER DRUGS</string>
-    <string name="time_of_medication">TIME OF MEDICATION</string>
+    <string name="chemo_drug" translatable="false">CHEMOTHERAPY DRUG </string>
+    <string name="cycle_days" translatable="false">CYCLE DAYS</string>
+    <string name="days_cycle" translatable="false">DAYS IN CYCLE</string>
+    <string name="other_drugs" translatable="false">OTHER DRUGS</string>
+    <string name="time_of_medication" translatable="false">TIME OF MEDICATION</string>
     <string name="skip">Skip</string>
     <string name="lets_get_to_know_you_understand">Let\'s get to know you understand and monitor your treatment</string>
     <string name="title_activity_bio">BioActivity</string>

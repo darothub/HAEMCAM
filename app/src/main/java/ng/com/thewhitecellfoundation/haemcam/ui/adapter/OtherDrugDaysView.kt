@@ -33,10 +33,10 @@ class OtherDrugDaysView @JvmOverloads constructor(
     @ModelProp
     fun setData(data: OtherDrugDays?) {
         Log.i("ID2", "${data?.id}")
-        val id = data?.id?.plus(1.toLong())
         data?.drug?.let { binding.drugSpinner.setItems(it) }
-        binding.drugSpinner.tag = data?.tag
-        binding.daysTimeSpinner.tag = data?.tag
+        val tag = data?.tag?.let { context.getString(it) }
+        binding.drugSpinner.tag = tag
+        binding.daysTimeSpinner.tag = tag
     }
 
     @CallbackProp

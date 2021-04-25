@@ -1,10 +1,13 @@
 package ng.com.thewhitecellfoundation.haemcam.model
 
+import androidx.annotation.ArrayRes
+import androidx.annotation.StringRes
+
 data class DrugDays(
-    override var tag: String? = null,
-    override var drug: Int? = null,
-    override val days: Int? = null,
-    override var hint: String? = null,
+    @StringRes override var tag: Int? = null,
+    @ArrayRes override var drug: Int? = null,
+    @ArrayRes override val days: Int? = null,
+    @StringRes override var hint: Int? = null,
     override var dataPair: DataPair? = null,
     override var id: Long = 0,
 ) : DrugDaysBase {
@@ -12,7 +15,7 @@ data class DrugDays(
     companion object {
         var idPlaceholder = 0.toLong()
         var listOfId = arrayListOf<Long>()
-        var listOfInstances = arrayListOf<DrugDays>()
+        var listOfChemoTherapy = arrayListOf<DrugDays>()
     }
 
     init {
@@ -22,22 +25,22 @@ data class DrugDays(
             id = listOfId[0]
             listOfId.removeAt(0)
         }
-        listOfInstances.add(this)
+        listOfChemoTherapy.add(this)
     }
 
     fun finalize() {
-        val index = listOfInstances.indexOf(this)
-        listOfInstances.removeAt(index)
+        val index = listOfChemoTherapy.indexOf(this)
+        listOfChemoTherapy.removeAt(index)
         idPlaceholder -= 1
         listOfId.add(this.id)
     }
 }
 
 data class OtherDrugDays(
-    override var tag: String? = null,
-    override var drug: Int? = null,
-    override val days: Int? = null,
-    override var hint: String? = null,
+    @StringRes override var tag: Int? = null,
+    @ArrayRes override var drug: Int? = null,
+    @ArrayRes override val days: Int? = null,
+    @StringRes override var hint: Int? = null,
     override var dataPair: DataPair? = null,
     override var id: Long = 0
 ) : DrugDaysBase {
@@ -45,7 +48,7 @@ data class OtherDrugDays(
     companion object {
         var idPlaceholder = 0.toLong()
         var listOfId = arrayListOf<Long>()
-        var listOfInstances = arrayListOf<OtherDrugDays>()
+        var listOfOtherDrugs = arrayListOf<OtherDrugDays>()
     }
 
     init {
@@ -55,11 +58,11 @@ data class OtherDrugDays(
             id = listOfId[0]
             listOfId.removeAt(0)
         }
-        listOfInstances.add(this)
+        listOfOtherDrugs.add(this)
     }
     fun finalize() {
-        val index = listOfInstances.indexOf(this)
-        listOfInstances.removeAt(index)
+        val index = listOfOtherDrugs.indexOf(this)
+        listOfOtherDrugs.removeAt(index)
         idPlaceholder -= 1
         listOfId.add(this.id)
     }
@@ -67,10 +70,10 @@ data class OtherDrugDays(
 
 interface DrugDaysBase {
     var id: Long
-    var tag: String?
+    var tag: Int?
     var drug: Int?
     val days: Int?
-    var hint: String?
+    var hint: Int?
     var dataPair: DataPair?
 }
 //
