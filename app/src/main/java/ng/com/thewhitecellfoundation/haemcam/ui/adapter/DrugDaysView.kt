@@ -9,7 +9,7 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
-import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
+import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays

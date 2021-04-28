@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.common.views
+package ng.com.thewhitecellfoundation.common.extensions
 
 import android.annotation.SuppressLint
 import android.graphics.PorterDuff

@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.powerspinner.PowerSpinnerView
+import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
-import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DataPair
@@ -61,7 +61,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     }
 
                     onDeleteListener { model, parentView, clickedView, position ->
-                        model?.data()?.finalize()
+                        model?.data()?.remove
                         parentView.binding.daysTimeSpinner.clearSelectedItem()
                         requestModelBuild()
                     }
@@ -97,7 +97,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         showDateTimeDialog(date, clickedView)
                     }
                     onDeleteListener { model, parentView, clickedView, position ->
-                        model.data()?.finalize()
+                        model.data()?.remove
                         parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
                         requestModelBuild()
                     }

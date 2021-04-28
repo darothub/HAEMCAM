@@ -55,4 +55,9 @@
     <string name="period" translatable="false">%1$s – %2$s</string>
     <string name="book_appointment">Book an appointment</string>
     <string name="no_medication_yet">No medication yet</string>
+    <string name="please_select_any">Please select any of the services you want</string>
+    <string name="chemotherapy">Chemotherapy</string>
+    <string name="other_drug">Other Drug</string>
+    <string name="side_effect_reporting">Side effect reporting</string>
+    <string name="schedule_next_treatment">Schedule for next treatment</string>
 </resources>

@@ -33,14 +33,12 @@
             app:layout_constraintEnd_toEndOf="parent"/>
         <Button
             android:id="@+id/book_appointment_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_purple"
+            style="@style/ButtonStyle"
             android:text="@string/book_appointment"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
             android:elevation="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
+            android:paddingStart="@dimen/_40sdp"
+            android:paddingEnd="@dimen/_40sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 

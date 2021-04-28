@@ -28,12 +28,13 @@ data class DrugDays(
         listOfChemoTherapy.add(this)
     }
 
-    fun finalize() {
-        val index = listOfChemoTherapy.indexOf(this)
-        listOfChemoTherapy.removeAt(index)
-        idPlaceholder -= 1
-        listOfId.add(this.id)
-    }
+    val remove: Unit
+        get() {
+            val index = listOfChemoTherapy.indexOf(this)
+            listOfChemoTherapy.removeAt(index)
+            idPlaceholder -= 1
+            listOfId.add(this.id)
+        }
 }
 
 data class OtherDrugDays(
@@ -60,12 +61,14 @@ data class OtherDrugDays(
         }
         listOfOtherDrugs.add(this)
     }
-    fun finalize() {
-        val index = listOfOtherDrugs.indexOf(this)
-        listOfOtherDrugs.removeAt(index)
-        idPlaceholder -= 1
-        listOfId.add(this.id)
-    }
+
+    val remove: Unit
+        get() {
+            val index = listOfOtherDrugs.indexOf(this)
+            listOfOtherDrugs.removeAt(index)
+            idPlaceholder -= 1
+            listOfId.add(this.id)
+        }
 }
 
 interface DrugDaysBase {
