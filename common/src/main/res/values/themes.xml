@@ -118,14 +118,16 @@
         <item name="selectedColor">@color/primaryVariant</item>
     </style>
 
-    <style name="PickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/white</item>
-        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
-        <item name="android:colorAccent">@color/primaryColor</item>
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/primaryColor</item>
     </style>
-        <style name="DatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
-        <item name="android:calendarTextColor">@color/primaryColor</item>
-        <item name="android:datePickerMode">calendar</item>
-        <item name="android:minDate">01/01/2000</item>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
