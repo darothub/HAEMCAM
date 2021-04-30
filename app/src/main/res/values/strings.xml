@@ -22,13 +22,13 @@
     <string name="hospital">HOSPITAL</string>
     <string name="doctor">DOCTOR</string>
     <string name="next">Next</string>
-    <string name="regimen">REGIMEN</string>
+    <string name="regimen" translatable="false">REGIMEN</string>
     <string name="gender">GENDER</string>
-    <string name="chemo_drug">CHEMOTHERAPY DRUG </string>
-    <string name="cycle_days">CYCLE DAYS</string>
-    <string name="days_cycle">DAYS IN CYCLE</string>
-    <string name="other_drugs">OTHER DRUGS</string>
-    <string name="time_of_medication">TIME OF MEDICATION</string>
+    <string name="chemo_drug" translatable="false">CHEMOTHERAPY DRUG </string>
+    <string name="cycle_days" translatable="false">CYCLE DAYS</string>
+    <string name="days_cycle" translatable="false">DAYS IN CYCLE</string>
+    <string name="other_drugs" translatable="false">OTHER DRUGS</string>
+    <string name="time_of_medication" translatable="false">TIME OF MEDICATION</string>
     <string name="skip">Skip</string>
     <string name="lets_get_to_know_you_understand">Let\'s get to know you understand and monitor your treatment</string>
     <string name="title_activity_bio">BioActivity</string>
@@ -53,4 +53,11 @@
     <string name="dateFormat" translatable="false">EE, dd MMM</string>
     <string name="timeFormat" translatable="false">EE, dd MMM HH:mm</string>
     <string name="period" translatable="false">%1$s – %2$s</string>
+    <string name="book_appointment">Book an appointment</string>
+    <string name="no_medication_yet">No medication yet</string>
+    <string name="please_select_any">Please select any of the services you want</string>
+    <string name="chemotherapy">Chemotherapy</string>
+    <string name="other_drug">Other Drug</string>
+    <string name="side_effect_reporting">Side effect reporting</string>
+    <string name="schedule_next_treatment">Schedule for next treatment</string>
 </resources>

@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.powerspinner.PowerSpinnerView
+import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
-import ng.com.thewhitecellfoundation.common.views.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DataPair
@@ -32,46 +32,36 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val otherDrugTitle = getString(R.string.other_drugs)
+
         val regimenTitle = getString(R.string.regimen)
-        val firstObj = DrugDays(
-            regimenTitle, R.array.diagnosis, null, getString(R.string.chemo_drug),
+        val firstRegimenChemo = DrugDays(
+            R.string.regimen, R.array.regimen, null, R.string.chemo_drug,
             DataPair("", "")
         )
 
-        Log.i("FirstObj-id", "$firstObj")
-        val regimenList = arrayListOf(firstObj)
-        val otherList = arrayListOf(
-            OtherDrugDays(
-                otherDrugTitle, R.array.diagnosis, R.array.medication_time, getString(R.string.other_drugs),
-                DataPair("", "")
-            ),
+        val firstOtherDrugDrug = OtherDrugDays(
+            R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
+            DataPair("", "")
         )
 
         binding.otherDrugErcv.withModels {
-            otherList.forEach { dd ->
+            OtherDrugDays.listOfOtherDrugs.forEach { dd ->
 
                 otherDrugDaysView {
                     id(dd.id)
                     data(dd)
                     binding.otherDrugTitleTv.customOnDrawableRightListener {
                         val obj = OtherDrugDays(
-                            otherDrugTitle,
-                            R.array.diagnosis,
-                            R.array.medication_time,
-                            getString(R.string.other_drugs),
+                            R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
                             DataPair("", "")
                         )
-                        otherList.add(obj)
-                        otherList.sortBy { it.id }
-                        Log.i("other-list", "$otherList")
 
+                        OtherDrugDays.listOfOtherDrugs.sortBy { it.id }
                         requestModelBuild()
                     }
 
                     onDeleteListener { model, parentView, clickedView, position ->
-                        val deletedObj = otherList.removeAt(position)
-                        deletedObj.finalize()
+                        model?.data()?.remove
                         parentView.binding.daysTimeSpinner.clearSelectedItem()
                         requestModelBuild()
                     }
@@ -80,24 +70,18 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         }
 
         binding.regimenErcv.withModels {
-            regimenList.forEach { dd ->
+            DrugDays.listOfChemoTherapy.forEach { dd ->
                 Log.i("IDS", "${dd.id}")
                 drugDaysView {
                     id(dd.id)
                     data(dd)
                     binding.regimenTitleTv.customOnDrawableRightListener {
                         val obj = DrugDays(
-                            regimenTitle,
-                            R.array.regimen,
-                            null,
-                            getString(R.string.chemo_drug),
+                            R.string.regimen, R.array.regimen, null, R.string.chemo_drug,
                             DataPair("", "")
                         )
-                        regimenList.add(obj)
-                        regimenList.sortBy { it.id }
-                        Log.i("Regimen-List", "$regimenList")
-
-                        Log.i("IDPLACEHOLDER", "${DrugDays.idPlaceholder}")
+                        Log.i("Object", "$obj")
+                        DrugDays.listOfChemoTherapy.sortBy { it.id }
                         requestModelBuild()
                     }
 
@@ -113,8 +97,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         showDateTimeDialog(date, clickedView)
                     }
                     onDeleteListener { model, parentView, clickedView, position ->
-                        val deletedObj = regimenList.removeAt(position)
-                        deletedObj.finalize()
+                        model.data()?.remove
                         parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
                         requestModelBuild()
                     }

@@ -9,7 +9,7 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
-import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
+import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
@@ -33,10 +33,10 @@ class OtherDrugDaysView @JvmOverloads constructor(
     @ModelProp
     fun setData(data: OtherDrugDays?) {
         Log.i("ID2", "${data?.id}")
-        val id = data?.id?.plus(1.toLong())
         data?.drug?.let { binding.drugSpinner.setItems(it) }
-        binding.drugSpinner.tag = data?.tag
-        binding.daysTimeSpinner.tag = data?.tag
+        val tag = data?.tag?.let { context.getString(it) }
+        binding.drugSpinner.tag = tag
+        binding.daysTimeSpinner.tag = tag
     }
 
     @CallbackProp

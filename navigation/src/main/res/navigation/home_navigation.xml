@@ -20,4 +20,20 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.HomeFragment"
         android:label="home_fragment">
     </fragment>
+
+    <fragment
+        android:id="@+id/medicationsFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.Medications"
+        android:label="medications_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.ServicesFragment"
+        android:label="services_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/chemoTherapyFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoTherapyInfo"
+        android:label="chemotherapy_fragment">
+    </fragment>
 </navigation>

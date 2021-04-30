@@ -8,6 +8,7 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentHomeBinding
 import ng.com.thewhitecellfoundation.haemcam.model.HomeItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.homeItemView
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
  * A simple [Fragment] subclass.
@@ -33,6 +34,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     id(hid.id)
                     data(hid)
                     spanSizeOverride { totalSpanCount, _, _ -> totalSpanCount / 2 }
+
+                    onClick { model, parentView, clickedView, position ->
+                        navigator.goto(R.id.medicationsFragment)
+                    }
                 }
             }
         }

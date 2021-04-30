@@ -3,9 +3,9 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.common.extensions.onBackDispatcher
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
-import ng.com.thewhitecellfoundation.common.views.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserInfoBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator

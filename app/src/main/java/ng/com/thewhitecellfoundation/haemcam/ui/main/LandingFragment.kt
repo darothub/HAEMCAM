@@ -9,8 +9,8 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.extensions.changeBackgroundColor
+import ng.com.thewhitecellfoundation.common.extensions.pressedEvent
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
-import ng.com.thewhitecellfoundation.common.views.pressedEvent
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLandingBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
