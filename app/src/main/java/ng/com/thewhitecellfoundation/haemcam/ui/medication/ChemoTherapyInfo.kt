@@ -20,7 +20,7 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val chemoTestString = arrayListOf<ChemoDrugTest>(ChemoDrugTest(1, "Drug 1"), ChemoDrugTest(2, "Drug 2"))
+        val chemoTestString = arrayListOf(ChemoDrugTest(1, "Drug 1"), ChemoDrugTest(2, "Drug 2"))
 
         binding.chemodrugErcv.withModels {
             chemoTestString.forEach { cdt ->
@@ -30,6 +30,7 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
                 }
             }
         }
+        binding.calendar.isEnabled = false
     }
 }
 

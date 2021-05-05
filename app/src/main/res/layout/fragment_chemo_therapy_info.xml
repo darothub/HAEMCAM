@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/white"
-        android:padding="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
         tools:context=".ui.medication.ChemoTherapyInfo">
 
         <TextView
@@ -28,7 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.036" />
+            app:layout_constraintStart_toStartOf="@id/ring_view_heading"
+            app:layout_constraintGuide_begin="@dimen/_10sdp"
+
+            />
 
         <ng.com.thewhitecellfoundation.common.views.RingView
             android:id="@+id/ring_view_heading"
@@ -36,8 +40,9 @@
             android:layout_height="wrap_content"
             app:outer_color="@color/primaryColor"
             app:inner_color="@color/haecamCream"
-            app:size="55dp"
+            app:size="@dimen/_40sdp"
             android:elevation="20dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_tv"
 
@@ -45,19 +50,20 @@
 
         <View
             android:id="@+id/vertical_line"
-            android:layout_width="2dp"
+            android:layout_width="@dimen/_2sdp"
             android:layout_height="@dimen/_100sdp"
             android:background="@color/black"
             app:layout_constraintStart_toStartOf="@id/ring_view_heading"
             app:layout_constraintEnd_toEndOf="@id/ring_view_heading"
             app:layout_constraintTop_toTopOf="@id/ring_view_heading"
             android:layout_marginTop="@dimen/_20sdp"
+
             />
 
         <View
             android:id="@+id/text_heading_bg_view"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="@dimen/_40sdp"
             android:background="@color/haecamGrey"
             app:layout_constraintTop_toTopOf="@id/vertical_line"
             app:layout_constraintStart_toEndOf="@id/vertical_line"
@@ -67,6 +73,7 @@
             android:id="@+id/chemo_drug_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintStart_toStartOf="@id/text_heading_bg_view"
             android:layout_marginStart="@dimen/_20sdp"
             app:layout_constraintTop_toTopOf="@id/text_heading_bg_view"
@@ -78,13 +85,13 @@
             android:id="@+id/chemodrug_ercv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/text_heading_bg_view"
-            android:layout_marginTop="@dimen/_5sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/chemodrug_item_layout"
             tools:itemCount="3"
-            android:orientation="vertical"/>
+            tools:listitem="@layout/chemodrug_item_layout" />
 
         <TextView
             android:id="@+id/schedule_tv"
@@ -95,18 +102,22 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:textColor="@color/primaryColor"
-            android:textSize="14sp"
+            android:textSize="@dimen/_12sdp"
             android:text="@string/schedule_next_treatment"/>
 
-        <CalendarView
-            android:layout_width="wrap_content"
+        <com.applandeo.materialcalendarview.CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/schedule_tv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:theme="@style/CalenderViewCustom"
-            android:dateTextAppearance="@style/CalenderViewDateCustomText"
-            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+            app:headerColor="@color/white"
+            app:headerLabelColor="@color/black"
+            app:todayLabelColor="@color/primaryVariant"
+            app:previousButtonSrc="@drawable/ic_keyboard_arrow_left_24"
+            app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right_24"
+            
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
