@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity(), Navigator {
         setContentView(view)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
-//
     }
 
     override fun onResume() {
