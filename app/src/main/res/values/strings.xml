@@ -60,4 +60,7 @@
     <string name="other_drug">Other Drug</string>
     <string name="side_effect_reporting">Side effect reporting</string>
     <string name="schedule_next_treatment">Schedule for next treatment</string>
+    <string name="choose_date">Choose date</string>
+    <string name="chop">CHOP</string>
+    <string name="done">Done</string>
 </resources>

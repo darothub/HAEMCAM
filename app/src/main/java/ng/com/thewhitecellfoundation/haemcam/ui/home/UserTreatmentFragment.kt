@@ -5,8 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.skydoves.powerspinner.PowerSpinnerView
+import com.applandeo.materialcalendarview.CalendarView
+import com.applandeo.materialcalendarview.DatePicker
+import com.applandeo.materialcalendarview.builders.DatePickerBuilder
+import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -17,8 +22,6 @@ import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
-import ru.slybeaver.slycalendarview.SlyCalendarDialog
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -27,22 +30,16 @@ import java.util.*
  * create an instance of this fragment.
  */
 class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
+    lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
+
     private val binding by viewBinding(FragmentUserTreamentBinding::bind)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val regimenTitle = getString(R.string.regimen)
-        val firstRegimenChemo = DrugDays(
-            R.string.regimen, R.array.regimen, null, R.string.chemo_drug,
-            DataPair("", "")
-        )
-
-        val firstOtherDrugDrug = OtherDrugDays(
-            R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
-            DataPair("", "")
-        )
+        behavior = BottomSheetBehavior.from(binding.bs.root)
+        behavior.state = BottomSheetBehavior.STATE_HIDDEN
 
         binding.otherDrugErcv.withModels {
             OtherDrugDays.listOfOtherDrugs.forEach { dd ->
@@ -52,7 +49,10 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                     data(dd)
                     binding.otherDrugTitleTv.customOnDrawableRightListener {
                         val obj = OtherDrugDays(
-                            R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
+                            R.string.other_drugs,
+                            R.array.diagnosis,
+                            R.array.medication_time,
+                            R.string.other_drugs,
                             DataPair("", "")
                         )
 
@@ -62,7 +62,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
 
                     onDeleteListener { model, parentView, clickedView, position ->
                         model?.data()?.remove
-                        parentView.binding.daysTimeSpinner.clearSelectedItem()
+//                        parentView.binding.daysTimeSpinner.clearSelectedItem()
                         requestModelBuild()
                     }
                 }
@@ -84,6 +84,12 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         DrugDays.listOfChemoTherapy.sortBy { it.id }
                         requestModelBuild()
                     }
+                    getDrugData { oldIndex, oldItem, newIndex, newItem ->
+//                        if(newItem == getString(R.string.chop)){
+//
+//                        }
+                        behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                    }
 
                     getDaysTimeData { model, parentView, clickedView, position ->
 
@@ -96,9 +102,9 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         Toast.makeText(context, "$date", Toast.LENGTH_SHORT).show()
                         showDateTimeDialog(date, clickedView)
                     }
-                    onDeleteListener { model, parentView, clickedView, position ->
+                    onDeleteListener { model, parentView, _, _ ->
                         model.data()?.remove
-                        parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
+//                        parentView.binding.daysTimeSpinner.hint = getString(R.string.cycle_days)
                         requestModelBuild()
                     }
                 }
@@ -107,62 +113,15 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     }
 
     private fun showDateTimeDialog(date: Date, clickedView: View?) {
-        SlyCalendarDialog()
-            .setSingle(false)
-            .setHeaderColor(R.color.primaryVariant)
-            .setTimeTheme(R.style.SlyCalendarViewTimeTextTheme)
-            .setTextColor(R.color.primaryColor)
-            .setSelectedTextColor(R.color.primaryVariant)
-            .setSelectedColor(R.color.primaryVariant)
-            .setStartDate(date)
-            .setCallback(object : SlyCalendarDialog.Callback {
-                override fun onCancelled() {
-                    Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onDataSelected(
-                    firstDate: Calendar?,
-                    secondDate: Calendar?,
-                    hours: Int,
-                    minutes: Int
-                ) {
-                    if (firstDate != null) {
-                        if (secondDate == null) {
-                            firstDate[Calendar.HOUR_OF_DAY] = hours
-                            firstDate[Calendar.MINUTE] = minutes
-                            val readableSingleDate = SimpleDateFormat(
-                                getString(R.string.timeFormat),
-                                Locale.getDefault()
-                            ).format(firstDate.time)
-                            (clickedView as PowerSpinnerView).hint =
-                                readableSingleDate
-                        } else {
-                            secondDate[Calendar.HOUR_OF_DAY] = hours
-                            secondDate[Calendar.MINUTE] = minutes
-                            val readableDateRange = getString(
-                                R.string.period,
-                                SimpleDateFormat(
-                                    getString(R.string.dateFormat),
-                                    Locale.getDefault()
-                                ).format(firstDate.time),
-                                SimpleDateFormat(
-                                    getString(R.string.timeFormat),
-                                    Locale.getDefault()
-                                ).format(secondDate.time)
-                            )
-
-                            (clickedView as PowerSpinnerView).hint =
-                                readableDateRange
-                            Toast.makeText(
-                                context,
-                                "${firstDate.timeInMillis}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                }
-            })
-            .show(requireActivity().supportFragmentManager, "TAG_SLYCALENDAR")
+        val listener: OnSelectDateListener = OnSelectDateListener {
+            for (i in it) {
+                Log.i("Calendar", "${i.timeInMillis}")
+            }
+        }
+        val builder = DatePickerBuilder(requireContext(), listener)
+            .pickerType(CalendarView.RANGE_PICKER)
+        val datePicker: DatePicker = builder.build()
+        datePicker.show()
     }
 
     override fun onResume() {
@@ -170,5 +129,17 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         binding.nextBtn.setOnClickListener {
             navigator.goto(R.id.homeFragment)
         }
+    }
+
+    companion object {
+        val firstRegimenChemo = DrugDays(
+            R.string.regimen, R.array.regimen, null, R.string.chemo_drug,
+            DataPair("", "")
+        )
+
+        val firstOtherDrugDrug = OtherDrugDays(
+            R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
+            DataPair("", "")
+        )
     }
 }

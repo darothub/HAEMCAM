@@ -36,7 +36,6 @@ class OtherDrugDaysView @JvmOverloads constructor(
         data?.drug?.let { binding.drugSpinner.setItems(it) }
         val tag = data?.tag?.let { context.getString(it) }
         binding.drugSpinner.tag = tag
-        binding.daysTimeSpinner.tag = tag
     }
 
     @CallbackProp
@@ -53,7 +52,6 @@ class OtherDrugDaysView @JvmOverloads constructor(
     @CallbackProp
     fun getDaysTimeData(listener: OnClickListener?) {
         if (listener != null) {
-            binding.daysTimeSpinner.setOnClickListener(listener)
         }
     }
 
@@ -62,7 +60,6 @@ class OtherDrugDaysView @JvmOverloads constructor(
         Log.i("DrugDaysView", "Detached")
         dismissPowerViewDropDown(
             binding.drugSpinner,
-            binding.daysTimeSpinner
         )
     }
 }

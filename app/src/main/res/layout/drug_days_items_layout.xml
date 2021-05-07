@@ -30,35 +30,12 @@
         android:layout_marginTop="@dimen/_5sdp"
         app:spinner_popup_elevation="14dp" />
 
-    <com.skydoves.powerspinner.PowerSpinnerView
-        android:id="@+id/days_time_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:hint="@string/days_cycle"
-        android:paddingTop="@dimen/_10sdp"
-        app:spinner_item_array="@array/medication_time"
-        android:paddingBottom="@dimen/_10sdp"
-        android:textColor="@color/primaryColor"
-        android:textColorHint="@color/primaryColor"
-        android:textSize="@dimen/_12sdp"
-        android:background="@drawable/underline_gray"
-        app:spinner_arrow_gravity="end"
-        app:spinner_arrow_tint="@color/primaryColor"
-        app:spinner_arrow_padding="8dp"
-        app:spinner_divider_color="@color/black"
-        app:spinner_divider_show="false"
-        app:spinner_popup_animation="dropdown"
-        app:spinner_popup_background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/drug_spinner"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:spinner_popup_elevation="14dp" />
 
     <TextView
         android:id="@+id/remove_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/days_time_spinner"
+        app:layout_constraintTop_toBottomOf="@id/drug_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/primaryColor"
         android:textSize="@dimen/_10sdp"
