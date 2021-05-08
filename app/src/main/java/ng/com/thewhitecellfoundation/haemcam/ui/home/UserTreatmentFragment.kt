@@ -162,8 +162,11 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
             (clickedView as PowerSpinnerView).hint = "$startDateFormat to $endDateFormat"
         }
         val builder = DatePickerBuilder(requireContext(), listener)
-            .pickerType(CalendarView.ONE_DAY_PICKER)
-        val datePicker: DatePicker = builder.build()
+            .setPickerType(CalendarView.ONE_DAY_PICKER)
+        val datePicker: DatePicker = builder
+            .setHeaderColor(R.color.primaryColor)
+            .setSelectionColor(R.color.primaryColor)
+            .build()
         datePicker.show()
     }
 
