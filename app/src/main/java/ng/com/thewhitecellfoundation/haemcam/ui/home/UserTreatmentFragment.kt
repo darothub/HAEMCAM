@@ -3,6 +3,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,9 +13,13 @@ import com.applandeo.materialcalendarview.DatePicker
 import com.applandeo.materialcalendarview.builders.DatePickerBuilder
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
+import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
+import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ChemodrugBottomsheetLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
@@ -31,16 +36,30 @@ import java.util.*
  */
 class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
+    lateinit var bottomSheetBehaviour: BottomSheetBehaviour
 
     private val binding by viewBinding(FragmentUserTreamentBinding::bind)
+    lateinit var bottomSheetBinding: ChemodrugBottomsheetLayoutBinding
+    // Set bottom dialog
+    val bottomSheetDialog by lazy {
+        BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+    }
+    // Inflate bottom view
+    val bottomSheetView by lazy {
+        LayoutInflater.from(requireContext()).inflate(
+            R.layout.chemodrug_bottomsheet_layout, bottomSheetBinding.root
+        )
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        behavior = BottomSheetBehavior.from(binding.bs.root)
+        bottomSheetBehaviour = requireActivity() as BottomSheetBehaviour
+        behavior = BottomSheetBehavior.from(bottomSheetBehaviour.parentBinding().mainBs.root)
         behavior.state = BottomSheetBehavior.STATE_HIDDEN
 
+        bottomSheetBinding = ChemodrugBottomsheetLayoutBinding.inflate(layoutInflater)
         binding.otherDrugErcv.withModels {
             OtherDrugDays.listOfOtherDrugs.forEach { dd ->
 
@@ -88,7 +107,10 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
 //                        if(newItem == getString(R.string.chop)){
 //
 //                        }
-                        behavior.state = BottomSheetBehavior.STATE_EXPANDED
+//                        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+
+                        bottomSheetDialog.setContentView(bottomSheetView)
+                        bottomSheetDialog.show()
                     }
 
                     getDaysTimeData { model, parentView, clickedView, position ->
@@ -141,5 +163,10 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
             R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
             DataPair("", "")
         )
+    }
+
+    interface BottomSheetBehaviour {
+        fun expand()
+        fun parentBinding(): ActivityHomeBinding
     }
 }

@@ -2,11 +2,15 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import ng.com.thewhitecellfoundation.common.extensions.hide
 import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
@@ -15,10 +19,12 @@ import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
-class HomeActivity : AppCompatActivity(), Navigator {
+class HomeActivity : AppCompatActivity(), Navigator, UserTreatmentFragment.BottomSheetBehaviour {
     private val binding by viewBinding(ActivityHomeBinding::inflate)
+
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
+    lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
 
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
@@ -63,12 +69,25 @@ class HomeActivity : AppCompatActivity(), Navigator {
         }
     }
 
+    // Set bottom dialog
+    val bottomSheetDialog by lazy {
+        BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+    }
+    // Inflate bottom view
+    val bottomSheetView by lazy {
+        LayoutInflater.from(this).inflate(
+            R.layout.chemodrug_bottomsheet_layout, binding.mainBs.root
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view = binding.root
         setContentView(view)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
+        behavior = BottomSheetBehavior.from(binding.mainBs.root)
+        behavior.state = BottomSheetBehavior.STATE_HIDDEN
     }
 
     override fun onResume() {
@@ -99,4 +118,10 @@ class HomeActivity : AppCompatActivity(), Navigator {
         val graph = inflater.inflate(graphId)
         navController.graph.addAll(graph)
     }
+
+    override fun expand() {
+//        behavior.state = BottomSheetBehavior.STATE_EXPANDED
+    }
+
+    override fun parentBinding() = binding
 }
