@@ -3,6 +3,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.medication
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentChemoTherapyInfoBinding
@@ -31,6 +32,7 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
             }
         }
         binding.calendar.isEnabled = false
+        binding.chemodrugErcv.addItemDecoration(DividerItemDecoration(requireContext(), 0))
     }
 }
 

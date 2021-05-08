@@ -27,7 +27,9 @@ ext {
             'com.github.psinetron:slycalendarview:0.0.9',
             //Spinner
             "com.github.skydoves:powerspinner:1.1.7",
-            "com.airbnb.android:epoxy:$epoxy_version"
+            "com.airbnb.android:epoxy:$epoxy_version",
+            'com.applandeo:material-calendar-view:1.7.0',
+            "com.squareup.retrofit2:converter-gson:2.8.2"
 
     ]
     testLibraries =[

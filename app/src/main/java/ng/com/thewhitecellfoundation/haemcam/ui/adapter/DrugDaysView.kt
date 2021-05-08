@@ -38,8 +38,6 @@ class DrugDaysView @JvmOverloads constructor(
         val tag = data?.tag?.let { context.getString(it) }
         binding.drugSpinner.hint = daysHint + "-" + data?.id
         binding.drugSpinner.tag = tag
-        binding.daysTimeSpinner.tag = tag
-        binding.daysTimeSpinner.hint = context.getString(R.string.cycle_days)
     }
 
     @CallbackProp
@@ -56,7 +54,7 @@ class DrugDaysView @JvmOverloads constructor(
     @CallbackProp
     fun getDaysTimeData(listener: OnClickListener?) {
         if (listener != null) {
-            binding.daysTimeSpinner.setOnClickListener(listener)
+//            binding.daysTimeSpinner.setOnClickListener(listener)
         }
     }
 
@@ -65,7 +63,7 @@ class DrugDaysView @JvmOverloads constructor(
         Log.i("DrugDaysView", "Detached")
         dismissPowerViewDropDown(
             binding.drugSpinner,
-            binding.daysTimeSpinner
+
         )
     }
 }

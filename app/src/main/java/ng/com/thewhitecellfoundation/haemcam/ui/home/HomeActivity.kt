@@ -3,10 +3,12 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ng.com.thewhitecellfoundation.common.extensions.hide
 import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
@@ -17,8 +19,10 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 class HomeActivity : AppCompatActivity(), Navigator {
     private val binding by viewBinding(ActivityHomeBinding::inflate)
+
     override lateinit var navHostFragment: NavHostFragment
     override lateinit var navController: NavController
+    lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
 
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->

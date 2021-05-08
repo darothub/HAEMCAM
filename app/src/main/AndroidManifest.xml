@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FullScreen">
         <activity android:name=".ui.home.HomeActivity"
-            android:theme="@style/HomeAcivity.Theme"
+            android:theme="@style/HomeActivity.Theme"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -87,8 +87,6 @@ dependencies {
     }
     coreLibraryDesugaring coreLibDesugaring
 
-
-    implementation libs
     kapt kaptLib
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
