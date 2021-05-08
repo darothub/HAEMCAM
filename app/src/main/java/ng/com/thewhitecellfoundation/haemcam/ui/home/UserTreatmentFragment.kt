@@ -3,29 +3,27 @@ package ng.com.thewhitecellfoundation.haemcam.ui.home
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.DatePicker
 import com.applandeo.materialcalendarview.builders.DatePickerBuilder
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.ChemodrugBottomsheetLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserTreamentBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
+import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugNameView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
+import ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoDrugTest
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import java.util.*
 
@@ -35,31 +33,26 @@ import java.util.*
  * create an instance of this fragment.
  */
 class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
-    lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
-    lateinit var bottomSheetBehaviour: BottomSheetBehaviour
-
     private val binding by viewBinding(FragmentUserTreamentBinding::bind)
     lateinit var bottomSheetBinding: ChemodrugBottomsheetLayoutBinding
     // Set bottom dialog
-    val bottomSheetDialog by lazy {
+    private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
     }
     // Inflate bottom view
-    val bottomSheetView by lazy {
-        LayoutInflater.from(requireContext()).inflate(
-            R.layout.chemodrug_bottomsheet_layout, bottomSheetBinding.root
-        )
-    }
+//    private val bottomSheetView: View by lazy {
+//        LayoutInflater.from(requireContext()).inflate(
+//            R.layout.chemodrug_bottomsheet_layout, bottomSheetBinding.root
+//        )
+//    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bottomSheetBehaviour = requireActivity() as BottomSheetBehaviour
-        behavior = BottomSheetBehavior.from(bottomSheetBehaviour.parentBinding().mainBs.root)
-        behavior.state = BottomSheetBehavior.STATE_HIDDEN
-
         bottomSheetBinding = ChemodrugBottomsheetLayoutBinding.inflate(layoutInflater)
+
+        val listOfRegimenDrugs = arrayListOf(ChemoDrugTest(1, "Chemosyspathom"), ChemoDrugTest(2, "Chemosyspaloam"), ChemoDrugTest(3, "Chemosysthahah"))
         binding.otherDrugErcv.withModels {
             OtherDrugDays.listOfOtherDrugs.forEach { dd ->
 
@@ -104,12 +97,20 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         requestModelBuild()
                     }
                     getDrugData { oldIndex, oldItem, newIndex, newItem ->
-//                        if(newItem == getString(R.string.chop)){
-//
-//                        }
-//                        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
-                        bottomSheetDialog.setContentView(bottomSheetView)
+                        bottomSheetBinding.regimenErcv.withModels {
+                            listOfRegimenDrugs.forEach { cdt ->
+                                drugNameView {
+                                    id(cdt.id)
+                                    data(cdt)
+                                    getDaysTimeData { model, parentView, clickedView, position ->
+                                        showDateTimeDialog()
+                                    }
+                                }
+                            }
+                        }
+
+                        bottomSheetDialog.setContentView(bottomSheetBinding.root)
                         bottomSheetDialog.show()
                     }
 
@@ -122,7 +123,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         currentTime -= offsetInMillis.toLong()
                         val date = Date(currentTime)
                         Toast.makeText(context, "$date", Toast.LENGTH_SHORT).show()
-                        showDateTimeDialog(date, clickedView)
+                        showDateTimeDialog()
                     }
                     onDeleteListener { model, parentView, _, _ ->
                         model.data()?.remove
@@ -134,7 +135,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         }
     }
 
-    private fun showDateTimeDialog(date: Date, clickedView: View?) {
+    private fun showDateTimeDialog() {
         val listener: OnSelectDateListener = OnSelectDateListener {
             for (i in it) {
                 Log.i("Calendar", "${i.timeInMillis}")
@@ -163,10 +164,5 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
             R.string.other_drugs, R.array.diagnosis, R.array.medication_time, R.string.other_drugs,
             DataPair("", "")
         )
-    }
-
-    interface BottomSheetBehaviour {
-        fun expand()
-        fun parentBinding(): ActivityHomeBinding
     }
 }

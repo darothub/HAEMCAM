@@ -1,53 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.home.HomeActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar_one" />
+
+    <include
+        android:id="@+id/appbar_two"
+        layout="@layout/appbar_two"
+        android:visibility="gone" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context=".ui.home.HomeActivity">
+        app:defaultNavHost="true"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        app:layout_constraintBottom_toTopOf="@id/shadow_line"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:navGraph="@navigation/home_navigation"
+        tools:layout="@layout/fragment_user_info" />
 
-        <include
-            android:id="@+id/appbar"
-            layout="@layout/appbar_one" />
+    <View
+        android:id="@+id/shadow_line"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/shadow"
 
-        <include
-            android:id="@+id/appbar_two"
-            layout="@layout/appbar_two"
-            android:visibility="gone" />
-
-        <fragment
-            android:id="@+id/fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_40sdp"
-            app:layout_constraintBottom_toTopOf="@id/shadow_line"
-            app:layout_constraintTop_toBottomOf="@id/appbar"
-            app:navGraph="@navigation/home_navigation"
-            tools:layout="@layout/fragment_user_info" />
-
-        <View
-            android:id="@+id/shadow_line"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@drawable/shadow"
-
-            app:layout_constraintBottom_toTopOf="@id/bottomNav" />
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_menu" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <include
-        android:id="@+id/main_bs"
-        layout="@layout/chemodrug_bottomsheet_layout"/>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        app:layout_constraintBottom_toTopOf="@id/bottomNav" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

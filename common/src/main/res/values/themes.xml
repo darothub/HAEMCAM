@@ -40,13 +40,13 @@
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
 
-    <style name="HomeAcivity.Theme" parent="Theme.FullScreen">
+    <style name="HomeActivity.Theme" parent="Theme.FullScreen">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l" >@color/primaryVariant</item>
         <item name="android:navigationBarColor">@color/primaryVariant</item>
     </style>
 
-    <style name="EditNoUnderlineTheme" parent="HomeAcivity.Theme">
+    <style name="EditNoUnderlineTheme" parent="HomeActivity.Theme">
         <item name="android:candidatesTextStyleSpans"><b><i>candidates</i></b></item>
         <item name="android:background">@drawable/rounded_corner_light_grey</item>
     </style>

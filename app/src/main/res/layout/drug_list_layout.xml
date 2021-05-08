@@ -3,9 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:behavior_hideable = "true"
-    android:elevation="10dp"
-    android:orientation="vertical"
     android:background="@color/white"
     >
 
@@ -22,7 +19,7 @@
         android:clickable="false"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_et"
+            android:id="@+id/drug_et"
             style="@style/EditTextCustomStyle"
             android:textColorHint="@color/black"
             android:textColor="@color/primaryColor"
@@ -37,7 +34,6 @@
         android:gravity="start"
         android:hint="@string/days_cycle"
         android:paddingTop="@dimen/_10sdp"
-        app:spinner_item_array="@array/medication_time"
         android:paddingBottom="@dimen/_10sdp"
         android:textColor="@color/primaryColor"
         android:textColorHint="@color/primaryColor"
