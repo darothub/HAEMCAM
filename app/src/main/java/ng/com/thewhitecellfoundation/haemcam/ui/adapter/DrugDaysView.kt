@@ -19,7 +19,7 @@ import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
-import ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoDrugTest
+import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -67,7 +67,7 @@ class DrugDaysView @JvmOverloads constructor(
         }
     }
     @CallbackProp
-    fun getDrugData(list: List<ChemoDrugTest>?) {
+    fun getDrugData(list: List<StringItemData>?) {
         if (list != null) {
             binding.drugSpinner.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newItem ->
                 binding.regimenErcv.withModels {

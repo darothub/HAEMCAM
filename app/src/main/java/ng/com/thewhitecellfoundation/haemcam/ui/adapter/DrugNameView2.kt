@@ -9,7 +9,7 @@ import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.RegimenDrugHorizontalBinding
-import ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoDrugTest
+import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 
 @ModelView(
     autoLayout = ModelView.Size.WRAP_WIDTH_WRAP_HEIGHT,
@@ -27,7 +27,7 @@ class DrugNameView2 @JvmOverloads constructor(
     )
 
     @ModelProp
-    fun setData(drug: ChemoDrugTest?) {
+    fun setData(drug: StringItemData?) {
         binding.regimenDrugNameTv.text = drug?.str
     }
 

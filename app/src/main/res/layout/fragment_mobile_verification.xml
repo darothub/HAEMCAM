@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,45 +7,55 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:id="@+id/root_layout"
+    android:padding="@dimen/_20sdp"
     tools:context=".ui.main.MobileVerificationFragment">
 
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/mobile_verification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_66sdp"
+
+        style="@style/TitleTextViewStyle"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:background="@drawable/underline_white"
+        >
 
 
-        <TextView
-            android:id="@+id/title"
-            android:text="@string/mobile_verification"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_66sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            style="@style/TitleTextViewStyle"
-            />
+
         <!-- Add guideline to align phone number form . -->
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/number_form_guideline"
+            android:id="@+id/phone_number_vertical_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.20" />
+            app:layout_constraintGuide_percent="0.14" />
+
         <com.hbb20.CountryCodePicker
             android:id="@+id/ccp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@android:color/transparent"
             app:ccp_arrowColor="@color/white"
             app:ccp_autoDetectCountry="true"
             app:ccp_contentColor="@color/white"
             app:ccp_textGravity="LEFT"
             app:ccp_textSize="@dimen/_12sdp"
             android:background="@drawable/underline_white"
-            android:layout_marginTop="@dimen/_40sdp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/_20sdp"
-            app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
-            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintEnd_toStartOf="@id/phone_number_vertical_guideline"
+            app:layout_constraintTop_toTopOf="@id/phone_number_input"
+            app:layout_constraintBottom_toBottomOf="@id/phone_number_input"
+            app:layout_constraintVertical_bias="1"
+            android:foregroundTint="@color/primaryColor"
+
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,12 +65,10 @@
             android:imeOptions="actionNext"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/number_form_guideline"
-            app:layout_constraintTop_toTopOf="@id/ccp"
-            app:layout_constraintBottom_toBottomOf="@id/ccp"
-            app:layout_constraintVertical_bias=".7"
-            android:layout_marginEnd="@dimen/_20sdp"
-            style="@style/TextInputLayout.LabelWhiteApp"
+            app:layout_constraintStart_toEndOf="@id/phone_number_vertical_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundMode="none"
+
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_number_et"
@@ -69,34 +77,36 @@
                 android:inputType="phone"
                 android:singleLine="true"
                 android:tag="@string/phone_number"
+                android:drawableEnd="@drawable/ic_baseline_phone_android_24"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <include
-            android:id="@+id/btn_pbar"
-            layout="@layout/btn_pbar_layout"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            app:layout_constraintEnd_toEndOf="@id/phone_number_input"
-            app:layout_constraintStart_toStartOf="@id/ccp"
-            app:layout_constraintTop_toBottomOf="@id/phone_number_input"
-            />
-
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:gravity="center"
-            android:id="@+id/term_and_condition_tv"
-            android:text="@string/tnc"
-            app:layout_constraintTop_toBottomOf="@id/btn_pbar"
-            app:layout_constraintStart_toStartOf="@id/btn_pbar"
-            app:layout_constraintEnd_toEndOf="@id/btn_pbar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias=".8"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:textColor="@color/white"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <include
+        android:id="@+id/btn_pbar"
+        layout="@layout/btn_pbar_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@id/container"
+        app:layout_constraintStart_toStartOf="@id/container"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:id="@+id/term_and_condition_tv"
+        android:text="@string/tnc"
+        app:layout_constraintTop_toBottomOf="@id/btn_pbar"
+        app:layout_constraintStart_toStartOf="@id/btn_pbar"
+        app:layout_constraintEnd_toEndOf="@id/btn_pbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".8"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textColor="@color/white"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

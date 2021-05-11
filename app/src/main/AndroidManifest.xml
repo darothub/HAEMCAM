@@ -14,11 +14,7 @@
         <activity android:name=".ui.home.HomeActivity"
             android:theme="@style/HomeActivity.Theme"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.main.SplashScreen"
@@ -29,7 +25,11 @@
             android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.FullScreen"
             android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>

@@ -8,7 +8,7 @@ import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ChemodrugItemLayoutBinding
-import ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoDrugTest
+import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
@@ -25,7 +25,7 @@ class ChemoTherapyListView @JvmOverloads constructor(
     )
 
     @ModelProp
-    fun setData(data: ChemoDrugTest?) {
+    fun setData(data: StringItemData?) {
         binding.chemoDrugTv3.text = data?.str
     }
 }

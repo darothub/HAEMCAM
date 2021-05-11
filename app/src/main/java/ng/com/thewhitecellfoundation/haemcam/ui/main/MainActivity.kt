@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), Navigator {
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         reusableToolbarBinding = binding.toolbar
