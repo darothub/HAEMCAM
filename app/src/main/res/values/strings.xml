@@ -26,7 +26,7 @@
     <string name="gender">GENDER</string>
     <string name="chemo_drug" translatable="false">CHEMOTHERAPY DRUG </string>
     <string name="cycle_days" translatable="false">CYCLE DAYS</string>
-    <string name="days_cycle" translatable="false">DAYS IN CYCLE</string>
+    <string name="days_cycle" translatable="false"><u>DAYS IN CYCLE</u></string>
     <string name="other_drugs" translatable="false">OTHER DRUGS</string>
     <string name="time_of_medication" translatable="false">TIME OF MEDICATION</string>
     <string name="skip">Skip</string>
@@ -64,4 +64,5 @@
     <string name="chop">CHOP</string>
     <string name="done">Done</string>
     <string name="start_date">Choose start date</string>
+    <string name="choose_date_link"><u>Choose date</u></string>
 </resources>

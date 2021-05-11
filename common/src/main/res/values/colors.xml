@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primaryColor">#9d72f4</color>
     <color name="primaryVariant">#511f85</color>
-    <color name="haecamGrey">#D3D3D3</color>
-    <color name="haecamCream">#EDEDDB</color>
-    <color name="haecamOrange">#FF9800</color>
+    <color name="haemcamGrey">#D3D3D3</color>
+    <color name="haemcamCream">#EDEDDB</color>
+    <color name="haemcamOrange">#FF9800</color>
 </resources>

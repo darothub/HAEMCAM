@@ -21,7 +21,6 @@ import ng.com.thewhitecellfoundation.haemcam.model.DataPair
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
-import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugNameView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoDrugTest
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
@@ -105,24 +104,7 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         DrugDays.listOfChemoTherapy.sortBy { it.id }
                         requestModelBuild()
                     }
-                    getDrugData { oldIndex, oldItem, newIndex, newItem ->
-
-                        bottomSheetBinding.regimenErcv.withModels {
-                            listOfRegimenDrugs.forEach { cdt ->
-                                drugNameView {
-                                    id(cdt.id)
-                                    data(cdt)
-                                    getDaysTimeData { model, parentView, clickedView, position ->
-                                        showDateTimeDialog(clickedView)
-                                    }
-                                }
-                            }
-                        }
-
-                        bottomSheetDialog.setContentView(bottomSheetBinding.root)
-                        bottomSheetDialog.show()
-                    }
-
+                    getDrugData(listOfRegimenDrugs)
                     getDaysTimeData { model, parentView, clickedView, position ->
 
                         var currentTime = System.currentTimeMillis()
