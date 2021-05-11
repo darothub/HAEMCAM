@@ -10,6 +10,7 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import hideSystemUI
+import kotlinx.coroutines.*
 import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding

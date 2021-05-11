@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
-        android:text="@string/choose_date_link"
+        android:text="@string/days_cycle"
         android:visibility="gone"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"

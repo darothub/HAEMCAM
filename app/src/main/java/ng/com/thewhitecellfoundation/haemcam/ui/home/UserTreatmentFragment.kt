@@ -105,24 +105,6 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
                         requestModelBuild()
                     }
                     getDrugData(listOfRegimenDrugs)
-//                    getDrugData { oldIndex, oldItem, newIndex, newItem ->
-//
-//                        bottomSheetBinding.regimenErcv.withModels {
-//                            listOfRegimenDrugs.forEach { cdt ->
-//                                drugNameView {
-//                                    id(cdt.id)
-//                                    data(cdt)
-//                                    getDaysTimeData { model, parentView, clickedView, position ->
-//                                        showDateTimeDialog(clickedView)
-//                                    }
-//                                }
-//                            }
-//                        }
-//
-//                        bottomSheetDialog.setContentView(bottomSheetBinding.root)
-//                        bottomSheetDialog.show()
-//                    }
-
                     getDaysTimeData { model, parentView, clickedView, position ->
 
                         var currentTime = System.currentTimeMillis()
