@@ -22,12 +22,6 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.1" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/j"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.46" />
 
         <TextView
             android:id="@+id/haemcam_tv"
@@ -118,28 +112,29 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/underline_white"
                 >
+
                 <!-- Add guideline to align phone number form . -->
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/number_form_guideline"
+                    android:id="@+id/phone_number_vertical_guideline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.14" />
                 <!-- Add guideline to align title to. -->
 
+
                 <com.hbb20.CountryCodePicker
-                    android:id="@+id/login_ccp"
+                    android:id="@+id/ccp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@android:color/transparent"
                     app:ccp_arrowColor="@color/white"
                     app:ccp_autoDetectCountry="true"
                     app:ccp_contentColor="@color/white"
@@ -147,10 +142,12 @@
                     app:ccp_textSize="@dimen/_12sdp"
                     android:background="@drawable/underline_white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/number_form_guideline"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintVertical_bias=".74"
+                    app:layout_constraintEnd_toStartOf="@id/phone_number_vertical_guideline"
+                    app:layout_constraintTop_toTopOf="@id/login_phone_number_input"
+                    app:layout_constraintBottom_toBottomOf="@id/login_phone_number_input"
+                    app:layout_constraintVertical_bias="1"
+                    android:foregroundTint="@color/primaryColor"
+
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -160,9 +157,10 @@
                     android:imeOptions="actionNext"
                     android:textColorHint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/number_form_guideline"
+                    app:layout_constraintStart_toEndOf="@id/phone_number_vertical_guideline"
                     app:layout_constraintTop_toTopOf="parent"
-                    style="@style/TextInputLayout.LabelWhiteApp"
+                    app:boxBackgroundMode="none"
+
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_phone_number_et"
@@ -177,6 +175,8 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         </ViewFlipper>
 

@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
-    tools:context=".ui.home.UserTreatmentFragment">
+    tools:context=".ui.diagnosis.UserTreatmentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

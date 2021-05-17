@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+    <string-array name="diagnosis">
+        <item>Acute Myeloid Leukemia (AML)</item>
+        <item>Acute Lymphoblastic Leukemia (ALL)</item>
+        <item>Chronic Myeloid Leukemia (CML)</item>
+        <item>Chronic Lymphocytic Leukemia (CLL)</item>
+        <item>Hodgkin lymphoma (HL)</item>
+        <item>Non-Hodgkin lymphoma (NHL)</item>
+        <item>Polycythemia vera (PV)</item>
+        <item>Essential Thrombocythemia</item>
+        <item>Primary myelofibrosis (PMF)</item>
+    </string-array>
+    <string-array name="stages">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>Chronic</item>
+        <item>Accelerated</item>
+        <item>Blastic</item>
+        <item>Induction</item>
+        <item>Consolidation</item>
+        <item>Maintenance</item>
+        <item>Remission</item>
+    </string-array>
+    <string-array name="regimen">
+        <item>CHOP</item>
+        <item>R-CHOP</item>
+        <item>ABVD</item>
+        <item>BTD</item>
+        <item>BRD</item>
+    </string-array>
+    <string-array name="medication_time">
+        <item>Once daily</item>
+        <item>Twice daily</item>
+        <item>Three times daily</item>
+        <item>Every 8 hours</item>
+        <item> Weekly</item>
+    </string-array>
+</resources>

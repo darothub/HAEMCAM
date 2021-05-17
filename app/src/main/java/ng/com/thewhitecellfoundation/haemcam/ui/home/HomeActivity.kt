@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity(), Navigator {
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.userInfoFragment -> {
+                R.id.userDiagnosisInfoFragment -> {
                     binding.bottomNav.hide()
                     binding.appbar.userGreetingsTv.show()
                     binding.appbar.titleTv.hide()
