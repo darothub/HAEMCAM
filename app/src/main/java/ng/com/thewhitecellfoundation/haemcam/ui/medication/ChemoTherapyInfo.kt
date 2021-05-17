@@ -9,6 +9,7 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentChemoTherapyInfoBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyListView
+import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
  * A simple [Fragment] subclass.
@@ -29,6 +30,9 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
                 chemoTherapyListView {
                     id(cdt.id)
                     data(cdt)
+                    onClick { model, parentView, clickedView, position ->
+                        navigator.goto(R.id.nutritionMenuFragment)
+                    }
                 }
             }
         }

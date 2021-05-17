@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -27,5 +28,10 @@ class ChemoTherapyListView @JvmOverloads constructor(
     @ModelProp
     fun setData(data: StringItemData?) {
         binding.chemoDrugTv3.text = data?.str
+    }
+
+    @CallbackProp
+    fun setOnClick(listener: OnClickListener?) {
+        binding.textBgView3.setOnClickListener(listener)
     }
 }

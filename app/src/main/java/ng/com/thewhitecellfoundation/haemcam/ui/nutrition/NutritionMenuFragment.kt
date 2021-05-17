@@ -7,6 +7,7 @@ import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentNutritionMenuBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
+import ng.com.thewhitecellfoundation.haemcam.ui.adapter.nutritionMenuView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +33,11 @@ class NutritionMenuFragment : Fragment(R.layout.fragment_nutrition_menu) {
         )
 
         binding.ercv.withModels {
-            listOfNutritionMenu.forEach {
+            listOfNutritionMenu.forEach { sid ->
+                nutritionMenuView {
+                    id(sid.id)
+                    data(sid)
+                }
             }
         }
     }

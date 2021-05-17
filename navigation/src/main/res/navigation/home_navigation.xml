@@ -36,4 +36,9 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.ChemoTherapyInfo"
         android:label="chemotherapy_fragment">
     </fragment>
+    <fragment
+        android:id="@+id/nutritionMenuFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.nutrition.NutritionMenuFragment"
+        android:label="nutrition_menu_fragment">
+    </fragment>
 </navigation>
