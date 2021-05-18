@@ -47,20 +47,26 @@ class HomeActivity : AppCompatActivity(), Navigator {
                     binding.appbar.titleTv.hide()
                 }
                 R.id.medicationsFragment -> {
-                    medicationToolBarViews()
+                    dynamicTitleToolBarViews(getString(R.string.medication))
                 }
                 R.id.chemoTherapyFragment -> {
-                    medicationToolBarViews()
+                    dynamicTitleToolBarViews(getString(R.string.medication))
+                }
+                R.id.nutritionMenuFragment -> {
+                    dynamicTitleToolBarViews(getString(R.string.nutrition))
+                }
+                R.id.recipesFragment -> {
+                    dynamicTitleToolBarViews(getString(R.string.nutrition))
                 }
             }
         }
 
-    private fun medicationToolBarViews() {
+    private fun dynamicTitleToolBarViews(name: String) {
         binding.bottomNav.show()
         binding.appbar.helpTv.setImageResource(R.drawable.ic_settings_icon)
         binding.appbar.userGreetingsTv.hide()
         binding.appbar.userImageIv.setImageResource(R.drawable.ic_baseline_keyboard_backspace_24)
-        binding.appbar.titleTv.text = getString(R.string.medication)
+        binding.appbar.titleTv.text = name
         binding.appbar.titleTv.show()
         binding.appbar.userImageIv.setOnClickListener {
             navigator.navController.popBackStack()

@@ -41,4 +41,9 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.nutrition.NutritionMenuFragment"
         android:label="nutrition_menu_fragment">
     </fragment>
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.nutrition.RecipesFragment"
+        android:label="recipes_fragment">
+    </fragment>
 </navigation>
