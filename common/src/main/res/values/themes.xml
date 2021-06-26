@@ -16,6 +16,7 @@
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/white</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="O_MR1">shortEdges</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
 

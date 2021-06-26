@@ -9,7 +9,6 @@ import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding.bind
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserDiagnosisInfoBinding
-import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
@@ -28,9 +27,9 @@ class UserDiagnosisInfoFragment : Fragment(R.layout.fragment_user_diagnosis_info
             navigator.navController.popBackStack()
         }
 
-        binding.nextBtn.setOnClickListener {
-            (requireActivity() as Navigator).goto(R.id.userTreatmentFragment)
-        }
+//        binding.nextBtn.setOnClickListener {
+//            (requireActivity() as Navigator).goto(R.id.userTreatmentFragment)
+//        }
     }
 
     override fun onPause() {

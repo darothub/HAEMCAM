@@ -33,8 +33,7 @@ class DrugDaysView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :
-    ConstraintLayout(context, attr, defStyleAttr), DataCallBack {
+) : ConstraintLayout(context, attr, defStyleAttr), DataCallBack {
     var binding: DrugDaysItemsLayoutBinding = DrugDaysItemsLayoutBinding.inflate(
         LayoutInflater.from(context),
         this, true

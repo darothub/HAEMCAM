@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/_20sdp"
+
         android:paddingStart="@dimen/_20sdp"
         android:paddingEnd="@dimen/_20sdp"
         >
@@ -140,8 +140,8 @@
             android:id="@+id/stages_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:hint="STAGES/PHASE"
+            android:gravity="start"
+            android:hint="@string/stages_phase"
             android:paddingTop="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
             android:textColor="@color/primaryColor"
@@ -160,13 +160,37 @@
             android:layout_marginTop="@dimen/_10sdp"
             app:spinner_popup_elevation="14dp" />
 
-        <Button
-            android:id="@+id/next_btn"
-            style="@style/ButtonStyle"
-            android:text="@string/next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_30sdp"
-            app:layout_constraintTop_toBottomOf="@id/stages_spinner" />
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/blood_group_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="@string/blood_group"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_gray"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_tint="@color/primaryColor"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/black"
+            app:spinner_divider_show="false"
+            app:spinner_item_array="@array/blood_group"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/stages_spinner"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spinner_popup_elevation="14dp" />
+
+<!--        <Button-->
+<!--            android:id="@+id/next_btn"-->
+<!--            style="@style/ButtonStyle"-->
+<!--            android:text="@string/next"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_marginTop="@dimen/_30sdp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/blood_group_spinner" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

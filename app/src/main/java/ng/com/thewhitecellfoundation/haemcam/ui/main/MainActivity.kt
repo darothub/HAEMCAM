@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), Navigator {
         reusableToolbarBinding = binding.toolbar
 
         setContentView(view)
+
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
     }
@@ -92,4 +93,7 @@ class MainActivity : AppCompatActivity(), Navigator {
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         if (hasFocus) hideSystemUI()
     }
+}
+
+fun main() {
 }

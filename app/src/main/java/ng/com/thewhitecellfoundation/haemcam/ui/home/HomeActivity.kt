@@ -31,12 +31,21 @@ class HomeActivity : AppCompatActivity(), Navigator {
                     binding.bottomNav.hide()
                     binding.appbar.userGreetingsTv.show()
                     binding.appbar.titleTv.hide()
+                    binding.appbar.helpTv.setImageResource(R.drawable.ic_primary_help_24)
                     binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
                 }
                 R.id.userTreatmentFragment -> {
                     binding.bottomNav.hide()
                     binding.appbar.userGreetingsTv.show()
                     binding.appbar.titleTv.hide()
+                    binding.appbar.helpTv.setImageResource(R.drawable.ic_primary_help_24)
+                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
+                }
+                R.id.bloodGroupSelectionFragment -> {
+                    binding.bottomNav.hide()
+                    binding.appbar.userGreetingsTv.show()
+                    binding.appbar.titleTv.hide()
+                    binding.appbar.helpTv.setImageResource(R.drawable.ic_primary_help_24)
                     binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
                 }
                 R.id.homeFragment -> {

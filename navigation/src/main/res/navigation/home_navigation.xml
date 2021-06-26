@@ -46,4 +46,9 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.nutrition.RecipesFragment"
         android:label="recipes_fragment">
     </fragment>
+    <fragment
+        android:id="@+id/bloodGroupSelectionFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.diagnosis.BloodGroupSelectionFragment"
+        android:label="blood__grp_selection_fragment">
+    </fragment>
 </navigation>
