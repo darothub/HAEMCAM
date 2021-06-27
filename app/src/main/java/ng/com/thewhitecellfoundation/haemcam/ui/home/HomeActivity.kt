@@ -17,7 +17,7 @@ import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
-class HomeActivity : AppCompatActivity(), Navigator {
+class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState {
     private val binding by viewBinding(ActivityHomeBinding::inflate)
 
     override lateinit var navHostFragment: NavHostFragment
@@ -118,4 +118,19 @@ class HomeActivity : AppCompatActivity(), Navigator {
         val graph = inflater.inflate(graphId)
         navController.graph.addAll(graph)
     }
+
+    override fun buttonState(buttonText: String?, visible: Boolean, action: (() -> Unit?)?) {
+        if (visible) binding.btnPbar.btn.show() else binding.btnPbar.btn.hide()
+        binding.btnPbar.btn.text = buttonText
+        binding.btnPbar.btn.setOnClickListener {
+            action?.invoke()
+        }
+    }
+
+    override fun progressBarState(visible: Boolean) {}
+}
+
+interface ButtonAndProgressBarState {
+    fun buttonState(buttonText: String? = "", visible: Boolean = true, action: (() -> Unit?)? = { })
+    fun progressBarState(visible: Boolean)
 }

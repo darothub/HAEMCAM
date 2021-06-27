@@ -21,7 +21,14 @@
     </style>
 
     <style name="Theme.FullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/primaryVariant</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l" >@color/primaryColor</item>
         <item name="android:navigationBarColor">@color/primaryColor</item>
@@ -33,6 +40,7 @@
         <item name="colorControlHighlight">@color/purple_500</item>
         <!-- Customize theme for input layout cursor. -->
         <item name="textInputStyle">@style/Widget.AppTheme.TextInputLayout</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="Theme.FullScreen.Translucent" parent="Theme.FullScreen">

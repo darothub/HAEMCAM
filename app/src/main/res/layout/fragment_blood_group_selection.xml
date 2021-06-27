@@ -35,12 +35,6 @@
         android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toBottomOf="@+id/instruction_tv" />
 
-    <include
-        android:id="@+id/btn_pbar"
-        layout="@layout/btn_pbar_layout"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

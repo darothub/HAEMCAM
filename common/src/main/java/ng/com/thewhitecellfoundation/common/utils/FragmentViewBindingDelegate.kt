@@ -1,5 +1,6 @@
 package ng.com.thewhitecellfoundation.common.utils
 
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,9 @@ class FragmentViewBindingDelegate<T : ViewBinding>(
 
             override fun onCreate(owner: LifecycleOwner) {
                 fragment.viewLifecycleOwnerLiveData.observeForever(viewLifecycleOwnerLiveDataObserver)
+                fragment.sharedElementEnterTransition =
+                    TransitionInflater.from(fragment.requireContext()).inflateTransition(android.R.transition.move)
+                fragment.sharedElementReturnTransition = TransitionInflater.from(fragment.requireContext()).inflateTransition(android.R.transition.move)
             }
 
             override fun onDestroy(owner: LifecycleOwner) {

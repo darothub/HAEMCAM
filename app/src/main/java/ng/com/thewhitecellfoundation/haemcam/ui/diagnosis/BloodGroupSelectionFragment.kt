@@ -1,5 +1,6 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.diagnosis
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentBloodGroupSelectionBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.bloodGroupItemView
+import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,7 +25,12 @@ private const val ARG_PARAM2 = "param2"
  */
 class BloodGroupSelectionFragment : Fragment(R.layout.fragment_blood_group_selection) {
     private val binding by viewBinding(FragmentBloodGroupSelectionBinding::bind)
+    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -53,6 +60,12 @@ class BloodGroupSelectionFragment : Fragment(R.layout.fragment_blood_group_selec
 //                    }
                 }
             }
+        }
+    }
+    override fun onStart() {
+        super.onStart()
+        buttonAndProgressBarState.buttonState("Done") {
+            navigator.goto(R.id.homeFragment)
         }
     }
 }

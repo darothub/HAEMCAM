@@ -65,26 +65,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"/>
 
-        <Button
-            android:id="@+id/skip_btn"
-            style="@style/ButtonStyle"
-            android:text="@string/skip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/other_drug_ercv" />
-        <Button
-            android:id="@+id/next_btn"
-            style="@style/ButtonStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/next"
-            android:layout_marginTop="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
-            android:layout_marginBottom="@dimen/_12sdp"
-            app:layout_constraintTop_toBottomOf="@id/skip_btn" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

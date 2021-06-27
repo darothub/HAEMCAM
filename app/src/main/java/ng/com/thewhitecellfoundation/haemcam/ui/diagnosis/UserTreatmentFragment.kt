@@ -1,6 +1,7 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.diagnosis
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -23,6 +24,7 @@ import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
+import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -36,9 +38,15 @@ import java.util.*
 class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     private val binding by viewBinding(FragmentUserTreamentBinding::bind)
     lateinit var bottomSheetBinding: ChemodrugBottomsheetLayoutBinding
+    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
+
     // Set bottom dialog
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -145,12 +153,15 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
             .build()
         datePicker.show()
     }
+    override fun onStart() {
+        super.onStart()
+        buttonAndProgressBarState.buttonState("Skip/Next") {
+            navigator.goto(R.id.bloodGroupSelectionFragment)
+        }
+    }
 
     override fun onResume() {
         super.onResume()
-        binding.nextBtn.setOnClickListener {
-            navigator.goto(R.id.bloodGroupSelectionFragment)
-        }
     }
 
     companion object {
