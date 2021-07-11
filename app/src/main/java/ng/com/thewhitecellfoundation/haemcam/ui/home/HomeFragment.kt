@@ -29,9 +29,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onStart()
         buttonAndProgressBarState.buttonState(visible = false)
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

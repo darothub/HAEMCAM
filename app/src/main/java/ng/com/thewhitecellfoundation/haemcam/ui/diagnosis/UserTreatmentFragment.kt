@@ -160,10 +160,6 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     companion object {
         val firstRegimenChemo = DrugDays(
             R.string.regimen, R.array.regimen, null, R.string.chemo_drug,

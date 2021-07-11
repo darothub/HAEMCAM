@@ -37,6 +37,16 @@
         android:label="chemotherapy_fragment">
     </fragment>
     <fragment
+        android:id="@+id/sideEffectReportingFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.SideEffectReportingFragment"
+        android:label="side_effect_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/otherDrugFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.OtherDrugInfoFragment"
+        android:label="other_drug_fragment">
+    </fragment>
+    <fragment
         android:id="@+id/nutritionMenuFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.nutrition.NutritionMenuFragment"
         android:label="nutrition_menu_fragment">
