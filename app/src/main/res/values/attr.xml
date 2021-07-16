@@ -4,6 +4,5 @@
         <attr name="outer_color" format="color"/>
         <attr name="inner_color" format="color"/>
         <attr name="size" format="dimension"/>
-
     </declare-styleable>
 </resources>

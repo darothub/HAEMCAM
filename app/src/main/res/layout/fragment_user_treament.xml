@@ -43,7 +43,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/regimen_title_tv"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="2"
+            tools:itemCount="1"
+            tools:listitem="@layout/drug_days_items_layout"
             android:orientation="vertical"/>
         <TextView
             android:id="@+id/other_drug_title_tv"
@@ -60,9 +61,11 @@
             android:id="@+id/other_drug_ercv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:itemCount="2"
+            tools:itemCount="1"
+            tools:listitem="@layout/drug_list_layout"
             app:layout_constraintTop_toBottomOf="@id/other_drug_title_tv"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
             android:orientation="vertical"/>
 
 

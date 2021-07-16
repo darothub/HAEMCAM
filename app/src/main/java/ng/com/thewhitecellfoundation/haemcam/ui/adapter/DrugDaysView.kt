@@ -1,11 +1,14 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
@@ -16,6 +19,7 @@ import com.applandeo.materialcalendarview.builders.DatePickerBuilder
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
+import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
@@ -65,6 +69,8 @@ class DrugDaysView @JvmOverloads constructor(
             binding.drugSpinner.setOnSpinnerItemSelectedListener(listener)
         }
     }
+    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("SetTextI18n")
     @CallbackProp
     fun getDrugData(list: List<StringItemData>?) {
         if (list != null) {
@@ -75,7 +81,6 @@ class DrugDaysView @JvmOverloads constructor(
                             id(cdt.id)
                             data(cdt)
                             getDaysTimeData { model, parentView, clickedView, position ->
-                                showDateTimeDialog(clickedView, this@DrugDaysView)
                             }
                         }
                     }

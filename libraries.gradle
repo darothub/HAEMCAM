@@ -30,7 +30,8 @@ ext {
             "com.airbnb.android:epoxy:$epoxy_version",
             'com.applandeo:material-calendar-view:1.7.0',
             "com.squareup.retrofit2:converter-gson:2.8.2",
-            'com.github.PhilJay:MPAndroidChart:v3.1.0'
+            'com.github.PhilJay:MPAndroidChart:v3.1.0',
+            'com.github.WindSekirun:SectionCalendarView:1.0.5.1'
 
     ]
     testLibraries =[
