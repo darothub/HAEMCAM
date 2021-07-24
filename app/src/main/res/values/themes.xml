@@ -118,14 +118,6 @@
         <item name="cornerRadius">@dimen/_5sdp</item>
     </style>
 
-    <style name="SlyCalendarViewTimeTextTheme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/primaryVariant</item>
-        <item name="colorControlNormal">@color/primaryVariant</item>
-        <item name="colorControlActivated">@color/primaryVariant</item>
-        <item name="android:textColorPrimary">@color/primaryColor</item>
-        <item name="colorPrimary">@color/primaryVariant</item>
-        <item name="selectedColor">@color/primaryVariant</item>
-    </style>
 
     <style name="CalenderViewCustom" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/black</item>

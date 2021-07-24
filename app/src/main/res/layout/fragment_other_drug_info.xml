@@ -53,21 +53,8 @@
             app:layout_constraintTop_toBottomOf="@id/chemodrug_ercv" />
 
         <com.applandeo.materialcalendarview.CalendarView
-            android:id="@+id/calendar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_100sdp"
-            app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right_24"
-            app:headerColor="@color/white"
-            app:headerLabelColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/schedule_tv"
-
-            app:layout_constraintVertical_bias="0"
-            app:previousButtonSrc="@drawable/ic_keyboard_arrow_left_24"
-            app:todayLabelColor="@color/primaryVariant" />
+            android:layout_height="match_parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

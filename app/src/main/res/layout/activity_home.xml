@@ -22,11 +22,9 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_20sdp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/btn_pbar"
         app:layout_constraintTop_toBottomOf="@id/appbar"
-        app:layout_constraintVertical_bias="0.1"
         app:navGraph="@navigation/home_navigation"
         tools:layout="@layout/fragment_user_diagnosis_info" />
 
@@ -35,7 +33,8 @@
         layout="@layout/btn_pbar_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_12sdp"
         app:layout_constraintBottom_toTopOf="@id/shadow_line"
         app:layout_constraintTop_toBottomOf="@id/fragment"

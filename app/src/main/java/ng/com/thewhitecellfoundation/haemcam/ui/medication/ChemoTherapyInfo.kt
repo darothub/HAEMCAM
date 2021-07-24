@@ -13,6 +13,7 @@ import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyHeaderView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyListView
 import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -33,7 +34,6 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
         super.onViewCreated(view, savedInstanceState)
 
         val chemoTestString = arrayListOf(StringItemData("Drug 1"), StringItemData("Drug 2"), StringItemData("Drug 3"), StringItemData("Drug 3"), StringItemData("Drug 3"))
-
         binding.chemodrugErcv.withModels {
             chemoTestString.forEach { cdt ->
                 when (cdt) {
@@ -61,7 +61,7 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
                 }
             }
         }
-        binding.calendar.isEnabled = false
+//        binding.calendar.isEnabled = false
     }
     override fun onStart() {
         super.onStart()

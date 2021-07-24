@@ -7,12 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.applandeo.materialcalendarview.CalendarView
-import com.applandeo.materialcalendarview.DatePicker
-import com.applandeo.materialcalendarview.builders.DatePickerBuilder
-import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.skydoves.powerspinner.PowerSpinnerView
 import ng.com.thewhitecellfoundation.common.extensions.customOnDrawableRightListener
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
@@ -26,8 +21,6 @@ import ng.com.thewhitecellfoundation.haemcam.ui.adapter.drugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -129,29 +122,29 @@ class UserTreatmentFragment : Fragment(R.layout.fragment_user_treament) {
     }
 
     private fun showDateTimeDialog(clickedView: View?) {
-        val listener: OnSelectDateListener = OnSelectDateListener {
-            val startDate = Calendar.getInstance()
-            val endDate = Calendar.getInstance()
-            var startDateFormat: String? = null
-            var endDateFormat: String? = null
-            for (i in it) {
-
-                val formatter: DateFormat = SimpleDateFormat.getDateInstance()
-                startDate.timeInMillis = i.timeInMillis
-                endDate.timeInMillis = i.timeInMillis + 1728000000
-                startDateFormat = formatter.format(startDate.time)
-                endDateFormat = formatter.format(endDate.time)
-                Log.i("Calendar", "$endDateFormat")
-            }
-            (clickedView as PowerSpinnerView).hint = "$startDateFormat to $endDateFormat"
-        }
-        val builder = DatePickerBuilder(requireContext(), listener)
-            .setPickerType(CalendarView.ONE_DAY_PICKER)
-        val datePicker: DatePicker = builder
-            .setHeaderColor(R.color.primaryColor)
-            .setSelectionColor(R.color.primaryColor)
-            .build()
-        datePicker.show()
+//        val listener: OnSelectDateListener = OnSelectDateListener {
+//            val startDate = Calendar.getInstance()
+//            val endDate = Calendar.getInstance()
+//            var startDateFormat: String? = null
+//            var endDateFormat: String? = null
+//            for (i in it) {
+//
+//                val formatter: DateFormat = SimpleDateFormat.getDateInstance()
+//                startDate.timeInMillis = i.timeInMillis
+//                endDate.timeInMillis = i.timeInMillis + 1728000000
+//                startDateFormat = formatter.format(startDate.time)
+//                endDateFormat = formatter.format(endDate.time)
+//                Log.i("Calendar", "$endDateFormat")
+//            }
+//            (clickedView as PowerSpinnerView).hint = "$startDateFormat to $endDateFormat"
+//        }
+//        val builder = DatePickerBuilder(requireContext(), listener)
+//            .setPickerType(CalendarView.ONE_DAY_PICKER)
+//        val datePicker: DatePicker = builder
+//            .setHeaderColor(R.color.primaryColor)
+//            .setSelectionColor(R.color.primaryColor)
+//            .build()
+//        datePicker.show()
     }
     override fun onStart() {
         super.onStart()

@@ -60,7 +60,7 @@ class OtherDrugInfoFragment : Fragment(R.layout.fragment_other_drug_info) {
                 }
             }
         }
-        binding.calendar.isEnabled = false
+//        binding.calendar.isEnabled = false
     }
     override fun onStart() {
         super.onStart()
