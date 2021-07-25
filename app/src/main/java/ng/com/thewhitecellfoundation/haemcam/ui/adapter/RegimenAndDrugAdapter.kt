@@ -16,16 +16,15 @@ import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
-import ng.com.thewhitecellfoundation.haemcam.model.DrugDays
+import ng.com.thewhitecellfoundation.haemcam.model.Regimen
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
-import java.util.*
 import kotlin.collections.ArrayList
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
     defaultLayout = R.layout.drug_days_items_layout
 )
-class DrugDaysView @JvmOverloads constructor(
+class RegimenAndDrugAdapter @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -36,7 +35,7 @@ class DrugDaysView @JvmOverloads constructor(
     )
 
     @ModelProp
-    fun setData(data: DrugDays?) {
+    fun setData(data: Regimen?) {
         Log.i("ID", "${data?.id}")
         data?.drug?.let { binding.drugSpinner.setItems(it) }
         val daysHint = data?.hint?.let { context.getString(it) }
@@ -69,11 +68,10 @@ class DrugDaysView @JvmOverloads constructor(
             binding.drugSpinner.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newItem ->
                 binding.regimenErcv.withModels {
                     list.forEach { cdt ->
-                        drugNameView2 {
+                        regimenDrugAndCalendar {
                             id(cdt.id)
                             data(cdt)
-                            getDaysTimeData { model, parentView, clickedView, position ->
-                            }
+                            getDaysTimeData { model, parentView, clickedView, position -> }
                         }
                     }
                 }

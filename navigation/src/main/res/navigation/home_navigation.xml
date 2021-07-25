@@ -11,7 +11,7 @@
     </fragment>
     <fragment
         android:id="@+id/userTreatmentFragment"
-        android:name="ng.com.thewhitecellfoundation.haemcam.ui.diagnosis.UserTreatmentFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.diagnosis.RegimenAndDrugsFragment"
         android:label="user_treatment">
     </fragment>
 

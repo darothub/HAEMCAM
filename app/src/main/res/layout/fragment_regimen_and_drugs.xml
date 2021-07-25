@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
-    tools:context=".ui.diagnosis.UserTreatmentFragment">
+    tools:context=".ui.diagnosis.RegimenAndDrugsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@id/page_intro_tv"
-            app:drawableRightCompat="@drawable/ic_primary_add_outline_24" />
+          />
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/regimen_ercv"
             android:layout_width="match_parent"

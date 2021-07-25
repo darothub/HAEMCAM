@@ -75,6 +75,7 @@
         android:textColor="@color/primaryColor"
         android:textSize="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
         android:text="@string/remove"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

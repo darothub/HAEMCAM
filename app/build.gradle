@@ -79,7 +79,7 @@ dependencies {
     implementation project(':common')
 
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
-    implementation libs
+
     //Pin entry view
     implementation ('com.alimuzaffar.lib:pinentryedittext:2.0.6') {
         // Exclude is only needed if you already have

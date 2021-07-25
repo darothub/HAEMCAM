@@ -87,7 +87,7 @@ tasks.withType(Test) {
 dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
-    implementation libs
+    api libs
     coreLibraryDesugaring coreLibDesugaring
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
