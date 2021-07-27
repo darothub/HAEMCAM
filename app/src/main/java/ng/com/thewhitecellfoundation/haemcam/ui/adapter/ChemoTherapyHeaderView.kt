@@ -8,33 +8,30 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.RegimenDrugHorizontalBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ChemodrugItemHeaderBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 
 @ModelView(
-    autoLayout = ModelView.Size.WRAP_WIDTH_WRAP_HEIGHT,
-    defaultLayout = R.layout.regimen_drug_horizontal
+    autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
+    defaultLayout = R.layout.chemodrug_item_header
 )
-class DrugNameView2 @JvmOverloads constructor(
+class ChemoTherapyHeaderView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attr, defStyleAttr) {
-
-    var binding: RegimenDrugHorizontalBinding = RegimenDrugHorizontalBinding.inflate(
+    var binding: ChemodrugItemHeaderBinding = ChemodrugItemHeaderBinding.inflate(
         LayoutInflater.from(context),
         this, true
     )
 
     @ModelProp
-    fun setData(drug: StringItemData?) {
-        binding.regimenDrugNameTv.text = drug?.str
+    fun setData(data: StringItemData?) {
+        binding.chemoDrugTv1.text = data?.str
     }
 
     @CallbackProp
-    fun getDaysTimeData(listener: OnClickListener?) {
-        if (listener != null) {
-            binding.regimenDrugDateTv.setOnClickListener(listener)
-        }
+    fun setOnClick(listener: OnClickListener?) {
+        binding.textHeadingBgView.setOnClickListener(listener)
     }
 }

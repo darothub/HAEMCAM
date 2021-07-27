@@ -11,13 +11,13 @@ import com.airbnb.epoxy.ModelView
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import ng.com.thewhitecellfoundation.common.extensions.dismissPowerViewDropDown
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.DrugDaysItemsLayoutBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.DrugListLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.model.OtherDrugDays
 import java.util.*
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
-    defaultLayout = R.layout.drug_days_items_layout
+    defaultLayout = R.layout.drug_list_layout
 )
 class OtherDrugDaysView @JvmOverloads constructor(
     context: Context,
@@ -25,7 +25,7 @@ class OtherDrugDaysView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) :
     ConstraintLayout(context, attr, defStyleAttr) {
-    var binding: DrugDaysItemsLayoutBinding = DrugDaysItemsLayoutBinding.inflate(
+    var binding: DrugListLayoutBinding = DrugListLayoutBinding.inflate(
         LayoutInflater.from(context),
         this, true
     )
@@ -33,20 +33,20 @@ class OtherDrugDaysView @JvmOverloads constructor(
     @ModelProp
     fun setData(data: OtherDrugDays?) {
         Log.i("ID2", "${data?.id}")
-        data?.drug?.let { binding.drugSpinner.setItems(it) }
-        val tag = data?.tag?.let { context.getString(it) }
-        binding.drugSpinner.tag = tag
+//        data?.drug?.let { binding.drugSpinner.setItems(it) }
+//        val tag = data?.tag?.let { context.getString(it) }
+//        binding.drugSpinner.tag = tag
     }
 
     @CallbackProp
     fun setOnDeleteListener(listener: OnClickListener?) {
-        binding.removeTv.setOnClickListener(listener)
+//        binding.removeTv.setOnClickListener(listener)
     }
 
     @CallbackProp
     fun getDrugData(listener: OnSpinnerItemSelectedListener<String>?) {
         if (listener != null) {
-            binding.drugSpinner.setOnSpinnerItemSelectedListener(listener)
+//            binding.drugSpinner.setOnSpinnerItemSelectedListener(listener)
         }
     }
     @CallbackProp
@@ -59,7 +59,7 @@ class OtherDrugDaysView @JvmOverloads constructor(
         super.onDetachedFromWindow()
         Log.i("DrugDaysView", "Detached")
         dismissPowerViewDropDown(
-            binding.drugSpinner,
+//            binding.drugSpinner,
         )
     }
 }

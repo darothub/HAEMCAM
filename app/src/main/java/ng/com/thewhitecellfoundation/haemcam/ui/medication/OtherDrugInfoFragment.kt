@@ -6,23 +6,21 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentChemoTherapyInfoBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentOtherDrugInfoBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyEndView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyHeaderView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.chemoTherapyListView
 import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
-import java.util.*
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ChemoTherapyInfo.newInstance] factory method to
+ * Use the [OtherDrugInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
-
-    private val binding by viewBinding(FragmentChemoTherapyInfoBinding::bind)
+class OtherDrugInfoFragment : Fragment(R.layout.fragment_other_drug_info) {
+    private val binding by viewBinding(FragmentOtherDrugInfoBinding::bind)
     lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
 
     override fun onAttach(context: Context) {
@@ -34,6 +32,7 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
         super.onViewCreated(view, savedInstanceState)
 
         val chemoTestString = arrayListOf(StringItemData("Drug 1"), StringItemData("Drug 2"), StringItemData("Drug 3"), StringItemData("Drug 3"), StringItemData("Drug 3"))
+
         binding.chemodrugErcv.withModels {
             chemoTestString.forEach { cdt ->
                 when (cdt) {

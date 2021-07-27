@@ -6,33 +6,12 @@
     android:background="@color/white"
     >
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/chemodrug_regimen"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:enabled="false"
-        android:clickable="false"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/drug_et"
-            style="@style/EditTextCustomStyle"
-            android:textColorHint="@color/black"
-            android:textColor="@color/primaryColor"
-            android:inputType="text"
-            android:text="@string/chop"
-            android:singleLine="true" />
-    </com.google.android.material.textfield.TextInputLayout>
     <com.skydoves.powerspinner.PowerSpinnerView
-        android:id="@+id/days_time_spinner"
+        android:id="@+id/other_drug_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:hint="@string/days_cycle"
+        android:hint="@string/drug"
         android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp"
         android:textColor="@color/primaryColor"
@@ -46,7 +25,32 @@
         app:spinner_divider_show="false"
         app:spinner_popup_animation="dropdown"
         app:spinner_popup_background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/chemodrug_regimen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:spinner_popup_elevation="14dp" />
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/days_time_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/time_of_medication"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:textColor="@color/primaryColor"
+        android:textColorHint="@color/primaryColor"
+        android:textSize="@dimen/_12sdp"
+        android:background="@drawable/underline_gray"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_tint="@color/primaryColor"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_divider_color="@color/black"
+        app:spinner_divider_show="false"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/other_drug_spinner"
         android:layout_marginTop="@dimen/_5sdp"
         app:spinner_popup_elevation="14dp" />
 

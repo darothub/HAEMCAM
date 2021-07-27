@@ -11,9 +11,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import hideSystemUI
 import kotlinx.coroutines.*
-import ng.com.thewhitecellfoundation.common.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ReusableToolbarBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 class MainActivity : AppCompatActivity(), Navigator {
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), Navigator {
         reusableToolbarBinding = binding.toolbar
 
         setContentView(view)
+
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
     }
@@ -92,4 +93,7 @@ class MainActivity : AppCompatActivity(), Navigator {
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         if (hasFocus) hideSystemUI()
     }
+}
+
+fun main() {
 }

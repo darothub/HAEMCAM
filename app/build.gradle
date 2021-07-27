@@ -6,6 +6,7 @@ plugins {
     id "androidx.navigation.safeargs.kotlin"
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 
@@ -85,8 +86,7 @@ dependencies {
         // androidx.appcompat as a dependency in your app.
         exclude group: 'androidx.appcompat', module: 'appcompat'
     }
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     coreLibraryDesugaring coreLibDesugaring
 
     kapt kaptLib

@@ -17,7 +17,7 @@ import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityHomeBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
-class HomeActivity : AppCompatActivity(), Navigator {
+class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState {
     private val binding by viewBinding(ActivityHomeBinding::inflate)
 
     override lateinit var navHostFragment: NavHostFragment
@@ -28,16 +28,13 @@ class HomeActivity : AppCompatActivity(), Navigator {
         NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.userDiagnosisInfoFragment -> {
-                    binding.bottomNav.hide()
-                    binding.appbar.userGreetingsTv.show()
-                    binding.appbar.titleTv.hide()
-                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
+                    helpToolBarViews()
                 }
                 R.id.userTreatmentFragment -> {
-                    binding.bottomNav.hide()
-                    binding.appbar.userGreetingsTv.show()
-                    binding.appbar.titleTv.hide()
-                    binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
+                    helpToolBarViews()
+                }
+                R.id.bloodGroupSelectionFragment -> {
+                    helpToolBarViews()
                 }
                 R.id.homeFragment -> {
                     binding.bottomNav.show()
@@ -46,22 +43,26 @@ class HomeActivity : AppCompatActivity(), Navigator {
                     binding.appbar.userGreetingsTv.show()
                     binding.appbar.titleTv.hide()
                 }
-                R.id.medicationsFragment -> {
-                    dynamicTitleToolBarViews(getString(R.string.medication))
+                R.id.medicationsFragment, R.id.chemoTherapyFragment, R.id.otherDrugFragment,
+                R.id.servicesFragment, R.id.sideEffectReportingFragment -> {
+                    settingsToolBarViews(getString(R.string.medication))
                 }
-                R.id.chemoTherapyFragment -> {
-                    dynamicTitleToolBarViews(getString(R.string.medication))
-                }
-                R.id.nutritionMenuFragment -> {
-                    dynamicTitleToolBarViews(getString(R.string.nutrition))
-                }
-                R.id.recipesFragment -> {
-                    dynamicTitleToolBarViews(getString(R.string.nutrition))
+
+                R.id.nutritionMenuFragment, R.id.recipesFragment -> {
+                    settingsToolBarViews(getString(R.string.nutrition))
                 }
             }
         }
 
-    private fun dynamicTitleToolBarViews(name: String) {
+    private fun helpToolBarViews() {
+        binding.bottomNav.hide()
+        binding.appbar.userGreetingsTv.show()
+        binding.appbar.titleTv.hide()
+        binding.appbar.helpTv.setImageResource(R.drawable.ic_primary_help_24)
+        binding.appbar.userImageIv.setImageResource(R.drawable.ic_person_24)
+    }
+
+    private fun settingsToolBarViews(name: String) {
         binding.bottomNav.show()
         binding.appbar.helpTv.setImageResource(R.drawable.ic_settings_icon)
         binding.appbar.userGreetingsTv.hide()
@@ -81,8 +82,8 @@ class HomeActivity : AppCompatActivity(), Navigator {
         navController = findNavController(R.id.fragment)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         navController.addOnDestinationChangedListener(navListener)
     }
 
@@ -109,4 +110,19 @@ class HomeActivity : AppCompatActivity(), Navigator {
         val graph = inflater.inflate(graphId)
         navController.graph.addAll(graph)
     }
+
+    override fun buttonState(buttonText: String?, visible: Boolean, action: (() -> Unit?)?) {
+        if (visible) binding.btnPbar.btn.show() else binding.btnPbar.btn.hide()
+        binding.btnPbar.btn.text = buttonText
+        binding.btnPbar.btn.setOnClickListener {
+            action?.invoke()
+        }
+    }
+
+    override fun progressBarState(visible: Boolean) {}
+}
+
+interface ButtonAndProgressBarState {
+    fun buttonState(buttonText: String? = "", visible: Boolean = true, action: (() -> Unit?)? = { })
+    fun progressBarState(visible: Boolean)
 }

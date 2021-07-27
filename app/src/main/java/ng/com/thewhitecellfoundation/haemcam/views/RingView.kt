@@ -1,4 +1,4 @@
-package ng.com.thewhitecellfoundation.common.views
+package ng.com.thewhitecellfoundation.haemcam.views
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,7 +8,7 @@ import android.graphics.PointF
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import ng.com.thewhitecellfoundation.common.R
+import ng.com.thewhitecellfoundation.haemcam.R
 import kotlin.math.min
 
 class RingView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :

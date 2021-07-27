@@ -8,35 +8,31 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.DrugListLayoutBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ServicesButtonItemBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
-    defaultLayout = R.layout.drug_list_layout
+    defaultLayout = R.layout.services_button_item
 )
-class DrugNameView @JvmOverloads constructor(
+class ServiceButtonItemView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :
-    ConstraintLayout(context, attr, defStyleAttr) {
+) : ConstraintLayout(context, attr, defStyleAttr) {
 
-    var binding: DrugListLayoutBinding = DrugListLayoutBinding.inflate(
+    var binding: ServicesButtonItemBinding = ServicesButtonItemBinding.inflate(
         LayoutInflater.from(context),
         this, true
     )
-
     @ModelProp
-    fun setData(drug: StringItemData?) {
-//        binding.drugEt.setText(drug?.str)
-//        binding.daysTimeSpinner.hint = context.getString(R.string.start_date)
+    fun setData(data: StringItemData?) {
+        binding.servicesBtn.text = data?.str
     }
-
     @CallbackProp
-    fun getDaysTimeData(listener: OnClickListener?) {
+    fun onClick(listener: OnClickListener?) {
         if (listener != null) {
-            binding.daysTimeSpinner.setOnClickListener(listener)
+            binding.servicesBtn.setOnClickListener(listener)
         }
     }
 }
