@@ -92,4 +92,5 @@
     <string name="recipes">Recipes</string>
     <string name="ingredient">Ingredients</string>
     <string name="days_cycle_formatted">Start: %1$s, End: %2$s</string>
+    <string name="drug">DRUG</string>
 </resources>

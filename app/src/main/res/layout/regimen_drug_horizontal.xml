@@ -40,6 +40,8 @@
         app:layout_constraintTop_toBottomOf="@id/regimen_drug_date_tv"
         android:animateLayoutChanges="true"
         android:visibility="gone"
+        app:selectionColor="@color/primaryVariant"
+        app:headerColor="@color/primaryColor"
         app:type="many_days_picker"
         android:id="@+id/calendarView" />
 

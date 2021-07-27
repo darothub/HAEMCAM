@@ -29,8 +29,8 @@ class DrugNameView @JvmOverloads constructor(
 
     @ModelProp
     fun setData(drug: StringItemData?) {
-        binding.drugEt.setText(drug?.str)
-        binding.daysTimeSpinner.hint = context.getString(R.string.start_date)
+//        binding.drugEt.setText(drug?.str)
+//        binding.daysTimeSpinner.hint = context.getString(R.string.start_date)
     }
 
     @CallbackProp

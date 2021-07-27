@@ -100,31 +100,6 @@ class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
         }
     }
 
-    private fun showDateTimeDialog(clickedView: View?) {
-//        val listener: OnSelectDateListener = OnSelectDateListener {
-//            val startDate = Calendar.getInstance()
-//            val endDate = Calendar.getInstance()
-//            var startDateFormat: String? = null
-//            var endDateFormat: String? = null
-//            for (i in it) {
-//
-//                val formatter: DateFormat = SimpleDateFormat.getDateInstance()
-//                startDate.timeInMillis = i.timeInMillis
-//                endDate.timeInMillis = i.timeInMillis + 1728000000
-//                startDateFormat = formatter.format(startDate.time)
-//                endDateFormat = formatter.format(endDate.time)
-//                Log.i("Calendar", "$endDateFormat")
-//            }
-//            (clickedView as PowerSpinnerView).hint = "$startDateFormat to $endDateFormat"
-//        }
-//        val builder = DatePickerBuilder(requireContext(), listener)
-//            .setPickerType(CalendarView.ONE_DAY_PICKER)
-//        val datePicker: DatePicker = builder
-//            .setHeaderColor(R.color.primaryColor)
-//            .setSelectionColor(R.color.primaryColor)
-//            .build()
-//        datePicker.show()
-    }
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Skip/Next") {

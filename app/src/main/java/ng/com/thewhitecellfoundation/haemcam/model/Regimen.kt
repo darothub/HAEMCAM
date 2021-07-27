@@ -79,20 +79,3 @@ interface DrugDaysBase {
     var hint: Int?
     var dataPair: DataPair?
 }
-//
-// object DD : DrugDaysBase {
-//    override var id: Long = 0
-//    override var tag: String? = null
-//    override var drug: Int? = null
-//    override val days: Int? = null
-//    override var hint: String? = null
-//    override var dataPair: DataPair? = null
-// }
-// object DDTwo : DrugDaysBase {
-//    override var id: Long = 0
-//    override var tag: String? = null
-//    override var drug: Int? = null
-//    override val days: Int? = null
-//    override var hint: String? = null
-//    override var dataPair: DataPair? = null
-// }
