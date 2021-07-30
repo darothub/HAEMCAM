@@ -47,7 +47,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     spanSizeOverride { totalSpanCount, _, _ -> totalSpanCount / 2 }
 
                     onClick { model, parentView, clickedView, position ->
-                        navigator.goto(R.id.medicationsFragment)
+                        when (clickedView.tag) {
+                            getString(R.string.medication) -> navigator.goto(R.id.servicesFragment)
+                            getString(R.string.lab_result) -> navigator.goto(R.id.labResultsFragment)
+                            getString(R.string.nutrition) -> navigator.goto(R.id.nutritionMenuFragment)
+                        }
                     }
                 }
             }

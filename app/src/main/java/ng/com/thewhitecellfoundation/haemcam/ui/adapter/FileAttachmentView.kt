@@ -8,28 +8,25 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ng.com.thewhitecellfoundation.haemcam.R
-import ng.com.thewhitecellfoundation.haemcam.databinding.HomeItemListLayoutBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.FileAttachmentItemBinding
 import ng.com.thewhitecellfoundation.haemcam.model.HomeItemData
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
-    defaultLayout = R.layout.home_item_list_layout
+    defaultLayout = R.layout.file_attachment_item
 )
-open class HomeItemView @JvmOverloads constructor(
+open class FileAttachmentView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) :
     ConstraintLayout(context, attr, defStyleAttr) {
-    var binding: HomeItemListLayoutBinding = HomeItemListLayoutBinding.inflate(
+    var binding: FileAttachmentItemBinding = FileAttachmentItemBinding.inflate(
         LayoutInflater.from(context),
         this, true
     )
     @ModelProp
     fun setData(data: HomeItemData?) {
-        data?.image?.let { binding.homeItemIv.setImageResource(it) }
-        binding.titleTv.text = data?.title?.let { context.getString(it) }
-        binding.root.tag = data?.title?.let { context.getString(it) }
     }
 
     @CallbackProp

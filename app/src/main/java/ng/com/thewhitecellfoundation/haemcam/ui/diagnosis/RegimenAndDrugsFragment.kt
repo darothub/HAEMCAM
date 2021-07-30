@@ -103,7 +103,7 @@ class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Skip/Next") {
-            navigator.goto(R.id.bloodGroupSelectionFragment)
+            navigator.goto(R.id.homeFragment)
         }
     }
 

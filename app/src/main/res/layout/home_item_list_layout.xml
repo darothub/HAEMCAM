@@ -7,7 +7,7 @@
     android:background="@drawable/rounded_corner_primary_purple">
 
     <ImageView
-        android:id="@+id/icon_iv"
+        android:id="@+id/home_item_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_medication_icon"
@@ -15,6 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:tag="@string/dash"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -31,6 +32,6 @@
         android:textSize="@dimen/_12sdp"
         android:maxLines="1"
         android:ellipsize="end"
-        app:layout_constraintTop_toBottomOf="@+id/icon_iv" />
+        app:layout_constraintTop_toBottomOf="@+id/home_item_iv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

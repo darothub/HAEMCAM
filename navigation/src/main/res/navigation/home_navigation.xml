@@ -61,4 +61,9 @@
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.diagnosis.BloodGroupSelectionFragment"
         android:label="blood__grp_selection_fragment">
     </fragment>
+    <fragment
+        android:id="@+id/labResultsFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.lab.LabResultsFragment"
+        android:label="lab_results_fragment">
+    </fragment>
 </navigation>
