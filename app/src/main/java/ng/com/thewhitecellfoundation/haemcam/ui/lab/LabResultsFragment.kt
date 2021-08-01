@@ -40,7 +40,7 @@ class LabResultsFragment : Fragment(R.layout.fragment_lab_results) {
     }
     override fun onStart() {
         super.onStart()
-        buttonAndProgressBarState.buttonState(visible = false)
+        buttonAndProgressBarState.buttonState(loading = false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

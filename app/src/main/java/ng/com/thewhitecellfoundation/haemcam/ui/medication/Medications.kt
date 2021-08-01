@@ -33,6 +33,6 @@ class Medications : Fragment(R.layout.fragment_medications) {
     }
     override fun onStart() {
         super.onStart()
-        buttonAndProgressBarState.buttonState(visible = false)
+        buttonAndProgressBarState.buttonState(loading = false)
     }
 }

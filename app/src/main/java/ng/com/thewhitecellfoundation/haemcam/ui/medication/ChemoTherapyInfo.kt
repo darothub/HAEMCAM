@@ -65,6 +65,6 @@ class ChemoTherapyInfo : Fragment(R.layout.fragment_chemo_therapy_info) {
     }
     override fun onStart() {
         super.onStart()
-        buttonAndProgressBarState.buttonState(visible = false)
+        buttonAndProgressBarState.buttonState(loading = false)
     }
 }

@@ -27,7 +27,7 @@ class ServicesFragment : Fragment(R.layout.fragment_services) {
     }
     override fun onStart() {
         super.onStart()
-        buttonAndProgressBarState.buttonState(visible = false)
+        buttonAndProgressBarState.buttonState(loading = false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

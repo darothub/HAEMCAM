@@ -111,20 +111,26 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState {
         navController.graph.addAll(graph)
     }
 
-    override fun buttonState(buttonText: String?, visible: Boolean, onclick: (() -> Unit?)?) {
-//        if (visible) binding.btnPbar.btn.show() else binding.btnPbar.btn.hide()
-//        binding.btnPbar.btn.text = buttonText
-//        binding.btnPbar.btn.setOnClickListener {
-//            onclick?.invoke()
-//        }
+    override fun showView() {
+        binding.btnPbar.show()
+    }
+    override fun hideView() {
+        binding.btnPbar.hide()
     }
 
-    override fun progressBarState(visible: Boolean) {
-//        if (visible) binding.btnPbar.progressBar.show() else binding.btnPbar.progressBar.hide()
+    override fun buttonState(buttonText: String?, loading: Boolean, onclick: (() -> Unit?)?) {
+        with(binding.btnPbar) {
+            this.loading = loading
+            this.buttonText = buttonText
+            onClickActionListener { onclick?.invoke() }
+        }
     }
+
 }
 
 interface ButtonAndProgressBarState {
-    fun buttonState(buttonText: String? = "", visible: Boolean = true, onclick: (() -> Unit?)? = { })
-    fun progressBarState(visible: Boolean)
+    fun showView() {}
+    fun hideView() {}
+    fun buttonState(buttonText: String? = "", loading: Boolean = false, onclick: (() -> Unit?)? = { })
+    fun progressBarState(visible: Boolean){}
 }

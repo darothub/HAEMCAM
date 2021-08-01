@@ -84,6 +84,11 @@ class ButtonProgressView@JvmOverloads constructor(
         binding.progressBar.indeterminateTintList = ColorStateList.valueOf(ContextCompat.getColor(context, color))
         postInvalidate()
     }
+    fun onClickActionListener(onclick: (() -> Unit?)) {
+        binding.btn.setOnClickListener {
+            onclick.invoke()
+        }
+    }
     fun Drawable.changeBackgroundColor(context: Context, color: Int) {
         this.colorFilter = PorterDuffColorFilter(
             ContextCompat.getColor(context, color),
