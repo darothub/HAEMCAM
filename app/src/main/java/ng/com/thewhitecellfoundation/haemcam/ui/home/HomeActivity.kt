@@ -112,23 +112,19 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState {
     }
 
     override fun buttonState(buttonText: String?, visible: Boolean, onclick: (() -> Unit?)?) {
-        if (visible) binding.btnPbar.btn.show() else binding.btnPbar.btn.hide()
-        binding.btnPbar.btn.text = buttonText
-        binding.btnPbar.btn.setOnClickListener {
-            onclick?.invoke()
-        }
+//        if (visible) binding.btnPbar.btn.show() else binding.btnPbar.btn.hide()
+//        binding.btnPbar.btn.text = buttonText
+//        binding.btnPbar.btn.setOnClickListener {
+//            onclick?.invoke()
+//        }
     }
 
     override fun progressBarState(visible: Boolean) {
-        if (visible) binding.btnPbar.progressBar.show() else binding.btnPbar.progressBar.hide()
+//        if (visible) binding.btnPbar.progressBar.show() else binding.btnPbar.progressBar.hide()
     }
 }
 
 interface ButtonAndProgressBarState {
     fun buttonState(buttonText: String? = "", visible: Boolean = true, onclick: (() -> Unit?)? = { })
     fun progressBarState(visible: Boolean)
-}
-
-fun main() {
-    println("Hello world")
 }

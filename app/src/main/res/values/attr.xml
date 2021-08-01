@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CustomCircleView">
+    <declare-styleable name="RingView">
         <attr name="outer_color" format="color"/>
         <attr name="inner_color" format="color"/>
         <attr name="size" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ButtonProgressView">
+        <attr name="button_bg_color" format="color"/>
+        <attr name="button_text" format="string"/>
+        <attr name="loading" format="boolean"/>
+        <attr name="enabled" format="boolean"/>
+        <attr name="button_background" format="reference"/>
+        <attr name="custom_indeterminate_tint" format="color"/>
     </declare-styleable>
 </resources>

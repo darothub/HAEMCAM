@@ -14,10 +14,10 @@ import kotlin.math.min
 class RingView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     View(context, attrs, defStyleAttr) {
 
-    private val ta = context.obtainStyledAttributes(attrs, R.styleable.CustomCircleView)
-    private val outerColor = ta.getColor(R.styleable.CustomCircleView_outer_color, Color.BLACK)
-    private val innerColor = ta.getColor(R.styleable.CustomCircleView_inner_color, Color.WHITE)
-    private val circleSize = ta.getDimensionPixelSize(R.styleable.CustomCircleView_size, 100)
+    private val ta = context.obtainStyledAttributes(attrs, R.styleable.RingView)
+    private val outerColor = ta.getColor(R.styleable.RingView_outer_color, Color.BLACK)
+    private val innerColor = ta.getColor(R.styleable.RingView_inner_color, Color.WHITE)
+    private val circleSize = ta.getDimensionPixelSize(R.styleable.RingView_size, 100)
     private val outerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
     }

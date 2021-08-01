@@ -2,8 +2,10 @@ package ng.com.thewhitecellfoundation.haemcam.ui.lab
 
 import android.content.Context
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
@@ -27,6 +29,10 @@ class LabResultsFragment : Fragment(R.layout.fragment_lab_results) {
 
     lateinit var yearPickerLayoutBinding: YearPickerLayoutBinding
     lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
+    private val selectImageFromGalleryResult = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+//        uri?.let { previewImage.setImageURI(uri) }
+    }
+    private var latestTmpUri: Uri? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -71,5 +77,11 @@ class LabResultsFragment : Fragment(R.layout.fragment_lab_results) {
         binding.lineChart.invalidate()
 
         binding.yearSpinner.setItems((2021..2030).toList().map { it.toString() })
+
+        binding.attachBtn.setOnClickListener {
+            selectFile()
+        }
     }
+
+    private fun selectFile() = selectImageFromGalleryResult.launch("image/*")
 }
