@@ -125,12 +125,11 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState {
             onClickActionListener { onclick?.invoke() }
         }
     }
-
 }
 
 interface ButtonAndProgressBarState {
     fun showView() {}
     fun hideView() {}
     fun buttonState(buttonText: String? = "", loading: Boolean = false, onclick: (() -> Unit?)? = { })
-    fun progressBarState(visible: Boolean){}
+    fun progressBarState(visible: Boolean) {}
 }
