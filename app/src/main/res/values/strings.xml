@@ -95,4 +95,10 @@
     <string name="drug">DRUG</string>
     <string name="attachment">Attachment</string>
     <string name="attach">Attach</string>
+    <string name="sickness_category">Categories:</string>
+
+    <string-array name="sickness">
+        <item>Cancer</item>
+        <item>Diabetes</item>
+    </string-array>
 </resources>

@@ -12,4 +12,5 @@
     <color name="haemcamGrey">#EBECF0</color>
     <color name="haemcamCream">#EDEDDB</color>
     <color name="haemcamOrange">#FF9800</color>
+    <color name="grey">#BCBCBC</color>
 </resources>
