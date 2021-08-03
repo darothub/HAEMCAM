@@ -16,7 +16,6 @@ fun TextView.customOnDrawableRightListener(action: () -> Unit) {
         if (event.action == MotionEvent.ACTION_UP) {
             if (event.rawX >= right - totalPaddingRight) {
                 action.invoke()
-                true
             }
         }
         true
@@ -48,7 +47,7 @@ fun pressedEvent(
 fun View.hide(): Boolean {
     if (this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE) {
         this.visibility = View.GONE
-        return true
+        return this.visibility == View.GONE
     }
     return false
 }

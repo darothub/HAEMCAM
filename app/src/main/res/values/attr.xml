@@ -14,4 +14,13 @@
         <attr name="button_background" format="reference"/>
         <attr name="custom_indeterminate_tint" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomToolBarView">
+        <attr name="custom_bg_color" format="color"/>
+        <attr name="greetings" format="boolean"/>
+        <attr name="greeting_text" format="string"/>
+        <attr name="title" format="string"/>
+        <attr name="left_icon" format="reference"/>
+        <attr name="right_icon" format="reference"/>
+    </declare-styleable>
 </resources>

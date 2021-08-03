@@ -10,7 +10,7 @@
         android:label="diagnosis_info">
     </fragment>
     <fragment
-        android:id="@+id/userTreatmentFragment"
+        android:id="@+id/regimenAndDrugsFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.diagnosis.RegimenAndDrugsFragment"
         android:label="user_treatment">
     </fragment>

@@ -107,6 +107,11 @@ class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        buttonAndProgressBarState.buttonState("")
+    }
+
     companion object {
         val firstRegimenChemo = Regimen(
             R.string.regimen, R.array.regimen, null, R.string.chemo_drug,

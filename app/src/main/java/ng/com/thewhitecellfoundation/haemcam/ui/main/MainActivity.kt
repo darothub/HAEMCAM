@@ -13,7 +13,7 @@ import hideSystemUI
 import kotlinx.coroutines.*
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.ActivityMainBinding
-import ng.com.thewhitecellfoundation.haemcam.databinding.ReusableToolbarBinding
+import ng.com.thewhitecellfoundation.haemcam.databinding.ReusableAppbarBinding
 import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
 
 class MainActivity : AppCompatActivity(), Navigator {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), Navigator {
     override lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
 
-    lateinit var reusableToolbarBinding: ReusableToolbarBinding
+    lateinit var reusableAppbarBinding: ReusableAppbarBinding
 
     private val navListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), Navigator {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-        reusableToolbarBinding = binding.toolbar
+        reusableAppbarBinding = binding.toolbar
 
         setContentView(view)
 
@@ -93,7 +93,4 @@ class MainActivity : AppCompatActivity(), Navigator {
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         if (hasFocus) hideSystemUI()
     }
-}
-
-fun main() {
 }

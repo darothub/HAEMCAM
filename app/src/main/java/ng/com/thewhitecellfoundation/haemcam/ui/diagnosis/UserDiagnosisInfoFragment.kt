@@ -28,16 +28,12 @@ class UserDiagnosisInfoFragment : Fragment(R.layout.fragment_user_diagnosis_info
         onBackDispatcher {
             navigator.navController.popBackStack()
         }
-
-//        binding.nextBtn.setOnClickListener {
-//            (requireActivity() as Navigator).goto(R.id.userTreatmentFragment)
-//        }
     }
 
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Next") {
-            navigator.goto(R.id.userTreatmentFragment)
+            navigator.goto(R.id.regimenAndDrugsFragment)
         }
     }
 
@@ -47,6 +43,7 @@ class UserDiagnosisInfoFragment : Fragment(R.layout.fragment_user_diagnosis_info
             binding.genderSpinner,
             binding.diagnosisSpinner
         )
+        buttonAndProgressBarState.buttonState("")
     }
 
     override fun onAttach(context: Context) {

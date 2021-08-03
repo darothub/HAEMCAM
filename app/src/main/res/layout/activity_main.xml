@@ -9,7 +9,7 @@
     tools:context=".ui.main.MainActivity">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/reusable_toolbar"
+        layout="@layout/reusable_appbar"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
