@@ -2,8 +2,10 @@ package ng.com.thewhitecellfoundation.haemcam.data
 
 import ng.com.thewhitecellfoundation.haemcam.model.FeedBack
 
+/**
+ * Generates a dummy [FeedBack] data for the feedback fragment recyclerview
+ */
 object FeedbackDummyDataGenerator {
-
     fun createFeedbackData(): ArrayList<FeedBack> {
 
         return arrayListOf(
