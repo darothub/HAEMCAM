@@ -95,4 +95,19 @@
     <string name="drug">DRUG</string>
     <string name="attachment">Attachment</string>
     <string name="attach">Attach</string>
+    <string name="sickness_category">Categories:</string>
+    <string name="likes">Likes</string>
+    <string name="_0">0</string>
+    <string name="message_here">Message here</string>
+    <string name="comments">Comments</string>
+
+    <string-array name="sickness">
+        <item>Cancer</item>
+        <item>Diabetes</item>
+    </string-array>
+
+    <style name="wrap_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
