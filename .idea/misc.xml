@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/drawable/circle_primary.xml" value="0.17685185185185184" />
+        <entry key="app/src/main/res/drawable/rounded_corner_light_grey.xml" value="0.128125" />
+        <entry key="app/src/main/res/drawable/rounded_corner_primary_purple.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable/transfusion_blood_group_first_item_background.xml" value="0.2759259259259259" />
+        <entry key="app/src/main/res/drawable/transfusion_item_layout_background.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.10885416666666667" />
+        <entry key="app/src/main/res/layout/blood_group_item.xml" value="0.2056159420289855" />
+        <entry key="app/src/main/res/layout/chemodrug_item_layout.xml" value="0.2056159420289855" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.10885416666666667" />
+        <entry key="app/src/main/res/layout/fragment_nutrition_menu.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/fragment_transfusion.xml" value="0.2056159420289855" />
+        <entry key="app/src/main/res/layout/home_item_list_layout.xml" value="0.1401546049368195" />
+        <entry key="app/src/main/res/layout/nutrition_menu_item.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/transfusion_item_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/transfusion_menu_layout.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/year_picker_layout.xml" value="0.2056159420289855" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
