@@ -9,6 +9,7 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentHomeBinding
 import ng.com.thewhitecellfoundation.haemcam.model.HomeItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.homeItemView
+import ng.com.thewhitecellfoundation.haemcam.ui.transfusion.TransfusionFragment
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
@@ -34,6 +35,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             HomeItemData(R.drawable.ic_lab_result_icon, R.string.lab_result),
             HomeItemData(R.drawable.ic_transfusion_icon, R.string.transfusion),
         )
+        binding.clickMe.setOnClickListener {
+            val fragment = TransfusionFragment()
+            val fragmentManager = activity?.supportFragmentManager
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.homee, fragment)
+            fragmentTransaction?.addToBackStack(null)
+            fragmentTransaction?.commit()
+        }
 
         binding.ercv.withModels {
             listOfHomeItem.forEach { hid ->

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingStart="@dimen/_20sdp"
+    android:id="@+id/homee"
     android:paddingEnd="@dimen/_20sdp"
     android:background="@color/white"
     tools:context=".ui.home.HomeFragment">
@@ -40,4 +41,13 @@
         tools:itemCount="4"
         app:layout_constrainedHeight="true"
         tools:listitem="@layout/home_item_list_layout" />
+
+    <Button
+        android:id="@+id/click_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click me"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
