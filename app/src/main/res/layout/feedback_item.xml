@@ -48,7 +48,7 @@
     <TextView
         android:id="@+id/numbers_of_likes"
         style="@style/wrap_content"
-        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:text="@string/_0"
         android:textColor="@color/red"
         app:layout_constraintBottom_toBottomOf="@+id/like_heart_image"
@@ -66,28 +66,27 @@
     <ImageView
         android:id="@+id/text_image"
         style="@style/wrap_content"
-        android:layout_marginStart="@dimen/_84sdp"
+        android:layout_marginEnd="5dp"
         android:src="@drawable/ic_textsms"
-        app:layout_constraintBottom_toBottomOf="@+id/likes"
-        app:layout_constraintStart_toEndOf="@+id/likes" />
+        app:layout_constraintBottom_toBottomOf="@+id/like_heart_image"
+        app:layout_constraintEnd_toStartOf="@+id/numbers_of_comments" />
 
     <TextView
         android:id="@+id/numbers_of_comments"
         style="@style/wrap_content"
-        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/_0"
         android:textColor="@color/black"
-        android:textSize="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="@+id/text_image"
-        app:layout_constraintStart_toEndOf="@+id/text_image" />
+        app:layout_constraintEnd_toStartOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
         style="@style/wrap_content"
-        android:layout_marginStart="@dimen/_5sdp"
         android:text="@string/comments"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/numbers_of_comments"
-        app:layout_constraintStart_toEndOf="@+id/numbers_of_comments" />
+        app:layout_constraintEnd_toEndOf="@+id/feedback_message" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
