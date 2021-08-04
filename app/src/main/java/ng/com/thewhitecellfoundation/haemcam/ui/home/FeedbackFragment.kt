@@ -50,6 +50,7 @@ class FeedbackFragment : Fragment(R.layout.fragment_feedback), RecyclerClickList
                 10, 4
             )
         )
+
         sicknessSelectorDropdown = binding.categoryDropdownEditText
         feedBackAdapter = FeedBackAdapter(listOfFeedbacks, this)
         recyclerview.adapter = feedBackAdapter
@@ -58,7 +59,7 @@ class FeedbackFragment : Fragment(R.layout.fragment_feedback), RecyclerClickList
 
     override fun onResume() {
         super.onResume()
-        /*Set up States Dropdown*/
+        /*Set up category Dropdown*/
         val states = resources.getStringArray(R.array.sickness)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.categorries_drop_down_item, states)
         sicknessSelectorDropdown.setAdapter(arrayAdapter)
