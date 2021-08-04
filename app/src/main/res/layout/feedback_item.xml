@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="@dimen/_4sdp"
+    android:elevation="@dimen/_6sdp"
+    android:outlineProvider="bounds"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dr_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/margin_40sdp"
+        android:text="Dr name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/feedback_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:textSize="@dimen/text_size_16sp"
+        android:text="@string/message_here"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/dr_name"
+        app:layout_constraintStart_toStartOf="@+id/dr_name"
+        app:layout_constraintTop_toBottomOf="@+id/dr_name" />
+
+    <ImageView
+        android:id="@+id/like_heart_image"
+        style="@style/wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:src="@drawable/heart"
+        app:layout_constraintStart_toStartOf="@+id/feedback_message"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_message" />
+
+    <TextView
+        android:id="@+id/numbers_of_likes"
+        style="@style/wrap_content"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:text="@string/_0"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="@+id/like_heart_image"
+        app:layout_constraintStart_toEndOf="@+id/like_heart_image" />
+
+    <TextView
+        android:id="@+id/likes"
+        style="@style/wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="@string/likes"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="@+id/numbers_of_likes"
+        app:layout_constraintStart_toEndOf="@+id/numbers_of_likes" />
+
+    <ImageView
+        android:id="@+id/text_image"
+        style="@style/wrap_content"
+        android:layout_marginStart="@dimen/_84sdp"
+        android:src="@drawable/ic_textsms"
+        app:layout_constraintBottom_toBottomOf="@+id/likes"
+        app:layout_constraintStart_toEndOf="@+id/likes" />
+
+    <TextView
+        android:id="@+id/numbers_of_comments"
+        style="@style/wrap_content"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_image"
+        app:layout_constraintStart_toEndOf="@+id/text_image" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="@string/comments"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/numbers_of_comments"
+        app:layout_constraintStart_toEndOf="@+id/numbers_of_comments" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

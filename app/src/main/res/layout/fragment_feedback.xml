@@ -1,46 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.FeedbackFragment">
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/dropdown_text_input_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/category_dropdown_text_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/haemcamGrey"
         android:layout_marginHorizontal="@dimen/_20dp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:boxStrokeWidth="1dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@color/light_grey"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:boxStrokeWidth="@dimen/_0spd"
         app:endIconDrawable="@drawable/ccp_ic_arrow_drop_down"
         app:hintEnabled="false"
-
-        app:layout_constraintEnd_toEndOf="@+id/add_address_fragment_city_address_edit_text_layout"
-        app:layout_constraintStart_toStartOf="@+id/add_address_fragment_city_address_edit_text_layout"
-        app:layout_constraintTop_toBottomOf="@+id/add_address_fragment_city_address_edit_text_layout">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/category_dropdown_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/haemcamGrey"
+            android:backgroundTint="@color/grey"
             android:fontFamily="@font/roboto_medium"
             android:inputType="none"
-            android:paddingStart="@dimen/_20dp"
             android:paddingVertical="@dimen/_20dp"
+            android:paddingStart="@dimen/_20dp"
+            android:text="@string/sickness_category"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_16sp"
-            android:text="@string/sickness_category"/>
+            android:textSize="@dimen/text_size_16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_0spd"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_dropdown_text_input_layout"
+        tools:listitem="@layout/feedback_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
