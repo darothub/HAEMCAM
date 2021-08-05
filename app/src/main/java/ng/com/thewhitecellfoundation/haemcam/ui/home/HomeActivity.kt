@@ -114,8 +114,8 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState, 
                 setUpScreenWithGreeting(R.drawable.ic_primary_help_24)
             }
             R.id.homeFragment -> {
-                binding.bottomNav.show()
                 setUpScreenWithGreeting(R.drawable.ic_settings_icon)
+                binding.bottomNav.show()
             }
             R.id.medicationsFragment, R.id.chemoTherapyFragment, R.id.otherDrugFragment,
             R.id.servicesFragment, R.id.sideEffectReportingFragment -> {

@@ -1,7 +1,6 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.diagnosis
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -18,6 +17,7 @@ import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.regimenAndDrugAdapter
 import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
+import ng.com.thewhitecellfoundation.haemcam.ui.main.BaseFragment
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import java.util.*
 
@@ -26,18 +26,16 @@ import java.util.*
  * Use the [UserTreamentFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
+class RegimenAndDrugsFragment : BaseFragment(R.layout.fragment_regimen_and_drugs) {
     private val binding by viewBinding(FragmentRegimenAndDrugsBinding::bind)
     lateinit var bottomSheetBinding: ChemodrugBottomsheetLayoutBinding
-    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
+    override val buttonAndProgressBarState: ButtonAndProgressBarState by lazy {
+        requireActivity() as ButtonAndProgressBarState
+    }
 
     // Set bottom dialog
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
-    }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -48,10 +46,7 @@ class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
 
         val listOfRegimenDrugs = arrayListOf(
             StringItemData("Chemosyspathom"),
-            StringItemData(
-
-                "Chemosyspaloam"
-            ),
+            StringItemData("Chemosyspaloam"),
             StringItemData("Chemosysthahah")
         )
         binding.otherDrugErcv.withModels {
@@ -105,11 +100,6 @@ class RegimenAndDrugsFragment : Fragment(R.layout.fragment_regimen_and_drugs) {
         buttonAndProgressBarState.buttonState("Skip/Next") {
             navigator.goto(R.id.homeFragment)
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        buttonAndProgressBarState.buttonState("")
     }
 
     companion object {

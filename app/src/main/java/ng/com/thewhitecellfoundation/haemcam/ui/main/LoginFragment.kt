@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
@@ -36,15 +35,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.loginPhoneNumberEt.customOnDrawableRightListener {
             binding.loginVf.showNext()
         }
-        binding.btnPbar.btn.apply {
-            text = getString(R.string.login_str)
-            setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-        }
+
         binding.signupTv.setOnClickListener {
             navigator.goto(R.id.createAccountFragment)
         }
 
-        binding.btnPbar.btn.setOnClickListener {
+        binding.btnPbar.onClickActionListener {
             val a = arrayOf(binding.emailAddressEt, binding.passwordEt).map {
                 val pair = Pair<CustomEditTextField, TextInputEditText?>(
                     CustomEditTextField(it.text.toString(), it.tag.toString()), it
@@ -73,6 +69,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 Toast.makeText(requireContext(), "Login ${res.respond?.first?.tag}", Toast.LENGTH_SHORT).show()
                 Log.i("Login", "Login ${res.respond?.first?.tag}")
             }
+            Unit
         }
     }
 }
