@@ -46,7 +46,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         when (clickedView.tag) {
                             getString(R.string.medication) -> navigator.goto(R.id.servicesFragment)
                             getString(R.string.lab_result) -> navigator.goto(R.id.labResultsFragment)
-                            getString(R.string.nutrition) -> navigator.goto(R.id.nutritionMenuFragment)
+//                            getString(R.string.nutrition) -> navigator.goto(R.id.nutritionMenuFragment)
                         }
                     }
                 }
