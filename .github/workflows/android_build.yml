@@ -36,14 +36,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Unit Test
-        run: ./gradlew :common:jacocoCombinedTestReports
+        run: ./gradlew :common:jacocoTestReport
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./common/build/reports/coverage/jacocoCombinedTestReports/jacocoCombinedTestReports.xml
-          directory: ./common/build/reports/coverage/jacocoCombinedTestReports/
+          files: ./common/build/reports/coverage/jacocoTestReport/jacocoTestReport.xml
+          directory: ./common/build/reports/coverage/jacocoTestReport/
 
 
   Instrumented_test:

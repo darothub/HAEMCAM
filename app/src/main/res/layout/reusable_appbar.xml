@@ -2,9 +2,6 @@
 <com.google.android.material.appbar.AppBarLayout android:id="@+id/appbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
     android:background="@android:color/transparent"
     android:elevation="@dimen/_10sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,22 +15,13 @@
         app:contentInsetStart="0dp"
         android:elevation="@dimen/_10sdp"
         app:buttonGravity="center_vertical"
+        android:animateLayoutChanges="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/wc_foundation"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            app:srcCompat="@drawable/wc_foundation"/>
     </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>
