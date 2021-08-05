@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -206,14 +206,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <include
+        <ng.com.thewhitecellfoundation.haemcam.views.ButtonProgressView
             android:id="@+id/btn_pbar"
-            layout="@layout/btn_pbar_layout"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="@id/password_input"
             app:layout_constraintStart_toStartOf="@id/password_input"
             app:layout_constraintTop_toBottomOf="@id/password_input"
+            app:button_bg_color="@color/primaryVariant"
+            app:button_background="@drawable/rounded_corner_primary_purple"
+            app:button_text="@string/login_str"
             />
 
         <TextView
