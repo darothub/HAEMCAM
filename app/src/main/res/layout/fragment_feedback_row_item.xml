@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/haemcamGrey"
+    android:elevation="@dimen/_10sdp"
+    android:id="@+id/fragment_feedback_row_item">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_title_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/fragment_feedback_name"
+            android:textColor="@color/black"
+            android:textFontWeight="800"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_comment_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="6dp"
+            android:maxLines="4"
+            android:text="@string/feedback_message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/fragment_feedback_row_item_title_textview"
+            app:layout_constraintVertical_bias="0.064" />
+
+        <ImageView
+            android:id="@+id/fragment_feedback_row_item_like_icon_textview"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/like_icon_favourite"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/fragment_feedback_row_item_comment_textview"
+            app:tint="@color/haemcamRed" />
+
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_numberoflikes_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@string/likeCount"
+            android:textColor="@color/haemcamRed"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintStart_toEndOf="@id/fragment_feedback_row_item_like_icon_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_feedback_row_item_like_icon_textview" />
+
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_likestext_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/likeText"
+            android:textColor="@color/haemcamRed"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintStart_toEndOf="@+id/fragment_feedback_row_item_numberoflikes_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_feedback_row_item_numberoflikes_textview" />
+
+        <ImageView
+            android:id="@+id/fragment_feedback_row_item_comment_icon_textview"
+            android:layout_width="35dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/comment_icon"
+            app:layout_constraintStart_toEndOf="@+id/fragment_feedback_row_item_likestext_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_feedback_row_item_likestext_textview"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_numberofcomments_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/likeCount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/fragment_feedback_row_item_comment_icon_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_feedback_row_item_comment_icon_textview" />
+
+        <TextView
+            android:id="@+id/fragment_feedback_row_item_commenttext_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commentText"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toEndOf="@+id/fragment_feedback_row_item_numberofcomments_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_feedback_row_item_numberofcomments_textview" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96107054" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
