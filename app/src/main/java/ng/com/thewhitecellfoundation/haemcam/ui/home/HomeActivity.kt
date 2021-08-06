@@ -10,6 +10,7 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import ng.com.thewhitecellfoundation.common.extensions.hide
 import ng.com.thewhitecellfoundation.common.extensions.show
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
@@ -50,6 +51,8 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState, 
         setContentView(view)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = findNavController(R.id.fragment)
+
+        binding.bottomNav.setupWithNavController(navController)
     }
 
     override fun onStart() {

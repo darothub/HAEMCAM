@@ -34,6 +34,7 @@ class UserDiagnosisInfoFragment : BaseFragment(R.layout.fragment_user_diagnosis_
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Next") {
+            navigator.goto(R.id.fragmentNotification)
             navigator.goto(R.id.feedbackFragment)
         }
     }
