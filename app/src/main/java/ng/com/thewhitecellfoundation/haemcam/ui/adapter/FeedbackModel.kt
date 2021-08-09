@@ -3,7 +3,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.adapter
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.epoxy.* // ktlint-disable no-wildcard-imports
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentFeedbackRowItemBinding
@@ -17,7 +17,7 @@ class FeedbackModel @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : CardView(context, attr, defStyleAttr) {
+) : ConstraintLayout(context, attr, defStyleAttr) {
 
     var binding: FragmentFeedbackRowItemBinding = FragmentFeedbackRowItemBinding.inflate(
         LayoutInflater.from(context),
