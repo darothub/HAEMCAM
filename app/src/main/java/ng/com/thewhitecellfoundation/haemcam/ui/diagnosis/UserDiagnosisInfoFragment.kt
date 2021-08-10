@@ -33,11 +33,9 @@ class UserDiagnosisInfoFragment : Fragment(R.layout.fragment_user_diagnosis_info
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Next") {
-            navigator.goto(R.id.feedbackFragment)
+            navigator.goto(R.id.regimenAndDrugsFragment)
         }
     }
-
-    // R.id.regimenAndDrugsFragment
 
     override fun onPause() {
         super.onPause()
