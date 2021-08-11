@@ -1,12 +1,10 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.lab
 
-import android.content.Context
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -19,25 +17,24 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLabResultsBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.YearPickerLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
+import ng.com.thewhitecellfoundation.haemcam.ui.main.BaseFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LabResultsFragment : Fragment(R.layout.fragment_lab_results) {
+class LabResultsFragment : BaseFragment(R.layout.fragment_lab_results) {
     private val binding by viewBinding(FragmentLabResultsBinding::bind)
     lateinit var description: Description
     lateinit var xAxis: XAxis
 
     lateinit var yearPickerLayoutBinding: YearPickerLayoutBinding
-    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
-    private val selectImageFromGalleryResult = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+    override val buttonAndProgressBarState: ButtonAndProgressBarState by lazy {
+        requireActivity() as ButtonAndProgressBarState
+    }
+    private val selectImageFromGalleryResult = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
 //        uri?.let { previewImage.setImageURI(uri) }
     }
     private var latestTmpUri: Uri? = null
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
-    }
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState(loading = false)
@@ -83,5 +80,5 @@ class LabResultsFragment : Fragment(R.layout.fragment_lab_results) {
         }
     }
 
-    private fun selectFile() = selectImageFromGalleryResult.launch("image/*")
+    private fun selectFile() = selectImageFromGalleryResult.launch(arrayOf("application/pdf"))
 }

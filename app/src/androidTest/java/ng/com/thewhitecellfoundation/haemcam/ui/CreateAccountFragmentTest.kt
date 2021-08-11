@@ -19,7 +19,7 @@ class CreateAccountFragmentTest {
     @Before
     fun setup() {
         val scene =
-            launchFragmentInContainer<CreateAccountFragment>(themeResId = R.style.Theme_FullScreen_Translucent)
+            launchFragmentInContainer<CreateAccountFragment>(themeResId = R.style.Theme_FULLSCREEN)
         scene.moveToState(Lifecycle.State.RESUMED)
     }
 

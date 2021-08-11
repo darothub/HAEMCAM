@@ -26,7 +26,7 @@ class LoginFragmentTest {
     @Before
     fun setup() {
         val scene =
-            launchFragmentInContainer<LoginFragment>(themeResId = R.style.Theme_FullScreen_Translucent)
+            launchFragmentInContainer<LoginFragment>(themeResId = R.style.Theme_FULLSCREEN)
         scene.moveToState(Lifecycle.State.RESUMED)
     }
 

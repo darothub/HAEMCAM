@@ -13,4 +13,7 @@
     <color name="haemcamCream">#EDEDDB</color>
     <color name="haemcamOrange">#FF9800</color>
     <color name="haemcamRed">#C42A09</color>
+    <color name="lightGray">#F9F9F9</color>
+    <color name="mediumGray">#D1D1D1</color>
+    <color name="lightMediumGray">#70D1D1D1</color>
 </resources>

@@ -22,6 +22,7 @@ interface Navigator {
         val inflater = myNavHostFragment.navController.navInflater
         val graph = inflater.inflate(graphId)
         myNavHostFragment.navController.graph = graph
+
         goto(uri)
     }
 
