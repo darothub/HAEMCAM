@@ -49,7 +49,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/feedback_row_layout_description_textview"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ic_likes"
-                app:tint="@color/red" />
+                app:tint="@color/haemcamRed" />
 
             <TextView
                 android:id="@+id/feedback_row_layout_likes_textview"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@string/likes"
-                android:textColor="@color/red"
+                android:textColor="@color/haemcamRed"
                 app:layout_constraintBottom_toBottomOf="@+id/feedback_row_layout_likeCounts_textView"
                 app:layout_constraintStart_toEndOf="@+id/feedback_row_layout_likeCounts_textView"
                 app:layout_constraintTop_toTopOf="@+id/feedback_row_layout_likeCounts_textView"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:text="0"
-                android:textColor="@color/red"
+                android:textColor="@color/haemcamRed"
                 app:layout_constraintBottom_toBottomOf="@+id/feedback_row_layout_likes_imageview"
                 app:layout_constraintStart_toEndOf="@+id/feedback_row_layout_likes_imageview"
                 app:layout_constraintTop_toTopOf="@+id/feedback_row_layout_likes_imageview" />

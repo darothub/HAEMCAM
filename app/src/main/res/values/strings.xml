@@ -102,6 +102,11 @@
     <string name="likeCount">0</string>
     <string name="likeText">likes</string>
     <string name="commentText">comment</string>
+    <string name="dr_anthonia_peterson">Dr Anthonia Peterson</string>
+    <string name="feedback_row_layout_description_text">Here are some medical feedback</string>
+    <string name="likes">likes</string>
+    <string name="comment">comment</string>
+    <string name="_0">0</string>
 
     <string-array name="categories">
         <item>Cancer</item>
