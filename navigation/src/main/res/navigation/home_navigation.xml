@@ -24,8 +24,9 @@
     <fragment
         android:id="@+id/feedbackFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.FeedbackFragment"
-        android:label="feedBack_fragment">
+        android:label="feedback_fragment">
     </fragment>
+
     <fragment
         android:id="@+id/medicationsFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.medication.Medications"

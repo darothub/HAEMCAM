@@ -95,11 +95,18 @@
     <string name="drug">DRUG</string>
     <string name="attachment">Attachment</string>
     <string name="attach">Attach</string>
-    <string name="feedback_row_layout_description_text">Here are some medical feedback.... Here are some medical feedback....Here are some medical feedback....Here are some medical feedback</string>
+    <string name="feedback_message">Here are some medical feedback.... Here are some medical feedback....Here are some medical feedback....Here are some medical feedback</string>
+    <string name="fragment_feedback_name">Dr Anthonia Peterson</string>
     <string name="categories">Categories</string>
     <string name="cancer">Cancer</string>
-    <string name="dr_anthonia_peterson">Dr Anthonia Peterson</string>
-    <string name="likes">likes</string>
-    <string name="comment">Comment</string>
-    <string name="_0">0</string>
+    <string name="likeCount">0</string>
+    <string name="likeText">likes</string>
+    <string name="commentText">comment</string>
+
+    <string-array name="categories">
+        <item>Cancer</item>
+        <item>Kidney</item>
+        <item>Liver</item>
+        <item>Intestine</item>
+    </string-array>
 </resources>

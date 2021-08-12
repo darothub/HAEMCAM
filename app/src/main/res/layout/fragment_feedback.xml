@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGray"
+    android:background="@color/haemcamGrey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.FeedbackFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fragment_feedback_dropdown_til"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/fragment_feedback_textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:hint="@string/categories"
+        android:layout_marginStart="@dimen/_32sdp"
         android:layout_marginTop="@dimen/_32sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/categories"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_feedback_epoxy_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
-                android:id="@+id/fragment_feedback_dropdown_autoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:background="@color/lightMediumGray"
-                android:text="@string/cancer"
-                />
+            android:id="@+id/fragment_feedback_autocomplete_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="@string/cancer"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/fragment_feedback_recyclerview"
+        android:id="@+id/fragment_feedback_epoxy_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        tools:listitem="@layout/fragment_feedback_recyclerview_row_layout"
+        android:layout_marginTop="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_feedback_dropdown_til" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/fragment_feedback_textInputLayout"
+        app:layout_constraintVertical_bias="0.672"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:itemSpacing="@dimen/_16sdp"
+        tools:listitem="@layout/fragment_feedback_row_item"/>
 
+</androidx.constraintlayout.widget.ConstraintLayout>

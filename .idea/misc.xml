@@ -3,6 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="app/src/main/res/layout/blood_group_item.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/btn_pbar_layout.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/btn_pbar_primary.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/chemodrug_item_end.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/drug_list_layout.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/fragment_feedback.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_feedback_dropdown_item.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_feedback_dropdown_title.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/fragment_feedback_row_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_recipes.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/fragment_services.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/fragment_user_diagnosis_info.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/home_item_list_layout.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/nutrition_menu_item.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/recipe_item.xml" value="0.25729166666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+
         <entry key="../../../../layout/custom_preview.xml" value="0.2972222222222222" />
         <entry key="app/src/main/res/drawable/arrow_background.xml" value="0.2972222222222222" />
         <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2972222222222222" />

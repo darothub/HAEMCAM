@@ -95,5 +95,9 @@ dependencies {
     androidTestImplementation androidTestLibraries
     debugImplementation debugLibraries
 
+    //Epoxy recyclerview
+    implementation 'com.airbnb.android:epoxy:3.9.0'
+    kapt 'com.airbnb.android:epoxy-processor:3.9.0'
+
 }
 
