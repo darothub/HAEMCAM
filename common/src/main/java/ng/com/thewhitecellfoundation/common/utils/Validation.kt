@@ -7,26 +7,27 @@ import com.google.android.material.textfield.TextInputEditText
  * @param respond
  * @param edits
  */
-open class Validation constructor(
-    var respond: Pair<CustomEditTextField, TextInputEditText?>,
-    vararg var edits: Pair<CustomEditTextField, TextInputEditText?>
+class Validation private constructor(
+    builder: Builder
 ) {
+    var respond: Pair<CustomEditTextField, TextInputEditText?>? = builder.respond
+    var edits: List<Pair<CustomEditTextField, TextInputEditText?>> = builder.fieldPairList
 
     class Builder(
         var emailPair: Pair<CustomEditTextField, TextInputEditText?>? = null,
         var passwordPair: Pair<CustomEditTextField, TextInputEditText?>? = null,
         var phoneNumberPair: Pair<CustomEditTextField, TextInputEditText?>? = null,
         var respond: Pair<CustomEditTextField, TextInputEditText?>? = null,
-        vararg var fieldPairList: Pair<CustomEditTextField, TextInputEditText?>
 
     ) {
+        var fieldPairList: List<Pair<CustomEditTextField, TextInputEditText?>> = arrayListOf()
 
         /**
          * @param edits
          * This separates field based on their tag and also rejects empty field
          */
         fun separateFieldByTag(edits: List<Pair<CustomEditTextField, TextInputEditText?>>): Builder = apply {
-            this.fieldPairList = edits.toTypedArray()
+            this.fieldPairList = edits
             for (edit in edits) {
                 when {
                     edit.first.text.isEmpty() -> {
@@ -99,7 +100,7 @@ open class Validation constructor(
         /**
          * Build validation
          */
-        fun build(): Validation? {
+        fun build(): Validation {
             val listOfDefaulters = arrayListOf<Pair<CustomEditTextField, TextInputEditText?>?>()
             for (edit in this.fieldPairList) {
                 if (edit.first.error != "") {
@@ -108,7 +109,7 @@ open class Validation constructor(
                     this.respond!!.second?.error = "Invalid"
                 }
             }
-            return respond?.let { Validation(it, *fieldPairList) }
+            return Validation(this)
         }
     }
 }

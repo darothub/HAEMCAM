@@ -3,7 +3,7 @@ package ng.com.thewhitecellfoundation.haemcam.ui.adapter
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.cardview.widget.CardView
 import com.airbnb.epoxy.* // ktlint-disable no-wildcard-imports
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentFeedbackRowItemBinding
@@ -17,7 +17,7 @@ class FeedbackModel @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ConstraintLayout(context, attr, defStyleAttr) {
+) : CardView(context, attr, defStyleAttr) {
 
     var binding: FragmentFeedbackRowItemBinding = FragmentFeedbackRowItemBinding.inflate(
         LayoutInflater.from(context),
@@ -26,13 +26,11 @@ class FeedbackModel @JvmOverloads constructor(
 
     @ModelProp
     fun setData(data: FeedBack) {
-//        binding.fragmentFeedbackRowItemTitleTextview.text = data.name
-//        binding.fragmentFeedbackRowItemCommentTextview.text = data.message
-//        binding.fragmentFeedbackRowItemLikeIconTextview.setImageResource(R.drawable.like_icon_favourite)
-//        binding.fragmentFeedbackRowItemNumberoflikesTextview.text = data.likeCount.toString()
-//        binding.fragmentFeedbackRowItemLikestextTextview.text = data.likeText
-//        binding.fragmentFeedbackRowItemCommentIconTextview.setImageResource(R.drawable.comment_icon)
-//        binding.fragmentFeedbackRowItemNumberofcommentsTextview.text = data.commentCount.toString()
-//        binding.fragmentFeedbackRowItemCommenttextTextview.text = data.commentText
+        binding.apply {
+            senderNameTv.text = data.senderName
+            bodyTextTv.text = data.body
+            likes.text = context.getString(R.string.no_of_likes, data.likes.toString())
+            comment.text = context.getString(R.string.no_of_comment, data.comment.size.toString())
+        }
     }
 }
