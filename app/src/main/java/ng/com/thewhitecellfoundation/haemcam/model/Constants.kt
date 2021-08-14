@@ -1,9 +1,23 @@
 package ng.com.thewhitecellfoundation.haemcam.model
 
-import ng.com.thewhitecellfoundation.haemcam.data.Appointment
+var doctorAppointment: ArrayList<Appointment> = arrayListOf(
+    Appointment("Medical Check Up", "Doctor Darot"),
+    Appointment("Eye Test", "Doctor Dapo"),
+    Appointment("Back Pain", "Doctor Ola")
+)
+var doctorAppointment2: ArrayList<Appointment> = arrayListOf(
+    Appointment("Medical Check Up", "Doctor Darot"),
+    Appointment("Eye Test", "Doctor Dapo"),
 
-var DoctorAppointment: ArrayList<Appointment> = arrayListOf(
-    Appointment("4th August, 2021", "Medical Check Up", "Doctor Darot"),
-    Appointment("3rd August, 2021", "Eye Test", "Doctor Dapo"),
-    Appointment("2nd August, 2021", "Back Pain", "Doctor Ola")
+)
+var doctorAppointment3: ArrayList<Appointment> = arrayListOf(
+    Appointment("Medical Check Up", "Doctor Darot"),
+
+)
+
+var listOfNotificationData = listOf(
+    NotificationData("12th of May 2020", doctorAppointment),
+    NotificationData("14th of May 2020", doctorAppointment2),
+    NotificationData("16th of May 2020", doctorAppointment3),
+
 )
