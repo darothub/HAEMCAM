@@ -16,20 +16,17 @@ import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLabResultsBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.YearPickerLayoutBinding
-import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
-import ng.com.thewhitecellfoundation.haemcam.ui.main.BaseFragment
+import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LabResultsFragment : BaseFragment(R.layout.fragment_lab_results) {
+class LabResultsFragment : HomeBaseFragment(R.layout.fragment_lab_results) {
     private val binding by viewBinding(FragmentLabResultsBinding::bind)
     lateinit var description: Description
     lateinit var xAxis: XAxis
 
     lateinit var yearPickerLayoutBinding: YearPickerLayoutBinding
-    override val buttonAndProgressBarState: ButtonAndProgressBarState by lazy {
-        requireActivity() as ButtonAndProgressBarState
-    }
+
     private val selectImageFromGalleryResult = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
 //        uri?.let { previewImage.setImageURI(uri) }
     }

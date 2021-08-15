@@ -8,8 +8,7 @@ import ng.com.thewhitecellfoundation.common.extensions.onBackDispatcher
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentUserDiagnosisInfoBinding
-import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
-import ng.com.thewhitecellfoundation.haemcam.ui.main.BaseFragment
+import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
@@ -17,11 +16,8 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  * Use the [UserDiagnosisInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class UserDiagnosisInfoFragment : BaseFragment(R.layout.fragment_user_diagnosis_info) {
+class UserDiagnosisInfoFragment : HomeBaseFragment(R.layout.fragment_user_diagnosis_info) {
     val binding by viewBinding(FragmentUserDiagnosisInfoBinding::bind)
-    override val buttonAndProgressBarState: ButtonAndProgressBarState by lazy {
-        requireActivity() as ButtonAndProgressBarState
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,8 +30,7 @@ class UserDiagnosisInfoFragment : BaseFragment(R.layout.fragment_user_diagnosis_
     override fun onStart() {
         super.onStart()
         buttonAndProgressBarState.buttonState("Next") {
-            navigator.goto(R.id.fragmentNotification)
-//            navigator.goto(R.id.feedbackFragment)
+            navigator.goto(R.id.regimenAndDrugsFragment)
         }
     }
 

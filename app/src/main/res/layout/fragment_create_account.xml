@@ -7,6 +7,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:id="@+id/root_layout"
+    android:background="@color/primaryColor"
     tools:context=".ui.main.CreateAccountFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,15 +112,18 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <include
+        <ng.com.thewhitecellfoundation.haemcam.views.ButtonProgressView
             android:id="@+id/btn_pbar"
-            layout="@layout/btn_pbar_layout"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="@id/confirm_password_input"
             app:layout_constraintStart_toStartOf="@id/confirm_password_input"
             app:layout_constraintTop_toBottomOf="@id/confirm_password_input"
+            app:button_bg_color="@color/primaryVariant"
+            app:button_background="@drawable/rounded_corner_primary_purple"
+            app:button_text="@string/create_an_account"
             />
+
 
         <TextView
             android:layout_height="wrap_content"

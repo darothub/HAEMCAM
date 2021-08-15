@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryColor"
     tools:context=".ui.main.CodeVerificationFragment">
     <TextView
         android:id="@+id/title"
@@ -76,11 +77,14 @@
                 app:pinLineStroke="1dp"
                 app:pinLineStrokeSelected="3dp" />
 
-            <include
+
+            <ng.com.thewhitecellfoundation.haemcam.views.ButtonProgressView
                 android:id="@+id/btn_pbar"
-                layout="@layout/btn_pbar_layout"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                app:button_bg_color="@color/primaryVariant"
+                app:button_background="@drawable/rounded_corner_primary_purple"
+                app:button_text="@string/continue_str"
                 />
         </LinearLayout>
     </FrameLayout>

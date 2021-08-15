@@ -3,7 +3,6 @@ package ng.com.thewhitecellfoundation.haemcam.ui.main
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.extensions.setPartialSpan
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
@@ -16,9 +15,10 @@ import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
  * Use the [CodeVerificationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CodeVerificationFragment : Fragment(R.layout.fragment_code_verification) {
+class CodeVerificationFragment : MainBaseFragment(R.layout.fragment_code_verification) {
     private val binding by viewBinding(FragmentCodeVerificationBinding::bind)
-
+    override val backgroundColor: Int
+        get() = R.color.primaryColor
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,11 +45,8 @@ class CodeVerificationFragment : Fragment(R.layout.fragment_code_verification) {
                 }
             )
         )
-        binding.btnPbar.btn.apply {
-            text = getString(R.string.continue_str)
-            setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-        }
-        binding.btnPbar.btn.setOnClickListener {
+
+        binding.btnPbar.onClickActionListener {
             (requireActivity() as Navigator).goto(R.id.welcomeFragment)
         }
     }

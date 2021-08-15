@@ -63,7 +63,7 @@
         android:label="recipes_fragment">
     </fragment>
     <fragment
-        android:id="@+id/fragmentNotification"
+        android:id="@+id/notificationFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.NotificationFragment"
         android:label="notification_fragment">
     </fragment>
@@ -76,5 +76,10 @@
         android:id="@+id/labResultsFragment"
         android:name="ng.com.thewhitecellfoundation.haemcam.ui.lab.LabResultsFragment"
         android:label="lab_results_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.home.ReportFragment"
+        android:label="report_fragment">
     </fragment>
 </navigation>

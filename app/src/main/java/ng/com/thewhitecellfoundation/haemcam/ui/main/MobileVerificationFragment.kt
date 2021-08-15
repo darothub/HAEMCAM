@@ -3,7 +3,6 @@ package ng.com.thewhitecellfoundation.haemcam.ui.main
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.extensions.setPartialSpan
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
@@ -16,8 +15,9 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  * Use the [MobileVerificationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MobileVerificationFragment : Fragment(R.layout.fragment_mobile_verification) {
+class MobileVerificationFragment : MainBaseFragment(R.layout.fragment_mobile_verification) {
     private val binding by viewBinding(FragmentMobileVerificationBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.termAndConditionTv.setPartialSpan(
@@ -34,11 +34,8 @@ class MobileVerificationFragment : Fragment(R.layout.fragment_mobile_verificatio
                 }
             )
         )
-        binding.btnPbar.btn.apply {
-            text = getString(R.string.send_code)
-            setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-        }
-        binding.btnPbar.btn.setOnClickListener {
+
+        binding.btnPbar.onClickActionListener {
             navigator.goto(R.id.codeVerificationFragment)
         }
     }

@@ -14,7 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/please_select_any"
-        android:textSize="@dimen/_12sdp" />
+        android:textSize="@dimen/_16sdp"
+
+        android:gravity="center"
+        />
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:id="@+id/epoxyRecyclerView"

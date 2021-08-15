@@ -16,8 +16,7 @@ import ng.com.thewhitecellfoundation.haemcam.model.Regimen
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.otherDrugDaysView
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.regimenAndDrugAdapter
-import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
-import ng.com.thewhitecellfoundation.haemcam.ui.main.BaseFragment
+import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import java.util.*
 
@@ -26,12 +25,9 @@ import java.util.*
  * Use the [UserTreamentFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RegimenAndDrugsFragment : BaseFragment(R.layout.fragment_regimen_and_drugs) {
+class RegimenAndDrugsFragment : HomeBaseFragment(R.layout.fragment_regimen_and_drugs) {
     private val binding by viewBinding(FragmentRegimenAndDrugsBinding::bind)
     lateinit var bottomSheetBinding: ChemodrugBottomsheetLayoutBinding
-    override val buttonAndProgressBarState: ButtonAndProgressBarState by lazy {
-        requireActivity() as ButtonAndProgressBarState
-    }
 
     // Set bottom dialog
     private val bottomSheetDialog by lazy {

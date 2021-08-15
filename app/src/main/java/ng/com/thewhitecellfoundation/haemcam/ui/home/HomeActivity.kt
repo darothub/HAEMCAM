@@ -128,6 +128,12 @@ class HomeActivity : AppCompatActivity(), Navigator, ButtonAndProgressBarState, 
             R.id.nutritionMenuFragment, R.id.recipesFragment -> {
                 setUpScreenWithoutGreeting(getString(R.string.nutrition))
             }
+            R.id.notificationFragment -> {
+                setUpScreenWithoutGreeting(getString(R.string.notification))
+            }
+            R.id.feedbackFragment -> {
+                setUpScreenWithoutGreeting(getString(R.string.feed_back))
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.home
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -18,12 +17,6 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
-    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,7 +39,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         when (clickedView.tag) {
                             getString(R.string.medication) -> navigator.goto(R.id.servicesFragment)
                             getString(R.string.lab_result) -> navigator.goto(R.id.labResultsFragment)
-//                            getString(R.string.nutrition) -> navigator.goto(R.id.nutritionMenuFragment)
+                            getString(R.string.nutrition) -> navigator.goto(R.id.nutritionMenuFragment)
                         }
                     }
                 }

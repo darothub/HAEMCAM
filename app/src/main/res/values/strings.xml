@@ -103,6 +103,7 @@
     <string name="likes">likes</string>
     <string name="no_of_comment">%1$s comments</string>
     <string name="_0">0</string>
+    <string name="no_reports_yet">No reports yet</string>
 
     <string-array name="categories">
         <item>Cancer</item>

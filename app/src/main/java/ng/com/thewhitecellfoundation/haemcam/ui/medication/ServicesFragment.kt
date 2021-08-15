@@ -56,6 +56,9 @@ class ServicesFragment : Fragment(R.layout.fragment_services) {
                             getString(R.string.side_effect_reporting) -> {
                                 navigator.goto(R.id.sideEffectReportingFragment)
                             }
+                            getString(R.string.blood_test) -> {
+                                navigator.goto(R.id.labResultsFragment)
+                            }
                         }
                     }
                 }
