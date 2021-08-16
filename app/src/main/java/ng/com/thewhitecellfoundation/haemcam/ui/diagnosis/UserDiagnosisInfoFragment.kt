@@ -18,6 +18,10 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class UserDiagnosisInfoFragment : HomeBaseFragment(R.layout.fragment_user_diagnosis_info) {
     val binding by viewBinding(FragmentUserDiagnosisInfoBinding::bind)
+    override val showBottomNavigation: Boolean
+        get() = false
+    override val toolBarGreetingText: String?
+        get() = getString(R.string.hi, "User")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

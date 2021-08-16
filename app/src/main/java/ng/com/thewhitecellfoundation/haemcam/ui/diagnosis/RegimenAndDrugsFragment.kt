@@ -33,6 +33,10 @@ class RegimenAndDrugsFragment : HomeBaseFragment(R.layout.fragment_regimen_and_d
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
     }
+    override val showBottomNavigation: Boolean
+        get() = false
+    override val toolBarGreetingText: String?
+        get() = getString(R.string.hi, "User")
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -15,8 +15,14 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : HomeBaseFragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
+    override val toolRightImageDrawable: Int
+        get() = R.drawable.ic_settings_icon
+    override val toolBarTitle: String?
+        get() = "null"
+    override val toolBarGreetingText: String?
+        get() = getString(R.string.hi, "User")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

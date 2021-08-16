@@ -8,15 +8,17 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentRecipesBinding
 import ng.com.thewhitecellfoundation.haemcam.model.StringItemData
 import ng.com.thewhitecellfoundation.haemcam.ui.adapter.recipiesListView
+import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
 
 /**
  * A simple [Fragment] subclass.
  * Use the [RecipesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RecipesFragment : Fragment(R.layout.fragment_recipes) {
+class RecipesFragment : HomeBaseFragment(R.layout.fragment_recipes) {
     private val binding by viewBinding(FragmentRecipesBinding::bind)
-
+    override val toolBarTitle: String?
+        get() = getString(R.string.nutrition)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

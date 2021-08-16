@@ -1,13 +1,12 @@
 package ng.com.thewhitecellfoundation.haemcam.ui.medication
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import ng.com.thewhitecellfoundation.common.utils.viewBinding
 import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentMedicationsBinding
-import ng.com.thewhitecellfoundation.haemcam.ui.home.ButtonAndProgressBarState
+import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
 import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 
 /**
@@ -15,14 +14,10 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  * Use the [Medications.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Medications : Fragment(R.layout.fragment_medications) {
+class Medications : HomeBaseFragment(R.layout.fragment_medications) {
     private val binding by viewBinding(FragmentMedicationsBinding::bind)
-    lateinit var buttonAndProgressBarState: ButtonAndProgressBarState
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        buttonAndProgressBarState = requireActivity() as ButtonAndProgressBarState
-    }
+    override val toolBarTitle: String?
+        get() = getString(R.string.medication)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,9 +25,5 @@ class Medications : Fragment(R.layout.fragment_medications) {
         binding.bookAppointmentBtn.setOnClickListener {
             navigator.goto(R.id.servicesFragment)
         }
-    }
-    override fun onStart() {
-        super.onStart()
-        buttonAndProgressBarState.buttonState(loading = false)
     }
 }

@@ -14,16 +14,16 @@
         <activity android:name=".ui.home.HomeActivity"
             android:theme="@style/HomeActivity.Theme"
             >
-
-        </activity>
-        <activity
-            android:name=".ui.main.SplashScreen"
-            android:theme="@style/Theme.FULLSCREEN">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.main.SplashScreen"
+            android:theme="@style/Theme.FULLSCREEN">
+
 
         </activity>
         <activity
