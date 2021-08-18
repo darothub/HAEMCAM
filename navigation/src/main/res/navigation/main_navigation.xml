@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_navigation"
+    app:startDestination="@id/landingFragment"
+    >
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.LandingFragment"
+        android:label="home">
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.LoginFragment"
+        android:label="login">
+    </fragment>
+
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.CreateAccountFragment"
+        android:label="create_account">
+    </fragment>
+
+    <fragment
+        android:id="@+id/mobileVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.MobileVerificationFragment"
+        android:label="mobile_verification">
+    </fragment>
+    <fragment
+        android:id="@+id/codeVerificationFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.CodeVerificationFragment"
+        android:label="code_verification">
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="ng.com.thewhitecellfoundation.haemcam.ui.main.WelcomeFragment"
+        android:label="welcome_verification">
+    </fragment>
+
+</navigation>

@@ -1,3 +1,114 @@
 <resources>
     <string name="app_name">HAEMCAM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="haecam_str">haemcam</string>
+    <string name="haecam_desc_str">Mobile app to help monitor blood cancer treatment</string>
+    <string name="welcome_back_str">Welcome Back!</string>
+    <string name="login_to_access_str">Login to access all your identity</string>
+    <string name="email_address_str">Enter email</string>
+    <string name="password_str">Enter password</string>
+    <string name="login_str">Login</string>
+    <string name="forgot_password_str"><u>Cannot remember password?</u></string>
+    <string name="dont_have_account_str"><u>Don\'t have an account? Sign up</u></string>
+    <string name="phone_number">Enter phone number</string>
+    <string name="use_email">Use email</string>
+    <string name="dash">----</string>
+    <string name="hi">Hi! %1$s</string>
+    <string name="help">Help?</string>
+
+    <string name="lets_get_started">Let\'s get started!</string>
+    <string name="give_a_snapshot">Give a \'snapshot\' of your blood\ncancer treatment at any point\nin time</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="fullname">FULL NAME(Last name first)</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="tnc">By signing up, you agree to our Terms of use and Privacy Policy</string>
+    <string name="mobile_verification">Mobile Verification</string>
+    <string name="send_code">Send code</string>
+    <string name="please_enter">"Please enter the verification code sent to "</string>
+    <string name="didnt_get">Didn\'t the code\nResend Code</string>
+    <string name="continue_str">Continue</string>
+    <string name="welcome">Welcome</string>
+    <string name="mission_text">Mobile App to help monitor blood cancer treatment</string>
+    <string name="verify_your_number">Verify your number</string>
+    <string name="lets_get_to_know_you">Let\'s get to know you</string>
+    <string name="date">DATE</string>
+    <string name="hospital">HOSPITAL</string>
+    <string name="doctor">DOCTOR</string>
+    <string name="next">Next</string>
+    <string name="regimen" translatable="false">REGIMEN</string>
+    <string name="gender">GENDER</string>
+    <string name="chemo_drug" translatable="false">CHEMOTHERAPY DRUG </string>
+    <string name="cycle_days" translatable="false">CYCLE DAYS</string>
+    <string name="days_cycle" translatable="false"><u>DAYS IN CYCLE:</u></string>
+    <string name="other_drugs" translatable="false">OTHER DRUGS</string>
+    <string name="time_of_medication" translatable="false">TIME OF MEDICATION</string>
+    <string name="skip">Skip</string>
+    <string name="lets_get_to_know_you_understand">Let\'s get to know you understand and monitor your treatment</string>
+    <string name="title_activity_bio">BioActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="drug1">Drug</string>
+    <string name="remove">Remove</string>
+    <string name="search">Search</string>
+    <string name="medication">Medications</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="lab_result">Lab results</string>
+    <string name="transfusion">Transfusion</string>
+    <string name="home">Home</string>
+    <string name="report">Report</string>
+    <string name="feed_back">Feed back</string>
+    <string name="notification">Notification</string>
+    <string name="dateFormat" translatable="false">EE, dd MMM</string>
+    <string name="timeFormat" translatable="false">EE, dd MMM HH:mm</string>
+    <string name="period" translatable="false">%1$s – %2$s</string>
+    <string name="book_appointment">Book an appointment</string>
+    <string name="no_medication_yet">No medication yet</string>
+    <string name="please_select_any">Please select any of the services you want</string>
+    <string name="chemotherapy">Chemotherapy</string>
+    <string name="other_drug">Other Drug</string>
+    <string name="side_effect_reporting">Side effect reporting</string>
+    <string name="schedule_next_treatment">Schedule for next treatment</string>
+    <string name="choose_date">Choose date</string>
+    <string name="chop">CHOP</string>
+    <string name="done">Done</string>
+    <string name="start_date">Choose start date</string>
+    <string name="choose_date_link"><u>Choose date</u></string>
+    <string name="things_you_need_to_stay_healthy">Things you need to stay healthy</string>
+    <string name="blood_group">BLOOD GROUP</string>
+    <string name="stages_phase">STAGES/PHASE</string>
+    <string name="select_blood_grp">One more thing please select blood group</string>
+    <string name="blood_test">Blood test</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="recipes">Recipes</string>
+    <string name="ingredient">Ingredients</string>
+    <string name="days_cycle_formatted">Start: %1$s, End: %2$s</string>
+    <string name="drug">DRUG</string>
+    <string name="attachment">Attachment</string>
+    <string name="attach">Attach</string>
+    <string name="categories">Categories</string>
+    <string name="cancer">Cancer</string>
+    <string name="no_of_likes">%1$s likes</string>
+    <string name="dr_anthonia_peterson">Dr Anthonia Peterson</string>
+    <string name="feedback_row_layout_description_text">Here are some medical feedback</string>
+    <string name="likes">likes</string>
+    <string name="no_of_comment">%1$s comments</string>
+    <string name="_0">0</string>
+    <string name="no_reports_yet">No reports yet</string>
+
+    <string-array name="categories">
+        <item>Cancer</item>
+        <item>Kidney</item>
+        <item>Liver</item>
+        <item>Intestine</item>
+    </string-array>
 </resources>

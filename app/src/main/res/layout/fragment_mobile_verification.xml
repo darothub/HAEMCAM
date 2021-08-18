@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:fitsSystemWindows="false"
+    android:id="@+id/root_layout"
+    android:padding="@dimen/_20sdp"
+    android:background="@color/primaryColor"
+    tools:context=".ui.main.MobileVerificationFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/mobile_verification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_66sdp"
+
+        style="@style/TitleTextViewStyle"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:background="@drawable/underline_white"
+        >
+
+
+
+        <!-- Add guideline to align phone number form . -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/phone_number_vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.14" />
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            app:ccp_arrowColor="@color/white"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_contentColor="@color/white"
+            app:ccp_textGravity="LEFT"
+            app:ccp_textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/phone_number_vertical_guideline"
+            app:layout_constraintTop_toTopOf="@id/phone_number_input"
+            app:layout_constraintBottom_toBottomOf="@id/phone_number_input"
+            app:layout_constraintVertical_bias="1"
+            android:foregroundTint="@color/primaryColor"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/phone_number_vertical_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundMode="none"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_number_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:tag="@string/phone_number"
+                android:drawableEnd="@drawable/ic_baseline_phone_android_24"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ng.com.thewhitecellfoundation.haemcam.views.ButtonProgressView
+        android:id="@+id/btn_pbar"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@id/container"
+        app:layout_constraintStart_toStartOf="@id/container"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:button_bg_color="@color/primaryVariant"
+        app:button_background="@drawable/rounded_corner_primary_purple"
+        app:button_text="@string/send_code"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:id="@+id/term_and_condition_tv"
+        android:text="@string/tnc"
+        app:layout_constraintTop_toBottomOf="@id/btn_pbar"
+        app:layout_constraintStart_toStartOf="@id/btn_pbar"
+        app:layout_constraintEnd_toEndOf="@id/btn_pbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".8"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textColor="@color/white"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

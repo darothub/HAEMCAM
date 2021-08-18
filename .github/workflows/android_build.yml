@@ -25,56 +25,44 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      # Step 2: Decode Google services configuration file
+      - name: Decode google-services.json
+        env:
+          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+        run: echo $FIREBASE_CONFIG > app/google-services.json
 
-  Test_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run test
-        run: ./gradlew test
-
-  UI_test_job:
+  Unit_Tests_Coverage:
     runs-on: macos-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: run tests
-        uses: ReactiveCircus/android-emulator-runner@v2.14.3
-        with:
-          api-level: 29
-          script: ./gradlew connectedCheck
-
-#  Coverage:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: checkout
-#        uses: actions/checkout@v2
-#
-#      - name: generate report
-#        run: ./gradlew clean test jacocoTestReport
-#
-#      - name: Upload Test Report
-#        uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 1
-#          script:  bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f "app/build/jacoco/jacoco.xml"
-
-  Coverage_:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: generate report
-        run: ./gradlew clean test jacocoTestReport
+      - uses: actions/checkout@v2
+      - name: Run Unit Test
+        run: ./gradlew :common:jacocoTestReport
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./app/build/jacoco/jacoco.xml
-          directory: ./app/build/jacoco/
+          files: ./common/build/reports/coverage/jacocoTestReport/jacocoTestReport.xml
+          directory: ./common/build/reports/coverage/jacocoTestReport/
+
+
+  Instrumented_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate Debug apk
+        run: ./gradlew assembleDebug
+
+      - name: Generate Android Test apk
+        run: ./gradlew assembleAndroidTest
+      # Step 4: Run instrumented tests on firebase test lab
+      - name: Run tests on Firebase Test Lab
+        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+        with:
+          arg-spec: '.github/tests.yml:android-pixel-4'
+
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
   Build:
     runs-on: ubuntu-latest

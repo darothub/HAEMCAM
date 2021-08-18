@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.diagnosis.RegimenAndDrugsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        >
+        <TextView
+            android:id="@+id/page_intro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:text="@string/lets_get_to_know_you_understand"/>
+        <TextView
+            android:id="@+id/regimen_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/regimen"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/primaryColor"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/page_intro_tv"
+          />
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/regimen_ercv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/regimen_title_tv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="1"
+            tools:listitem="@layout/drug_days_items_layout"
+            android:orientation="vertical"/>
+        <TextView
+            android:id="@+id/other_drug_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other_drugs"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/primaryColor"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/regimen_ercv"
+            app:drawableRightCompat="@drawable/ic_primary_add_outline_24" />
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/other_drug_ercv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/drug_list_layout"
+            app:layout_constraintTop_toBottomOf="@id/other_drug_title_tv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            android:orientation="vertical"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

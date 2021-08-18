@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
+    android:background="@color/white"
+    tools:context=".ui.diagnosis.UserDiagnosisInfoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        >
+        <TextView
+            android:id="@+id/page_intro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:text="@string/lets_get_to_know_you"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date_input"
+            style="@style/TextInputLayout.LabelWhiteApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/primaryColor"
+            android:background="@drawable/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_intro_tv">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/date"
+                android:clickable="false"
+                android:enabled="false"
+                android:inputType="text"
+
+                android:tag="@string/date"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/gender_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:hint="GENDER"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_gray"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_tint="@color/primaryColor"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/black"
+            app:spinner_divider_show="false"
+            app:spinner_item_array="@array/gender"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/date_input"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spinner_popup_elevation="14dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/hospital_name_input"
+            style="@style/TextInputLayout.LabelPrimaryApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/primaryColor"
+            android:background="@drawable/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gender_spinner">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/hospital_name_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/hospital"
+                android:inputType="text"
+                android:tag="@string/hospital"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/doctor_name_input"
+            style="@style/TextInputLayout.LabelPrimaryApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/primaryColor"
+            android:background="@drawable/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hospital_name_input">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/doctor_name_et"
+                style="@style/EditTextCustomStyle"
+                android:hint="@string/doctor"
+                android:inputType="text"
+                android:tag="@string/doctor"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/diagnosis_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:hint="DIAGNOSIS"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_gray"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_arrow_tint="@color/primaryColor"
+            app:spinner_divider_show="false"
+            app:spinner_item_array="@array/diagnosis"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/doctor_name_input"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spinner_popup_elevation="14dp" />
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/stages_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="@string/stages_phase"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_gray"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_tint="@color/primaryColor"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/black"
+            app:spinner_divider_show="false"
+            app:spinner_item_array="@array/stages"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/diagnosis_spinner"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spinner_popup_elevation="14dp" />
+
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/blood_group_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="@string/blood_group"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/underline_gray"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_tint="@color/primaryColor"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/black"
+            app:spinner_divider_show="false"
+            app:spinner_item_array="@array/blood_group"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/stages_spinner"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spinner_popup_elevation="14dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

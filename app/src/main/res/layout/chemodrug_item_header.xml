@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ng.com.thewhitecellfoundation.haemcam.views.RingView
+        android:id="@+id/ring_view_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:outer_color="@color/primaryColor"
+        app:inner_color="@color/haemcamCream"
+        app:size="@dimen/_40sdp"
+        android:elevation="20dp"
+        app:layout_constraintStart_toStartOf="@id/vertical_line"
+        app:layout_constraintEnd_toEndOf="@id/vertical_line"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <View
+        android:id="@+id/text_heading_bg_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/haemcamGrey"
+        app:layout_constraintTop_toTopOf="@id/vertical_line"
+        app:layout_constraintBottom_toBottomOf="@id/vertical_line"
+        app:layout_constraintStart_toEndOf="@id/vertical_line"
+        />
+    <View
+        android:id="@+id/vertical_line"
+        android:layout_width="2dp"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="@id/ring_view_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+
+        />
+    <TextView
+        android:id="@+id/chemo_drug_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="@id/text_heading_bg_view"
+        android:layout_marginStart="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="@id/text_heading_bg_view"
+        app:layout_constraintBottom_toBottomOf="@id/text_heading_bg_view"
+        android:text="@string/dash"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
