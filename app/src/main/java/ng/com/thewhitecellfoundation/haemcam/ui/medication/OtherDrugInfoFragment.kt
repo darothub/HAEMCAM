@@ -20,22 +20,11 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class OtherDrugInfoFragment : HomeBaseFragment(R.layout.fragment_other_drug_info) {
     private val binding by viewBinding(FragmentOtherDrugInfoBinding::bind)
-    override val toolLeftImageDrawable: Int?
-        get() = R.drawable.ic_baseline_keyboard_backspace_24
-
-    override val toolBarTitle: String?
-        get() = getString(R.string.medication)
-    override val leftAction: () -> Unit
-        get() = {
-            navigator.navController.popBackStack()
-        }
-    override val toolRightImageDrawable: Int
-        get() = R.drawable.ic_settings_icon
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val chemoTestString = arrayListOf(StringItemData("Drug 1"), StringItemData("Drug 2"), StringItemData("Drug 3"), StringItemData("Drug 3"), StringItemData("Drug 3"))
+        val chemoTestString = arrayListOf(StringItemData("Drug 1"), StringItemData("Drug 2"), StringItemData("Drug 3"), StringItemData("Drug 4"), StringItemData("Drug 5"))
 
         binding.chemodrugErcv.withModels {
             chemoTestString.forEach { cdt ->

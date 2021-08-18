@@ -37,7 +37,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:itemCount="1"
+            tools:itemCount="2"
             app:layout_constraintTop_toBottomOf="@id/title_tv"
             tools:listitem="@layout/chemodrug_item_header" />
 

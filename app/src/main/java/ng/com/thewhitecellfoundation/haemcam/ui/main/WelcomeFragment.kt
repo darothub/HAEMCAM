@@ -17,8 +17,7 @@ import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeActivity
  */
 class WelcomeFragment : MainBaseFragment(R.layout.fragment_welcome) {
     private val binding by viewBinding(FragmentWelcomeBinding::bind)
-    override val backgroundColor: Int
-        get() = R.color.primaryVariant
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.continueBtn.apply {

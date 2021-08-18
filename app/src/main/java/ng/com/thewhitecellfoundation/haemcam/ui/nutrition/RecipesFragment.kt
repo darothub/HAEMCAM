@@ -17,8 +17,6 @@ import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
  */
 class RecipesFragment : HomeBaseFragment(R.layout.fragment_recipes) {
     private val binding by viewBinding(FragmentRecipesBinding::bind)
-    override val toolBarTitle: String?
-        get() = getString(R.string.nutrition)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -16,8 +16,6 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class Medications : HomeBaseFragment(R.layout.fragment_medications) {
     private val binding by viewBinding(FragmentMedicationsBinding::bind)
-    override val toolBarTitle: String?
-        get() = getString(R.string.medication)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

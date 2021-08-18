@@ -14,8 +14,6 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 class LandingFragment() : MainBaseFragment(R.layout.fragment_landing) {
     private var shortAnimationDuration: Int = 0
     val binding by viewBinding(FragmentLandingBinding::bind)
-    override val backgroundColor: Int
-        get() = R.color.primaryVariant
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

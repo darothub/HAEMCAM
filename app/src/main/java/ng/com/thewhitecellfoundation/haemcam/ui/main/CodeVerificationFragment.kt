@@ -17,8 +17,7 @@ import ng.com.thewhitecellfoundation.navigation.navigator.Navigator
  */
 class CodeVerificationFragment : MainBaseFragment(R.layout.fragment_code_verification) {
     private val binding by viewBinding(FragmentCodeVerificationBinding::bind)
-    override val backgroundColor: Int
-        get() = R.color.primaryColor
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

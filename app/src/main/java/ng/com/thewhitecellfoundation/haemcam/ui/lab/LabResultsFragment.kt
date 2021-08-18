@@ -17,22 +17,11 @@ import ng.com.thewhitecellfoundation.haemcam.R
 import ng.com.thewhitecellfoundation.haemcam.databinding.FragmentLabResultsBinding
 import ng.com.thewhitecellfoundation.haemcam.databinding.YearPickerLayoutBinding
 import ng.com.thewhitecellfoundation.haemcam.ui.home.HomeBaseFragment
-import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
 import java.text.SimpleDateFormat
 import java.util.*
 
 class LabResultsFragment : HomeBaseFragment(R.layout.fragment_lab_results) {
     private val binding by viewBinding(FragmentLabResultsBinding::bind)
-    override val toolLeftImageDrawable: Int?
-        get() = R.drawable.ic_baseline_keyboard_backspace_24
-    override val toolBarTitle: String?
-        get() = getString(R.string.lab_result)
-    override val leftAction: () -> Unit
-        get() = {
-            navigator.navController.popBackStack()
-        }
-    override val toolRightImageDrawable: Int
-        get() = R.drawable.ic_settings_icon
 
     lateinit var description: Description
     lateinit var xAxis: XAxis

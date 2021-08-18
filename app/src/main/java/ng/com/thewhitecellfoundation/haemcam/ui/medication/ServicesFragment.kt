@@ -18,17 +18,6 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class ServicesFragment : HomeBaseFragment(R.layout.fragment_services) {
     private val binding by viewBinding(FragmentServicesBinding::bind)
-    override val toolLeftImageDrawable: Int?
-        get() = R.drawable.ic_baseline_keyboard_backspace_24
-
-    override val toolBarTitle: String?
-        get() = getString(R.string.medication)
-    override val leftAction: () -> Unit
-        get() = {
-            navigator.navController.popBackStack()
-        }
-    override val toolRightImageDrawable: Int
-        get() = R.drawable.ic_settings_icon
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -25,8 +25,6 @@ import ng.com.thewhitecellfoundation.navigation.navigator.extensions.navigator
  */
 class LoginFragment : MainBaseFragment(R.layout.fragment_login) {
     private val binding by viewBinding(FragmentLoginBinding::bind)
-    override val backgroundDrawable: Int?
-        get() = R.drawable.whitecell_flower_drawable_bg
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
